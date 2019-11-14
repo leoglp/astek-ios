@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>322492585452-iukn16golhs8ab74ksvd4i0o57nna239.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.322492585452-iukn16golhs8ab74ksvd4i0o57nna239</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB7Y2hhgujc8D3ov5KMN8rw1uzr0S1vptg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>322492585452</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.astek.Astek-Entretien</string>
+	<key>PROJECT_ID</key>
+	<string>astek-support-b1b71</string>
+	<key>STORAGE_BUCKET</key>
+	<string>astek-support-b1b71.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:322492585452:ios:8a4f1c3541636c0f035cc9</string>
+	<key>DATABASE_URL</key>
+	<string>https://astek-support-b1b71.firebaseio.com</string>
+</dict>
+</plist>

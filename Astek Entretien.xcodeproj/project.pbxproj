@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132D805A040E8BB029207AAD /* Pods_Astek_Entretien.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD6EAB6DFB39584E463660C /* Pods_Astek_Entretien.framework */; };
 		6ECBD47B237D6D6B00F0E433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD47A237D6D6B00F0E433 /* AppDelegate.swift */; };
 		6ECBD47D237D6D6B00F0E433 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD47C237D6D6B00F0E433 /* SceneDelegate.swift */; };
 		6ECBD47F237D6D6B00F0E433 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD47E237D6D6B00F0E433 /* ViewController.swift */; };
 		6ECBD482237D6D6B00F0E433 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ECBD480237D6D6B00F0E433 /* Main.storyboard */; };
 		6ECBD484237D6D6E00F0E433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ECBD483237D6D6E00F0E433 /* Assets.xcassets */; };
 		6ECBD487237D6D6E00F0E433 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ECBD485237D6D6E00F0E433 /* LaunchScreen.storyboard */; };
+		6ECBD48F237D702200F0E433 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ECBD48E237D702200F0E433 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6722FB77273DE0121E5C6D25 /* Pods-Astek Entretien.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astek Entretien.debug.xcconfig"; path = "Target Support Files/Pods-Astek Entretien/Pods-Astek Entretien.debug.xcconfig"; sourceTree = "<group>"; };
 		6ECBD477237D6D6B00F0E433 /* Astek Entretien.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Astek Entretien.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ECBD47A237D6D6B00F0E433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ECBD47C237D6D6B00F0E433 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		6ECBD483237D6D6E00F0E433 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6ECBD486237D6D6E00F0E433 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6ECBD488237D6D6E00F0E433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ECBD48E237D702200F0E433 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8DD6EAB6DFB39584E463660C /* Pods_Astek_Entretien.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Astek_Entretien.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6B2E31AFD2BAF16BB5EF19D /* Pods-Astek Entretien.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astek Entretien.release.xcconfig"; path = "Target Support Files/Pods-Astek Entretien/Pods-Astek Entretien.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132D805A040E8BB029207AAD /* Pods_Astek_Entretien.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50F69FCA852E8B454CD6E42F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6722FB77273DE0121E5C6D25 /* Pods-Astek Entretien.debug.xcconfig */,
+				C6B2E31AFD2BAF16BB5EF19D /* Pods-Astek Entretien.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6ECBD46E237D6D6B00F0E433 = {
 			isa = PBXGroup;
 			children = (
 				6ECBD479237D6D6B00F0E433 /* Astek Entretien */,
 				6ECBD478237D6D6B00F0E433 /* Products */,
+				50F69FCA852E8B454CD6E42F /* Pods */,
+				B17C2B8ADAEBF582BAE603E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,10 +80,19 @@
 				6ECBD47E237D6D6B00F0E433 /* ViewController.swift */,
 				6ECBD480237D6D6B00F0E433 /* Main.storyboard */,
 				6ECBD483237D6D6E00F0E433 /* Assets.xcassets */,
+				6ECBD48E237D702200F0E433 /* GoogleService-Info.plist */,
 				6ECBD485237D6D6E00F0E433 /* LaunchScreen.storyboard */,
 				6ECBD488237D6D6E00F0E433 /* Info.plist */,
 			);
 			path = "Astek Entretien";
+			sourceTree = "<group>";
+		};
+		B17C2B8ADAEBF582BAE603E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DD6EAB6DFB39584E463660C /* Pods_Astek_Entretien.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6ECBD48B237D6D6E00F0E433 /* Build configuration list for PBXNativeTarget "Astek Entretien" */;
 			buildPhases = (
+				6614D8A9B3A174FDD56AC861 /* [CP] Check Pods Manifest.lock */,
 				6ECBD473237D6D6B00F0E433 /* Sources */,
 				6ECBD474237D6D6B00F0E433 /* Frameworks */,
 				6ECBD475237D6D6B00F0E433 /* Resources */,
+				4437BF76D0F73DEC34F36094 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +156,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ECBD487237D6D6E00F0E433 /* LaunchScreen.storyboard in Resources */,
+				6ECBD48F237D702200F0E433 /* GoogleService-Info.plist in Resources */,
 				6ECBD484237D6D6E00F0E433 /* Assets.xcassets in Resources */,
 				6ECBD482237D6D6B00F0E433 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4437BF76D0F73DEC34F36094 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Astek Entretien/Pods-Astek Entretien-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Astek Entretien/Pods-Astek Entretien-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Astek Entretien/Pods-Astek Entretien-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6614D8A9B3A174FDD56AC861 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Astek Entretien-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6ECBD473237D6D6B00F0E433 /* Sources */ = {
@@ -282,6 +355,7 @@
 		};
 		6ECBD48C237D6D6E00F0E433 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6722FB77273DE0121E5C6D25 /* Pods-Astek Entretien.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +374,7 @@
 		};
 		6ECBD48D237D6D6E00F0E433 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6B2E31AFD2BAF16BB5EF19D /* Pods-Astek Entretien.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
