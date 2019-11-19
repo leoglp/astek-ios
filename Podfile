@@ -8,4 +8,12 @@ target 'Astek Entretien' do
   # Pods for Astek Entretien
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'MaterialComponents/Snackbar'
+  pod 'Firebase/Firestore'
+  
+  # Optionally, include the Swift extensions if you're using Swift.
+  pod 'FirebaseFirestoreSwift'
+
+  pod 'DLRadioButton', '~> 1.4'
+
 end
