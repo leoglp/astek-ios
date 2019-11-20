@@ -62,7 +62,6 @@ class AuthenticationUtil {
     
     
     static func createUser(email: String, password: String, controller: UIViewController) {
-        
         UIUtil.showMessage(text: StringValues.profilCreation)
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
@@ -70,6 +69,17 @@ class AuthenticationUtil {
                 UIUtil.showMessage(text: error.localizedDescription)
             }
             else if user != nil {
+                controller.performSegue(withIdentifier: "showFirstPage", sender: nil)
+            }
+        }
+    }
+    
+    static func resetPassword(email: String, controller: UIViewController) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if error != nil {
+                UIUtil.showMessage(text: error!.localizedDescription)
+            } else {
+                UIUtil.showMessage(text: StringValues.resetMail)
                 controller.performSegue(withIdentifier: "showFirstPage", sender: nil)
             }
         }

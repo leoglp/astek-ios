@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialComponents.MaterialSnackbar
+import Firebase
 
 class UIUtil {
     
@@ -25,4 +26,44 @@ class UIUtil {
         textField.layer.shadowOpacity = 1.0
         textField.layer.shadowRadius = 0.0
     }
+    
+    static func goToPage(pageNumber: Int , controller: UIViewController) {
+        DatabaseUtil.updatePageValue(pageNumber: String(pageNumber))
+        switch pageNumber {
+        case -1:
+            controller.performSegue(withIdentifier: "showManager", sender: nil)
+        case 0:
+            controller.performSegue(withIdentifier: "showFirstPage", sender: nil)
+        case 1:
+            controller.performSegue(withIdentifier: "showInterview", sender: nil)
+        case 2:
+            controller.performSegue(withIdentifier: "showBilanMission", sender: nil)
+        default:
+            return
+        }
+    }
+    
+    static func getCurrentPage(className: String) -> Int {
+        return ArrayValues.classValues.firstIndex(of: className)! + 1
+    }
+    
+    static func getTotalPage() -> Int {
+        return ArrayValues.classValues.capacity
+    }
+    
+    static func goToNextPage(className: String, controller: UIViewController){
+        let index = ArrayValues.classValues.firstIndex(of: className)! + 2
+        goToPage(pageNumber: index, controller: controller)
+    }
+    
+    static func goToPreviousPage(className: String, controller: UIViewController){
+        let index = ArrayValues.classValues.firstIndex(of: className)!
+        goToPage(pageNumber: index, controller: controller)
+    }
+    
+    static func backToHome(controller: UIViewController) {
+        try! Auth.auth().signOut()
+        controller.performSegue(withIdentifier: "showFirstPage", sender: nil)
+    }
+    
 }

@@ -25,12 +25,14 @@ class MainViewController: UIViewController,UITextFieldDelegate {
         if((mailText.text == "") || passwordText.text == "") {
             UIUtil.showMessage(text: StringValues.errorNoInput)
         } else {
+            mailText.resignFirstResponder()
+            passwordText.resignFirstResponder()
             AuthenticationUtil.signIn(controller: self,email: mailText.text!, password: passwordText.text!)
         }
     }
     
-    @IBAction func inscriptionAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "showInscription", sender: nil)
+    @IBAction func profilCreationAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "showProfilCreation", sender: nil)
     }
     
     @IBAction func resetAction(_ sender: Any) {

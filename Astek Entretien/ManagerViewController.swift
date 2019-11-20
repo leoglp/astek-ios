@@ -9,11 +9,36 @@
 import UIKit
 
 class ManagerViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var nameText: UITextField!
+    @IBOutlet weak var surnameText: UITextField!
+    
+    @IBAction func validateButton(_ sender: Any) {
+        if(nameText.text == "" || surnameText.text == "") {
+            UIUtil.showMessage(text: StringValues.errorNoInput)
+        } else {
+            nameText.resignFirstResponder()
+            surnameText.resignFirstResponder()
+            DatabaseUtil.retrieveMailAddress(name: (nameText!.text?.lowercased())!, surname: (surnameText!.text?.lowercased())!,controller: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        nameText.delegate = self
+        surnameText.delegate = self
     }
-
+    
 }
+
+// MARK: UITextFieldDelegate
+extension ManagerViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+

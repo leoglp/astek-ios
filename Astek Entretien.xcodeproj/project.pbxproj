@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		132D805A040E8BB029207AAD /* Pods_Astek_Entretien.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD6EAB6DFB39584E463660C /* Pods_Astek_Entretien.framework */; };
 		6E9F9FC32382F4C000034FF6 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */; };
+		6E9F9FC52384040500034FF6 /* ProfilCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */; };
+		6E9F9FC72384525A00034FF6 /* ArrayValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC62384525A00034FF6 /* ArrayValues.swift */; };
+		6E9F9FC923858F1A00034FF6 /* BilanMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC823858F1A00034FF6 /* BilanMissionViewController.swift */; };
 		6ECBD47B237D6D6B00F0E433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD47A237D6D6B00F0E433 /* AppDelegate.swift */; };
 		6ECBD47D237D6D6B00F0E433 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD47C237D6D6B00F0E433 /* SceneDelegate.swift */; };
 		6ECBD47F237D6D6B00F0E433 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD47E237D6D6B00F0E433 /* MainViewController.swift */; };
@@ -21,13 +24,15 @@
 		6ECBD496237EA62300F0E433 /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD495237EA62300F0E433 /* UIUtil.swift */; };
 		6ECBD498237EA81200F0E433 /* StringValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD497237EA81200F0E433 /* StringValues.swift */; };
 		6ECBD49A237EE80D00F0E433 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD499237EE80D00F0E433 /* ManagerViewController.swift */; };
-		6ECBD49C237EE9B600F0E433 /* InscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD49B237EE9B600F0E433 /* InscriptionViewController.swift */; };
 		6ECBD49E237EE9CE00F0E433 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD49D237EE9CE00F0E433 /* ResetPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6722FB77273DE0121E5C6D25 /* Pods-Astek Entretien.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astek Entretien.debug.xcconfig"; path = "Target Support Files/Pods-Astek Entretien/Pods-Astek Entretien.debug.xcconfig"; sourceTree = "<group>"; };
 		6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
+		6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilCreationViewController.swift; sourceTree = "<group>"; };
+		6E9F9FC62384525A00034FF6 /* ArrayValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayValues.swift; sourceTree = "<group>"; };
+		6E9F9FC823858F1A00034FF6 /* BilanMissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilanMissionViewController.swift; sourceTree = "<group>"; };
 		6ECBD477237D6D6B00F0E433 /* Astek Entretien.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Astek Entretien.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ECBD47A237D6D6B00F0E433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ECBD47C237D6D6B00F0E433 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +47,6 @@
 		6ECBD495237EA62300F0E433 /* UIUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
 		6ECBD497237EA81200F0E433 /* StringValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValues.swift; sourceTree = "<group>"; };
 		6ECBD499237EE80D00F0E433 /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
-		6ECBD49B237EE9B600F0E433 /* InscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewController.swift; sourceTree = "<group>"; };
 		6ECBD49D237EE9CE00F0E433 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		8DD6EAB6DFB39584E463660C /* Pods_Astek_Entretien.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Astek_Entretien.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B2E31AFD2BAF16BB5EF19D /* Pods-Astek Entretien.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astek Entretien.release.xcconfig"; path = "Target Support Files/Pods-Astek Entretien/Pods-Astek Entretien.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,9 +97,10 @@
 				6ECBD492237DB42200F0E433 /* Utils */,
 				6ECBD47A237D6D6B00F0E433 /* AppDelegate.swift */,
 				6ECBD47C237D6D6B00F0E433 /* SceneDelegate.swift */,
+				6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */,
 				6ECBD47E237D6D6B00F0E433 /* MainViewController.swift */,
-				6ECBD49B237EE9B600F0E433 /* InscriptionViewController.swift */,
 				6ECBD49D237EE9CE00F0E433 /* ResetPasswordViewController.swift */,
+				6E9F9FC823858F1A00034FF6 /* BilanMissionViewController.swift */,
 				6ECBD499237EE80D00F0E433 /* ManagerViewController.swift */,
 				6ECBD480237D6D6B00F0E433 /* Main.storyboard */,
 				6ECBD483237D6D6E00F0E433 /* Assets.xcassets */,
@@ -114,6 +119,7 @@
 				6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */,
 				6ECBD495237EA62300F0E433 /* UIUtil.swift */,
 				6ECBD497237EA81200F0E433 /* StringValues.swift */,
+				6E9F9FC62384525A00034FF6 /* ArrayValues.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -247,12 +253,14 @@
 				6ECBD47F237D6D6B00F0E433 /* MainViewController.swift in Sources */,
 				6ECBD47B237D6D6B00F0E433 /* AppDelegate.swift in Sources */,
 				6ECBD496237EA62300F0E433 /* UIUtil.swift in Sources */,
-				6ECBD49C237EE9B600F0E433 /* InscriptionViewController.swift in Sources */,
+				6E9F9FC52384040500034FF6 /* ProfilCreationViewController.swift in Sources */,
 				6E9F9FC32382F4C000034FF6 /* DatabaseUtil.swift in Sources */,
 				6ECBD47D237D6D6B00F0E433 /* SceneDelegate.swift in Sources */,
+				6E9F9FC923858F1A00034FF6 /* BilanMissionViewController.swift in Sources */,
 				6ECBD49E237EE9CE00F0E433 /* ResetPasswordViewController.swift in Sources */,
 				6ECBD494237DB69F00F0E433 /* AuthenticationUtil.swift in Sources */,
 				6ECBD498237EA81200F0E433 /* StringValues.swift in Sources */,
+				6E9F9FC72384525A00034FF6 /* ArrayValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
