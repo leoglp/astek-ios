@@ -49,7 +49,7 @@ class AuthenticationUtil {
                                     employeeName = document.get("name") as! String
                                     employeeSurname = document.get("surname") as! String
                                     employeeMail = document.get("mail") as! String
-                                    controller.performSegue(withIdentifier: "showInterview", sender: nil)
+                                    DatabaseUtil.readAndGoToPage(controller: controller)
                                 }
                             }
                         }

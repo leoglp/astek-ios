@@ -44,7 +44,6 @@ class ProfilCreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         delegate()
         setBorder()
         
@@ -62,6 +61,10 @@ class ProfilCreationViewController: UIViewController {
             self,
             selector: #selector(self.keyboardWillHide(notification:)),
             name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     
@@ -156,7 +159,7 @@ extension ProfilCreationViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         activeField?.resignFirstResponder()
-        activeField = nil
+        //activeField = nil
         return true
     }
 }
@@ -166,7 +169,6 @@ extension ProfilCreationViewController {
     
     @objc func keyboardWillShow(notification:NSNotification){
         //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
-        
         if keyboardHeight != nil {
             return
         }

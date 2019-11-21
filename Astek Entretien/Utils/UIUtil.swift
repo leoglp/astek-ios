@@ -28,6 +28,7 @@ class UIUtil {
     }
     
     static func goToPage(pageNumber: Int , controller: UIViewController) {
+        print("TITI goToPage : \(pageNumber)")
         DatabaseUtil.updatePageValue(pageNumber: String(pageNumber))
         switch pageNumber {
         case -1:
@@ -38,12 +39,16 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showInterview", sender: nil)
         case 2:
             controller.performSegue(withIdentifier: "showBilanMission", sender: nil)
+        case 3:
+            controller.performSegue(withIdentifier: "showBilanMission", sender: nil)
         default:
             return
         }
     }
     
     static func getCurrentPage(className: String) -> Int {
+        print("TITI getCurrentPage : \(ArrayValues.classValues.firstIndex(of: className)!)")
+
         return ArrayValues.classValues.firstIndex(of: className)! + 1
     }
     
@@ -53,11 +58,15 @@ class UIUtil {
     
     static func goToNextPage(className: String, controller: UIViewController){
         let index = ArrayValues.classValues.firstIndex(of: className)! + 2
+        print("TITI goToNextPage : \(index)")
+
         goToPage(pageNumber: index, controller: controller)
     }
     
     static func goToPreviousPage(className: String, controller: UIViewController){
         let index = ArrayValues.classValues.firstIndex(of: className)!
+        print("TITI goToPreviousPage : \(index)")
+
         goToPage(pageNumber: index, controller: controller)
     }
     

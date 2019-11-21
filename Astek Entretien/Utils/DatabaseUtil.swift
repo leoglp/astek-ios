@@ -56,6 +56,23 @@ class DatabaseUtil {
         }
     }
     
+    static func readAndGoToPage(controller: UIViewController) {
+        db.collection("users").getDocuments() { (querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    if((document.get("mail") as! String) == Auth.auth().currentUser?.email) {
+                        let pageNumberString = (document.get("page") as! String)
+                        let pageNumber = Int(pageNumberString)
+                        UIUtil.goToPage(pageNumber: pageNumber!,controller: controller)
+                    }
+                }
+            }
+        }
+    }
+    
     
     private static func getNameAndSurname(controller: UIViewController) {
         let docRef = db.collection("users").document(AuthenticationUtil.employeeDocumentId)

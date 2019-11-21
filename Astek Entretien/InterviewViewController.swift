@@ -1,5 +1,5 @@
 //
-//  InterviewContextViewController.swift
+//  InterviewViewController.swift
 //  Astek Entretien
 //
 //  Created by Léo Guilpain on 14/11/2019.
@@ -67,8 +67,7 @@ class InterviewViewController: UIViewController {
         
         className = NSStringFromClass(InterviewViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
-        
-        
+        print("TITI className : \(className)")
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
         
@@ -88,7 +87,9 @@ class InterviewViewController: UIViewController {
         retrieveData()
     }
     
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     
     private func createValueInDB(){
@@ -179,14 +180,16 @@ class InterviewViewController: UIViewController {
 extension InterviewViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        activeField = textField
+        self.activeField = textField
         lastOffset = self.scrollView.contentOffset
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        activeField?.resignFirstResponder()
-        activeField = nil
+        print("Interview textFieldShouldReturn")
+
+        self.activeField?.resignFirstResponder()
+       // self.activeField = nil
         return true
     }
 }
@@ -197,7 +200,6 @@ extension InterviewViewController {
     
     @objc func keyboardWillShow(notification:NSNotification){
         //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
-        
         if keyboardHeight != nil {
             return
         }
@@ -212,7 +214,7 @@ extension InterviewViewController {
         })
         
         // move if keyboard hide input field
-        let distanceToBottom = self.scrollView.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+        let distanceToBottom = self.scrollView.frame.size.height - (self.activeField?.frame.origin.y)! - (self.activeField?.frame.size.height)!
         let collapseSpace = keyboardHeight - distanceToBottom
         
         if collapseSpace < 0 {
