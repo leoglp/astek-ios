@@ -12,6 +12,7 @@ class StringValues {
 
     static let errorNoInput = "Veuillez remplir tous les champs."
     static let profilCreation = "Création du profil..."
+    static let authentication = "Authentification..."
     static let resetMail = "Email envoyé avec succès"
     static let errorNoPerson = "Aucune personne de ce nom n'a été trouvée."
 

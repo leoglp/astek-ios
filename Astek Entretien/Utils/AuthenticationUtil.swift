@@ -24,6 +24,9 @@ class AuthenticationUtil {
     static let fbAuth = Auth.auth()
     
     static func signIn(controller: UIViewController, email: String, password: String) {
+        UIUtil.showMessage(text: StringValues.authentication)
+
+        
         fbAuth.signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 UIUtil.showMessage(text: error.localizedDescription)

@@ -9,8 +9,11 @@
 import UIKit
 
 class ArrayValues {
-
+    
     static let classValues = ["InterviewViewController",
-                       "BilanMissionViewController",
-                       "EmployeeAppreciationViewController"]
+                              "BilanMissionViewController",
+                              "EmployeeAppreciationViewController",
+                              "ManagerAppreciationViewController",
+                              "TargetEvaluationViewController",
+                              "PerformanceEvaluationViewController"]
 }

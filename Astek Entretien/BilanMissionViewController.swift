@@ -38,6 +38,10 @@ class BilanMissionViewController: UIViewController {
         }
     }
     
+    @IBAction func logOutAction(_ sender: Any) {
+        UIUtil.backToHome(controller: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bilanMissiontext.delegate = self
@@ -135,7 +139,6 @@ extension BilanMissionViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("BilanMission textFieldShouldReturn")
         self.activeField?.resignFirstResponder()
         //self.activeField = nil
         return true

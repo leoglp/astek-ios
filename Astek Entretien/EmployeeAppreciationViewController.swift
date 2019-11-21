@@ -1,15 +1,15 @@
 //
-//  InterviewViewController.swift
+//  EmployeeAppreciationViewController.swift
 //  Astek Entretien
 //
-//  Created by Léo Guilpain on 14/11/2019.
+//  Created by Léo Guilpain on 21/11/2019.
 //  Copyright © 2019 Astek. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class InterviewViewController: UIViewController {
+class EmployeeAppreciationViewController: UIViewController {
     
     private var activeField: UITextField?
     private var lastOffset: CGPoint!
@@ -18,11 +18,9 @@ class InterviewViewController: UIViewController {
     private var documentUpdateId = ""
     private var className: String = ""
     
-    
-    @IBOutlet weak var bilanDateText: UITextField!
-    @IBOutlet weak var previousDateText: UITextField!
-    @IBOutlet weak var currentDateText: UITextField!
-    @IBOutlet weak var managerNameText: UITextField!
+    @IBOutlet weak var gainText: UITextField!
+    @IBOutlet weak var improveText: UITextField!
+    @IBOutlet weak var weaknessText: UITextField!
     @IBOutlet weak var pageNumber: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -31,59 +29,46 @@ class InterviewViewController: UIViewController {
     
     @IBAction func leftArrowAction(_ sender: Any) {
         createOrUpdate()
-        if(AuthenticationUtil.isManager) {
-            UIUtil.goToPage(pageNumber: -1, controller: self)
-        } else {
-            UIUtil.backToHome(controller: self)
-        }
+        UIUtil.goToPreviousPage(className: className, controller: self)
     }
     
     
     @IBAction func rightArrowAction(_ sender: Any) {
-        if(bilanDateText.text == "" || previousDateText.text == ""
-            || currentDateText.text == "" || managerNameText.text == "") {
-                   UIUtil.showMessage(text: StringValues.errorNoInput)
-               } else {
+        if(gainText.text == "" || weaknessText.text == ""
+            || improveText.text == "") {
+            UIUtil.showMessage(text: StringValues.errorNoInput)
+        } else {
             createOrUpdate()
             UIUtil.goToNextPage(className: className, controller: self)
         }
     }
     
-    
     @IBAction func logOutAction(_ sender: Any) {
-           UIUtil.backToHome(controller: self)
-       }
+        UIUtil.backToHome(controller: self)
+    }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initText()
         
-        bilanDateText.delegate = self
-        previousDateText.delegate = self
-        currentDateText.delegate = self
-        managerNameText.delegate = self
-        
-        UIUtil.setBottomBorder(textField: bilanDateText)
-        UIUtil.setBottomBorder(textField: previousDateText)
-        UIUtil.setBottomBorder(textField: currentDateText)
-        UIUtil.setBottomBorder(textField: managerNameText)
-        
-        className = NSStringFromClass(InterviewViewController.classForCoder())
+        className = NSStringFromClass(EmployeeAppreciationViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
         print("TITI className : \(className)")
-        pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
+        
+        pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
         // setup keyboard event
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(self.keyboardWillShow(notification:)),
+            selector: #selector(keyboardWillShow(notification:)),
             name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(self.keyboardWillHide(notification:)),
+            selector: #selector(keyboardWillHide(notification:)),
             name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
@@ -97,61 +82,48 @@ class InterviewViewController: UIViewController {
     
     
     private func createValueInDB(){
-        let interviewContext : [String:String] = [
-            "bilanDate" : bilanDateText.text!,
-            "previousDate" : previousDateText.text!,
-            "interviewDate" : currentDateText.text!,
-            "managerName" : managerNameText.text!
+        let employeeAppreciation : [String:String] = [
+            "gain" : gainText.text!,
+            "weaknesses" : weaknessText.text!,
+            "improvement" : improveText.text!
         ]
         
-        DatabaseUtil.addValueInDataBase(valueToAdd: interviewContext,collectionToCreate: "interviewContext")
+        DatabaseUtil.addValueInDataBase(valueToAdd: employeeAppreciation,collectionToCreate: "employeeAppreciation")
     }
     
     private func updateValueInDB(){
-        
-        let interviewContext : [String:String] = [
-            "bilanDate" : bilanDateText.text!,
-            "previousDate" : previousDateText.text!,
-            "interviewDate" : currentDateText.text!,
-            "managerName" : managerNameText.text!
+        let employeeAppreciation : [String:String] = [
+            "gain" : gainText.text!,
+            "weaknesses" : weaknessText.text!,
+            "improvement" : improveText.text!
         ]
         
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: interviewContext,collectionToUpdate: "interviewContext",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: employeeAppreciation,collectionToUpdate: "employeeAppreciation",documentUpdateId: documentUpdateId)
     }
     
     
     private func retrieveData() {
         let db = Firestore.firestore()
-        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("interviewContext").getDocuments() { (querySnapshot, err) in
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("employeeAppreciation").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                
-                
                 for document in querySnapshot!.documents {
-                    if (document.get("bilanDate") != nil) {
-                        self.bilanDateText.text = (document.get("bilanDate") as! String)
+                    if (document.get("gain") != nil) {
+                        self.gainText.text = (document.get("gain") as! String)
                     }
-                    if (document.get("previousDate") != nil) {
-                        self.previousDateText.text = (document.get("previousDate") as! String)
+                    if (document.get("weaknesses") != nil) {
+                        self.weaknessText.text = (document.get("weaknesses") as! String)
                     }
-                    if (document.get("interviewDate") != nil) {
-                        self.currentDateText.text = (document.get("interviewDate") as! String)
-                    }
-                    if (document.get("managerName") != nil) {
-                        self.managerNameText.text = (document.get("managerName") as! String)
+                    if (document.get("improvement") != nil) {
+                        self.improveText.text = (document.get("improvement") as! String)
                     }
                     self.updateValue = true
                     self.documentUpdateId = document.documentID
-                    
                 }
             }
         }
     }
-    
-    
-    
-    
     
     
     private func createOrUpdate(){
@@ -162,26 +134,27 @@ class InterviewViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    private func initText() {
+        gainText.delegate = self
+        gainText.textAlignment = .left
+        gainText.contentVerticalAlignment = .top
+        improveText.delegate = self
+        improveText.textAlignment = .left
+        improveText.contentVerticalAlignment = .top
+        weaknessText.delegate = self
+        weaknessText.textAlignment = .left
+        weaknessText.contentVerticalAlignment = .top
+    }
     
     
 }
 
 
 
+
+
 // MARK: UITextFieldDelegate
-extension InterviewViewController: UITextFieldDelegate {
+extension EmployeeAppreciationViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.activeField = textField
@@ -190,17 +163,15 @@ extension InterviewViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("Interview textFieldShouldReturn")
-
         self.activeField?.resignFirstResponder()
-       // self.activeField = nil
+        //self.activeField = nil
         return true
     }
 }
 
 
 // MARK: Keyboard Handling
-extension InterviewViewController {
+extension EmployeeAppreciationViewController {
     
     @objc func keyboardWillShow(notification:NSNotification){
         //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
@@ -218,7 +189,8 @@ extension InterviewViewController {
         })
         
         // move if keyboard hide input field
-        let distanceToBottom = self.scrollView.frame.size.height - (self.activeField?.frame.origin.y)! - (self.activeField?.frame.size.height)!
+        let distanceToBottom = scrollView.frame.size.height - (self.activeField?.frame.origin.y)! - (self.activeField?.frame.size.height)!
+        
         let collapseSpace = keyboardHeight - distanceToBottom
         
         if collapseSpace < 0 {
