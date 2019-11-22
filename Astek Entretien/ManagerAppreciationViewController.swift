@@ -34,8 +34,6 @@ class ManagerAppreciationViewController: UIViewController {
     
     
     @IBAction func rightArrowAction(_ sender: Any) {
-        print("TITI rightArrowAction")
-        
         if(gainText.text == "" || weaknessText.text == ""
             || improveText.text == "") {
             UIUtil.showMessage(text: StringValues.errorNoInput)
@@ -46,8 +44,6 @@ class ManagerAppreciationViewController: UIViewController {
     }
     
     @IBAction func logOutAction(_ sender: Any) {
-        print("TITI logOutAction")
-        
         UIUtil.backToHome(controller: self)
     }
     

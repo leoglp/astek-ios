@@ -43,6 +43,8 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showEmployeeAppreciation", sender: nil)
         case 4:
             controller.performSegue(withIdentifier: "showManagerAppreciation", sender: nil)
+        case 5:
+            controller.performSegue(withIdentifier: "showTargetEvaluation", sender: nil)
         default:
             return
         }
@@ -71,4 +73,146 @@ class UIUtil {
         controller.performSegue(withIdentifier: "showFirstPage", sender: nil)
     }
     
+    static func textAlign(textField: UITextField) {
+        textField.textAlignment = .left
+        textField.contentVerticalAlignment = .top
+    }
+    
+    static func textDisabled(textField: UITextField) {
+        textField.isEnabled = false
+        textField.backgroundColor = UIColor.gray
+    }
+    
+    static func updateViewForThreeValues(number: Int,
+                                         constraintContentHeight: NSLayoutConstraint!,
+                                         stackView1: UIStackView,
+                                         topConstraint1: NSLayoutConstraint!,
+                                         heightConstraint1: NSLayoutConstraint!,
+                                         stackView2: UIStackView,
+                                         topConstraint2: NSLayoutConstraint!,
+                                         heightConstraint2: NSLayoutConstraint!,
+                                         stackView3: UIStackView,
+                                         topConstraint3: NSLayoutConstraint!,
+                                         heightConstraint3: NSLayoutConstraint!,
+                                         stackView4: UIStackView,
+                                         topConstraint4: NSLayoutConstraint!,
+                                         heightConstraint4: NSLayoutConstraint!) {
+        switch number {
+        case 1:
+            stackView1.isHidden = true
+            heightConstraint1.constant = 0
+            topConstraint1.constant = 0
+            
+            stackView2.isHidden = true
+            heightConstraint2.constant = 0
+            topConstraint2.constant = 0
+            
+            stackView3.isHidden = true
+            heightConstraint3.constant = 0
+            topConstraint3.constant = 0
+            
+            stackView4.isHidden = true
+            heightConstraint4.constant = 0
+            topConstraint4.constant = 0
+            
+            constraintContentHeight.constant = 0
+        case 2:
+            stackView1.isHidden = false
+            heightConstraint1.constant = 130
+            topConstraint1.constant = 20
+            
+            stackView2.isHidden = false
+            heightConstraint2.constant = 130
+            topConstraint2.constant = 15
+            
+            stackView3.isHidden = true
+            heightConstraint3.constant = 0
+            topConstraint3.constant = 0
+            
+            stackView4.isHidden = true
+            heightConstraint4.constant = 0
+            topConstraint4.constant = 0
+            
+            constraintContentHeight.constant = 155
+        case 3:
+            stackView1.isHidden = false
+            heightConstraint1.constant = 130
+            topConstraint1.constant = 20
+            
+            stackView2.isHidden = false
+            heightConstraint2.constant = 130
+            topConstraint2.constant = 15
+            
+            stackView3.isHidden = false
+            heightConstraint3.constant = 130
+            topConstraint3.constant = 20
+            
+            stackView4.isHidden = false
+            heightConstraint4.constant = 130
+            topConstraint4.constant = 15
+            
+            constraintContentHeight.constant = 435
+        default:
+            return
+        }
+        
+    }
+    
+    
+    static func updateButtonForThreeValues(number: Int,
+                                           constraintContentHeight: NSLayoutConstraint!,
+                                           isManager: Bool,
+                                           stackView: UIStackView,
+                                           bottomConstraint1: NSLayoutConstraint!,
+                                           heightConstraint1: NSLayoutConstraint!,
+                                           buttonAdd: UIButton,
+                                           buttonDelete: UIButton) {
+        switch number {
+        case 1:
+            if(!isManager) {
+                stackView.isHidden = true
+                heightConstraint1.constant = 0
+                bottomConstraint1.constant = 0
+                constraintContentHeight.constant = 0
+                buttonDelete.isEnabled = false
+                buttonAdd.isEnabled = false
+            } else {
+                buttonDelete.isHidden = true
+                buttonAdd.isHidden = false
+            }
+        case 2:
+            if(!isManager) {
+                stackView.isHidden = true
+                heightConstraint1.constant = 0
+                bottomConstraint1.constant = 0
+                constraintContentHeight.constant = 0
+                
+                constraintContentHeight.constant = 125
+                
+                buttonDelete.isEnabled = false
+                buttonAdd.isEnabled = false
+            } else {
+                buttonDelete.isHidden = false
+                buttonAdd.isHidden = false
+            }
+        case 3:
+            if(!isManager) {
+                stackView.isHidden = true
+                heightConstraint1.constant = 0
+                bottomConstraint1.constant = 0
+                constraintContentHeight.constant = 0
+                
+                constraintContentHeight.constant = 420
+                
+                buttonDelete.isEnabled = false
+                buttonAdd.isEnabled = false
+            } else {
+                buttonDelete.isHidden = false
+                buttonAdd.isHidden = true
+            }
+        default:
+            return
+        }
+        
+    }
 }
