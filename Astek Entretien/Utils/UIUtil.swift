@@ -45,6 +45,8 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showManagerAppreciation", sender: nil)
         case 5:
             controller.performSegue(withIdentifier: "showTargetEvaluation", sender: nil)
+        case 6:
+            controller.performSegue(withIdentifier: "showPerformanceEvaluation", sender: nil)
         default:
             return
         }
