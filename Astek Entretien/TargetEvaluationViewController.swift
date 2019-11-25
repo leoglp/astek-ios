@@ -181,7 +181,18 @@ class TargetEvaluationViewController: UIViewController {
     
     private func updateTargetView(){
         UIUtil.updateViewForThreeValues(number: numberTarget, constraintContentHeight: constraintContentHeight, stackView1: targetStackView2, topConstraint1: targetTopConstraint2, heightConstraint1: targetStackViewHeight2, stackView2: resultStackView2, topConstraint2: resultTopConstraint2, heightConstraint2: resultStackViewHeight2, stackView3: targetStackView3, topConstraint3: targetTopConstraint3, heightConstraint3: targetStackViewHeight3, stackView4: resultStackView3, topConstraint4: resultTopConstraint3, heightConstraint4: resultStackViewHeight3)
-        UIUtil.updateButtonForThreeValues(number: numberTarget, constraintContentHeight: constraintContentHeight, isManager: AuthenticationUtil.isManager, stackView: buttonStackView, bottomConstraint1: buttonBottomConstraint, heightConstraint1: buttonBottomConstraint, buttonAdd: addButton, buttonDelete: deleteButton)
+        switch numberTarget {
+        case 1:
+            UIUtil.updateButtonForThreeValues(number: numberTarget, constraintContentHeight: constraintContentHeight, constraintContentHeightValue: 0, isManager: AuthenticationUtil.isManager, stackView: buttonStackView, bottomConstraint1: buttonBottomConstraint, heightConstraint1: buttonBottomConstraint, buttonAdd: addButton, buttonDelete: deleteButton)
+        case 2:
+            UIUtil.updateButtonForThreeValues(number: numberTarget, constraintContentHeight: constraintContentHeight, constraintContentHeightValue: 125, isManager: AuthenticationUtil.isManager, stackView: buttonStackView, bottomConstraint1: buttonBottomConstraint, heightConstraint1: buttonBottomConstraint, buttonAdd: addButton, buttonDelete: deleteButton)
+        case 3:
+            UIUtil.updateButtonForThreeValues(number: numberTarget, constraintContentHeight: constraintContentHeight, constraintContentHeightValue: 420, isManager: AuthenticationUtil.isManager, stackView: buttonStackView, bottomConstraint1: buttonBottomConstraint, heightConstraint1: buttonBottomConstraint, buttonAdd: addButton, buttonDelete: deleteButton)
+            
+        default:
+            return
+        }
+        
         self.view.layoutIfNeeded()
     }
     
@@ -213,7 +224,7 @@ class TargetEvaluationViewController: UIViewController {
                 "numberTarget" : String(numberTarget)
             ]
         }
-        
+            
         else if(numberTarget == 3) {
             targetEvaluation = [
                 "target1" : target1.text!,
@@ -246,7 +257,7 @@ class TargetEvaluationViewController: UIViewController {
                 "numberTarget" : String(numberTarget)
             ]
         }
-        
+            
         else if(numberTarget == 3) {
             targetEvaluation = [
                 "target1" : target1.text!,

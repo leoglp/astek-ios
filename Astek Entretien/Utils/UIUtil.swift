@@ -47,12 +47,19 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showTargetEvaluation", sender: nil)
         case 6:
             controller.performSegue(withIdentifier: "showPerformanceEvaluation", sender: nil)
+        case 7:
+            controller.performSegue(withIdentifier: "showTechnicalSkill", sender: nil)
+        case 8:
+            controller.performSegue(withIdentifier: "showProfessionSkill", sender: nil)
+        case 9:
+            controller.performSegue(withIdentifier: "showFunctionnalSkill", sender: nil)
         default:
             return
         }
     }
     
     static func getCurrentPage(className: String) -> Int {
+        print(className)
         return ArrayValues.classValues.firstIndex(of: className)! + 1
     }
     
@@ -83,6 +90,11 @@ class UIUtil {
     static func textDisabled(textField: UITextField) {
         textField.isEnabled = false
         textField.backgroundColor = UIColor.gray
+    }
+    
+    static func textBottomBorderDisabled(textField: UITextField) {
+        textField.isEnabled = false
+        textField.layer.shadowColor = UIColor.lightGray.cgColor
     }
     
     static func updateViewForThreeValues(number: Int,
@@ -163,6 +175,7 @@ class UIUtil {
     
     static func updateButtonForThreeValues(number: Int,
                                            constraintContentHeight: NSLayoutConstraint!,
+                                           constraintContentHeightValue: CGFloat!,
                                            isManager: Bool,
                                            stackView: UIStackView,
                                            bottomConstraint1: NSLayoutConstraint!,
@@ -175,7 +188,7 @@ class UIUtil {
                 stackView.isHidden = true
                 heightConstraint1.constant = 0
                 bottomConstraint1.constant = 0
-                constraintContentHeight.constant = 0
+                constraintContentHeight.constant = constraintContentHeightValue
                 buttonDelete.isEnabled = false
                 buttonAdd.isEnabled = false
             } else {
@@ -189,7 +202,7 @@ class UIUtil {
                 bottomConstraint1.constant = 0
                 constraintContentHeight.constant = 0
                 
-                constraintContentHeight.constant = 125
+                constraintContentHeight.constant = constraintContentHeightValue
                 
                 buttonDelete.isEnabled = false
                 buttonAdd.isEnabled = false
@@ -204,7 +217,7 @@ class UIUtil {
                 bottomConstraint1.constant = 0
                 constraintContentHeight.constant = 0
                 
-                constraintContentHeight.constant = 420
+                constraintContentHeight.constant = constraintContentHeightValue
                 
                 buttonDelete.isEnabled = false
                 buttonAdd.isEnabled = false
@@ -217,4 +230,27 @@ class UIUtil {
         }
         
     }
+    
+    static func updateSkillButton(number: Int,
+                                  buttonAdd: UIButton,
+                                  buttonDelete: UIButton) {
+        switch number {
+        case 1:
+            buttonDelete.isHidden = true
+            buttonDelete.isUserInteractionEnabled = false
+            buttonAdd.isHidden = false
+            buttonAdd.isUserInteractionEnabled = true
+            
+        case 2:
+            buttonDelete.isHidden = false
+            buttonDelete.isUserInteractionEnabled = true
+            buttonAdd.isHidden = true
+            buttonAdd.isUserInteractionEnabled = false
+            
+        default:
+            return
+        }
+        
+    }
+    
 }

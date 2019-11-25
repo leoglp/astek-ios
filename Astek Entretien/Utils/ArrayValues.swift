@@ -15,5 +15,8 @@ class ArrayValues {
                               "EmployeeAppreciationViewController",
                               "ManagerAppreciationViewController",
                               "TargetEvaluationViewController",
-                              "PerformanceEvaluationViewController"]
+                              "PerformanceEvaluationViewController",
+     "TechnicalSkillViewController",
+     "ProfessionSkillViewController",
+    "FunctionalSkillViewController"]
 }

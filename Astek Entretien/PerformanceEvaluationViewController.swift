@@ -56,11 +56,12 @@ class PerformanceEvaluationViewController: UIViewController {
         UIUtil.textAlign(textField: commentaryText)
         if(!AuthenticationUtil.isManager) {
             UIUtil.textDisabled(textField: commentaryText)
-            verySatisfyingButton.isEnabled = false
-            satisfyingButton.isEnabled = false
-            mediumButton.isEnabled = false
-            insufficientButton.isEnabled = false
+            verySatisfyingButton.isUserInteractionEnabled = false
+            satisfyingButton.isUserInteractionEnabled = false
+            mediumButton.isUserInteractionEnabled = false
+            insufficientButton.isUserInteractionEnabled = false
         }
+        
         className = NSStringFromClass(PerformanceEvaluationViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
         print("TITI className : \(className)")
@@ -160,7 +161,6 @@ class PerformanceEvaluationViewController: UIViewController {
                     }
                     self.updateValue = true
                     self.documentUpdateId = document.documentID
-                    
                 }
             }
         }
