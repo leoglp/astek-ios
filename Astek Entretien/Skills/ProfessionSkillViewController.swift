@@ -676,12 +676,32 @@ class ProfessionSkillViewController: UIViewController {
     
     private func checkNumberValue(){
         
-        let intEmployeeGrad1 = Int(employeeGrad1.text!)!
-        let intManagerGrad1 = Int(managerGrad1.text!)!
-        let intEmployeeGrad2 = Int(employeeGrad2.text!)!
-        let intManagerGrad2 = Int(managerGrad2.text!)!
-        let intEmployeeGrad3 = Int(employeeGrad3.text!)!
-        let intManagerGrad3 = Int(managerGrad3.text!)!
+        var intEmployeeGrad1 : Int = 0
+        if(employeeGrad1.text != "") {
+            intEmployeeGrad1 = Int(employeeGrad1.text!)!
+        }
+        var intManagerGrad1 : Int = 0
+        if(managerGrad1.text != "") {
+            intManagerGrad1 = Int(managerGrad1.text!)!
+        }
+        
+        var intEmployeeGrad2 : Int = 0
+        if(employeeGrad2.text != "") {
+            intEmployeeGrad2 = Int(employeeGrad2.text!)!
+        }
+        var intManagerGrad2 : Int = 0
+        if(managerGrad2.text != "") {
+            intManagerGrad2 = Int(managerGrad2.text!)!
+        }
+        
+        var intEmployeeGrad3 : Int = 0
+        if(employeeGrad3.text != "") {
+            intEmployeeGrad3 = Int(employeeGrad3.text!)!
+        }
+        var intManagerGrad3 : Int = 0
+        if(managerGrad3.text != "") {
+            intManagerGrad3 = Int(managerGrad3.text!)!
+        }
         
         switch numberTarget {
         case 1:
@@ -700,6 +720,12 @@ class ProfessionSkillViewController: UIViewController {
                 }
             }
         case 2:
+            let intEmployeeGrad2 = Int(employeeGrad2.text!)!
+            var intManagerGrad2: Int = 0
+            if(managerGrad2.text != "") {
+                intManagerGrad2 = Int(managerGrad2.text!)!
+            }
+            
             if(AuthenticationUtil.isManager) {
                 if((intEmployeeGrad1 == 1 || intEmployeeGrad1 == 2 || intEmployeeGrad1 == 3 || intEmployeeGrad1 == 4)
                     && (intManagerGrad1 == 1 || intManagerGrad1 == 2 || intManagerGrad1 == 3 || intManagerGrad1 == 4)

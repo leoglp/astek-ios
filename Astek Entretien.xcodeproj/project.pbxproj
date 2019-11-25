@@ -13,6 +13,7 @@
 		6E68CB222386D8EC004E3B61 /* TargetEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68CB212386D8EC004E3B61 /* TargetEvaluationViewController.swift */; };
 		6E7681FE238BCDC400998CCB /* TechnicalSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7681FD238BCDC400998CCB /* TechnicalSkillViewController.swift */; };
 		6E768200238C291800998CCB /* ProfessionSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7681FF238C291800998CCB /* ProfessionSkillViewController.swift */; };
+		6E768202238C34FF00998CCB /* FunctionalSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768201238C34FF00998CCB /* FunctionalSkillViewController.swift */; };
 		6E9F9FC32382F4C000034FF6 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */; };
 		6E9F9FC52384040500034FF6 /* ProfilCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */; };
 		6E9F9FC72384525A00034FF6 /* ArrayValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC62384525A00034FF6 /* ArrayValues.swift */; };
@@ -41,6 +42,7 @@
 		6E68CB212386D8EC004E3B61 /* TargetEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetEvaluationViewController.swift; sourceTree = "<group>"; };
 		6E7681FD238BCDC400998CCB /* TechnicalSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalSkillViewController.swift; sourceTree = "<group>"; };
 		6E7681FF238C291800998CCB /* ProfessionSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionSkillViewController.swift; sourceTree = "<group>"; };
+		6E768201238C34FF00998CCB /* FunctionalSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalSkillViewController.swift; sourceTree = "<group>"; };
 		6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
 		6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilCreationViewController.swift; sourceTree = "<group>"; };
 		6E9F9FC62384525A00034FF6 /* ArrayValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayValues.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				6E7681FD238BCDC400998CCB /* TechnicalSkillViewController.swift */,
+				6E768201238C34FF00998CCB /* FunctionalSkillViewController.swift */,
 				6E7681FF238C291800998CCB /* ProfessionSkillViewController.swift */,
 			);
 			path = Skills;
@@ -280,6 +283,7 @@
 			files = (
 				6ECBD49A237EE80D00F0E433 /* ManagerViewController.swift in Sources */,
 				6ECBD491237DB0F200F0E433 /* InterviewViewController.swift in Sources */,
+				6E768202238C34FF00998CCB /* FunctionalSkillViewController.swift in Sources */,
 				6ECBD47F237D6D6B00F0E433 /* MainViewController.swift in Sources */,
 				6ECBD47B237D6D6B00F0E433 /* AppDelegate.swift in Sources */,
 				6ECBD496237EA62300F0E433 /* UIUtil.swift in Sources */,

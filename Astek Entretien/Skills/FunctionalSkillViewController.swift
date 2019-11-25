@@ -1,5 +1,5 @@
 //
-//  TechnicalSkillViewController.swift
+//  FunctionnalSkillViewController.swift
 //  Astek Entretien
 //
 //  Created by Léo Guilpain on 25/11/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class TechnicalSkillViewController: UIViewController {
+class FunctionalSkillViewController: UIViewController {
     
     private var activeField: UITextField?
     private var lastOffset: CGPoint!
@@ -100,7 +100,7 @@ class TechnicalSkillViewController: UIViewController {
         
         initText()
         
-        className = NSStringFromClass(TechnicalSkillViewController.classForCoder())
+        className = NSStringFromClass(FunctionalSkillViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
         print("TITI className : \(className)")
         
@@ -269,7 +269,7 @@ class TechnicalSkillViewController: UIViewController {
             ]
         }
         
-        DatabaseUtil.addValueInDataBase(valueToAdd: skillEvaluation!,collectionToCreate: "technicalSkillEvaluation")
+        DatabaseUtil.addValueInDataBase(valueToAdd: skillEvaluation!,collectionToCreate: "functionalSkillEvaluation")
     }
     
     
@@ -300,13 +300,13 @@ class TechnicalSkillViewController: UIViewController {
             ]
         }
         
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: skillEvaluation!,collectionToUpdate: "technicalSkillEvaluation",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: skillEvaluation!,collectionToUpdate: "functionalSkillEvaluation",documentUpdateId: documentUpdateId)
     }
     
     
     private func retrieveData() {
         let db = Firestore.firestore()
-        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("technicalSkillEvaluation").getDocuments() { (querySnapshot, err) in
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("functionalSkillEvaluation").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -484,6 +484,9 @@ class TechnicalSkillViewController: UIViewController {
         UIUtil.goToNextPage(className: className, controller: self)
     }
     
+    
+    
+    
 }
 
 
@@ -495,8 +498,12 @@ class TechnicalSkillViewController: UIViewController {
 
 
 
+
+
+
+
 // MARK: UITextFieldDelegate
-extension TechnicalSkillViewController: UITextFieldDelegate {
+extension FunctionalSkillViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.activeField = textField
@@ -513,7 +520,7 @@ extension TechnicalSkillViewController: UITextFieldDelegate {
 
 
 // MARK: Keyboard Handling
-extension TechnicalSkillViewController {
+extension FunctionalSkillViewController {
     
     @objc func keyboardWillShow(notification:NSNotification){
         //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
