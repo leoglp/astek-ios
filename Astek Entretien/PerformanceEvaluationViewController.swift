@@ -111,36 +111,25 @@ class PerformanceEvaluationViewController: UIViewController {
             satisfyingButton.isSelected = false
             insufficientButton.isSelected = false
             verySatisfyingButton.isSelected = false
-
+            
         } else if sender === insufficientButton {
             valueButton = "Insuffisant"
             satisfyingButton.isSelected = false
             mediumButton.isSelected = false
             verySatisfyingButton.isSelected = false
-
-
+            
+            
         }
     }
     
     
     
     private func createValueInDB(){
-        let performanceEvaluation : [String:String] = [
-            "performanceEvaluation" : valueButton,
-            "commentary" : commentaryText.text!
-        ]
-        
-        DatabaseUtil.addValueInDataBase(valueToAdd: performanceEvaluation,collectionToCreate: "performanceEvaluation")
+        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "performanceEvaluation")
     }
     
     private func updateValueInDB(){
-        
-        let performanceEvaluation : [String:String] = [
-            "performanceEvaluation" : valueButton,
-            "commentary" : commentaryText.text!
-        ]
-        
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: performanceEvaluation,collectionToUpdate: "performanceEvaluation",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "performanceEvaluation",documentUpdateId: documentUpdateId)
     }
     
     
@@ -166,6 +155,14 @@ class PerformanceEvaluationViewController: UIViewController {
         }
     }
     
+    private func generateValueForDB() -> [String:String] {
+        let performanceEvaluation : [String:String] = [
+            "performanceEvaluation" : valueButton,
+            "commentary" : commentaryText.text!
+        ]
+        
+        return performanceEvaluation
+    }
     
     
     private func createOrUpdate(){

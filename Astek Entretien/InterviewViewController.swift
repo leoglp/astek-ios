@@ -97,26 +97,11 @@ class InterviewViewController: UIViewController {
     
     
     private func createValueInDB(){
-        let interviewContext : [String:String] = [
-            "bilanDate" : bilanDateText.text!,
-            "previousDate" : previousDateText.text!,
-            "interviewDate" : currentDateText.text!,
-            "managerName" : managerNameText.text!
-        ]
-        
-        DatabaseUtil.addValueInDataBase(valueToAdd: interviewContext,collectionToCreate: "interviewContext")
+        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "interviewContext")
     }
     
     private func updateValueInDB(){
-        
-        let interviewContext : [String:String] = [
-            "bilanDate" : bilanDateText.text!,
-            "previousDate" : previousDateText.text!,
-            "interviewDate" : currentDateText.text!,
-            "managerName" : managerNameText.text!
-        ]
-        
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: interviewContext,collectionToUpdate: "interviewContext",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "interviewContext",documentUpdateId: documentUpdateId)
     }
     
     
@@ -150,9 +135,16 @@ class InterviewViewController: UIViewController {
     }
     
     
-    
-    
-    
+    private func generateValueForDB() -> [String:String] {
+                  let interviewContext : [String:String] = [
+                      "bilanDate" : bilanDateText.text!,
+                      "previousDate" : previousDateText.text!,
+                      "interviewDate" : currentDateText.text!,
+                      "managerName" : managerNameText.text!
+                  ]
+             
+           return interviewContext
+       }
     
     private func createOrUpdate(){
         if(updateValue){
@@ -161,21 +153,6 @@ class InterviewViewController: UIViewController {
             createValueInDB()
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 

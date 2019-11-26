@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astekLogo" translatesAutoresizingMaskIntoConstraints="NO" id="GeG-Ni-8hj">
-                                <rect key="frame" x="132" y="579" width="112" height="68"/>
+                                <rect key="frame" x="132" y="579" width="112.00000000000023" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="vOk-z6-cMb"/>
                                 </constraints>
@@ -326,11 +326,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="6XR-IJ-T0T"/>
                     <connections>
-                        <outlet property="bilanDateText" destination="vfT-bt-B8x" id="xhJ-uw-E8F"/>
+                        <outlet property="bilanDateText" destination="vfT-bt-B8x" id="TmV-q1-lkO"/>
                         <outlet property="constraintContentHeight" destination="CDH-FY-f2w" id="KNH-00-XCc"/>
                         <outlet property="contentView" destination="Zh6-b6-e2X" id="TUw-qR-RTw"/>
                         <outlet property="currentDateText" destination="htP-XX-yAe" id="a53-NG-waR"/>
-                        <outlet property="managerNameText" destination="XPB-T1-bw9" id="wDz-fS-9OK"/>
+                        <outlet property="managerNameText" destination="XPB-T1-bw9" id="PNH-of-HZC"/>
                         <outlet property="pageNumber" destination="q2V-f3-LhX" id="hZn-5z-88Q"/>
                         <outlet property="previousDateText" destination="Une-qG-oLZ" id="oJW-d3-9kA"/>
                         <outlet property="scrollView" destination="Ngq-qf-QgR" id="ary-0y-qt9"/>
@@ -3281,9 +3281,9 @@
         <segue reference="j67-6F-1Cs"/>
         <segue reference="hSN-5o-1cX"/>
         <segue reference="xMi-ce-O06"/>
-        <segue reference="UKh-lO-sdp"/>
-        <segue reference="tjG-bx-ghn"/>
+        <segue reference="CFn-Jp-W9A"/>
+        <segue reference="apk-cS-b8U"/>
         <segue reference="3Eg-FN-JuD"/>
-        <segue reference="pII-gR-ioC"/>
+        <segue reference="ODI-fN-LRh"/>
     </inferredMetricsTieBreakers>
 </document>

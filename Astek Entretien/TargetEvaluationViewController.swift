@@ -69,7 +69,7 @@ class TargetEvaluationViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var constraintContentHeight: NSLayoutConstraint!
-   
+    
     
     
     @IBAction func leftArrowAction(_ sender: Any) {
@@ -208,70 +208,11 @@ class TargetEvaluationViewController: UIViewController {
     
     
     private func createValueInDB(){
-        var targetEvaluation : [String:String]? = nil
-        if(numberTarget == 1) {
-            targetEvaluation = [
-                "target1" : target1.text!,
-                "result1" : result1.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        } else if(numberTarget == 2) {
-            targetEvaluation = [
-                "target1" : target1.text!,
-                "result1" : result1.text!,
-                "target2" : target2.text!,
-                "result2" : result2.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        }
-            
-        else if(numberTarget == 3) {
-            targetEvaluation = [
-                "target1" : target1.text!,
-                "result1" : result1.text!,
-                "target2" : target2.text!,
-                "result2" : result2.text!,
-                "target3" : target3.text!,
-                "result3" : result3.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        }
-        
-        DatabaseUtil.addValueInDataBase(valueToAdd: targetEvaluation!,collectionToCreate: "targetEvaluation")
+        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "targetEvaluation")
     }
     
     private func updateValueInDB(){
-        var targetEvaluation : [String:String]? = nil
-        if(numberTarget == 1) {
-            targetEvaluation = [
-                "target1" : target1.text!,
-                "result1" : result1.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        } else if(numberTarget == 2) {
-            targetEvaluation = [
-                "target1" : target1.text!,
-                "result1" : result1.text!,
-                "target2" : target2.text!,
-                "result2" : result2.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        }
-            
-        else if(numberTarget == 3) {
-            targetEvaluation = [
-                "target1" : target1.text!,
-                "result1" : result1.text!,
-                "target2" : target2.text!,
-                "result2" : result2.text!,
-                "target3" : target3.text!,
-                "result3" : result3.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        }
-        
-        
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: targetEvaluation!,collectionToUpdate: "targetEvaluation",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "targetEvaluation",documentUpdateId: documentUpdateId)
     }
     
     
@@ -287,47 +228,16 @@ class TargetEvaluationViewController: UIViewController {
                     if (document.get("numberTarget") != nil) {
                         self.numberTarget = Int((document.get("numberTarget") as! String))!
                     }
-                    print("numberTarget : \(self.numberTarget)")
                     if (self.numberTarget == 1) {
-                        if (document.get("target1") != nil) {
-                            self.target1.text = (document.get("target1") as! String)
-                        }
-                        if (document.get("result1") != nil) {
-                            self.result1.text = (document.get("result1") as! String)
-                        }
+                        self.retrieveFirstValue(document: document)
                     } else if (self.numberTarget == 2) {
-                        if (document.get("target1") != nil) {
-                            self.target1.text = (document.get("target1") as! String)
-                        }
-                        if (document.get("result1") != nil) {
-                            self.result1.text = (document.get("result1") as! String)
-                        }
-                        if (document.get("target2") != nil) {
-                            self.target2.text = (document.get("target2") as! String)
-                        }
-                        if (document.get("result2") != nil) {
-                            self.result2.text = (document.get("result2") as! String)
-                        }
+                        self.retrieveFirstValue(document: document)
+                        self.retrieveSecondValue(document: document)
                     }
                     else if (self.numberTarget == 3) {
-                        if (document.get("target1") != nil) {
-                            self.target1.text = (document.get("target1") as! String)
-                        }
-                        if (document.get("result1") != nil) {
-                            self.result1.text = (document.get("result1") as! String)
-                        }
-                        if (document.get("target2") != nil) {
-                            self.target2.text = (document.get("target2") as! String)
-                        }
-                        if (document.get("result2") != nil) {
-                            self.result2.text = (document.get("result2") as! String)
-                        }
-                        if (document.get("target3") != nil) {
-                            self.target3.text = (document.get("target3") as! String)
-                        }
-                        if (document.get("result3") != nil) {
-                            self.result3.text = (document.get("result3") as! String)
-                        }
+                        self.retrieveFirstValue(document: document)
+                        self.retrieveSecondValue(document: document)
+                        self.retrieveThirdValue(document: document)
                     }
                     
                     self.updateTargetView()
@@ -336,6 +246,66 @@ class TargetEvaluationViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func retrieveFirstValue(document: DocumentSnapshot) {
+        if (document.get("target1") != nil) {
+            self.target1.text = (document.get("target1") as! String)
+        }
+        if (document.get("result1") != nil) {
+            self.result1.text = (document.get("result1") as! String)
+        }
+    }
+    
+    private func retrieveSecondValue(document: DocumentSnapshot) {
+        if (document.get("target2") != nil) {
+            self.target2.text = (document.get("target2") as! String)
+        }
+        if (document.get("result2") != nil) {
+            self.result2.text = (document.get("result2") as! String)
+        }
+    }
+    
+    private func retrieveThirdValue(document: DocumentSnapshot) {
+        if (document.get("target3") != nil) {
+            self.target3.text = (document.get("target3") as! String)
+        }
+        if (document.get("result3") != nil) {
+            self.result3.text = (document.get("result3") as! String)
+        }
+    }
+    
+    private func generateValueForDB() -> [String:String] {
+        var targetEvaluation : [String:String]? = nil
+        if(numberTarget == 1) {
+            targetEvaluation = [
+                "target1" : target1.text!,
+                "result1" : result1.text!,
+                "numberTarget" : String(numberTarget)
+            ]
+        } else if(numberTarget == 2) {
+            targetEvaluation = [
+                "target1" : target1.text!,
+                "result1" : result1.text!,
+                "target2" : target2.text!,
+                "result2" : result2.text!,
+                "numberTarget" : String(numberTarget)
+            ]
+        }
+            
+        else if(numberTarget == 3) {
+            targetEvaluation = [
+                "target1" : target1.text!,
+                "result1" : result1.text!,
+                "target2" : target2.text!,
+                "result2" : result2.text!,
+                "target3" : target3.text!,
+                "result3" : result3.text!,
+                "numberTarget" : String(numberTarget)
+            ]
+        }
+        
+        return targetEvaluation!
     }
     
     

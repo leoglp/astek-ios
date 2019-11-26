@@ -141,9 +141,9 @@ class ProfessionSkillViewController: UIViewController {
         
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
-        infoButton1.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
-        infoButton2.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
-        infoButton3.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
+        infoButton1.addTarget(self, action: #selector(SkillUtil.showInfo(_:)), for: .touchUpInside)
+        infoButton2.addTarget(self, action: #selector(SkillUtil.showInfo(_:)), for: .touchUpInside)
+        infoButton3.addTarget(self, action: #selector(SkillUtil.showInfo(_:)), for: .touchUpInside)
         
         // setup keyboard event
         NotificationCenter.default.addObserver(
@@ -165,61 +165,31 @@ class ProfessionSkillViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc func showInfo(_ sender: UIButton) {
-        UIUtil.showMessage(text: StringValues.graduationInfo)
-    }
-    
     private func initText() {
         skill1.delegate = self
-        UIUtil.textAlign(textField: skill1)
         employeeGrad1.delegate = self
-        UIUtil.textAlign(textField: employeeGrad1)
-        UIUtil.setBottomBorder(textField: employeeGrad1)
         managerGrad1.delegate = self
-        UIUtil.textAlign(textField: managerGrad1)
-        UIUtil.setBottomBorder(textField: managerGrad1)
         example1.delegate = self
-        UIUtil.textAlign(textField: example1)
         improvement1.delegate = self
-        UIUtil.textAlign(textField: improvement1)
         
         skill2.delegate = self
-        UIUtil.textAlign(textField: skill2)
         employeeGrad2.delegate = self
-        UIUtil.textAlign(textField: employeeGrad2)
-        UIUtil.setBottomBorder(textField: employeeGrad2)
         managerGrad2.delegate = self
-        UIUtil.textAlign(textField: managerGrad2)
-        UIUtil.setBottomBorder(textField: managerGrad2)
         example2.delegate = self
-        UIUtil.textAlign(textField: example2)
         improvement2.delegate = self
-        UIUtil.textAlign(textField: improvement2)
-        
         
         skill3.delegate = self
-        UIUtil.textAlign(textField: skill3)
         employeeGrad3.delegate = self
-        UIUtil.textAlign(textField: employeeGrad3)
-        UIUtil.setBottomBorder(textField: employeeGrad3)
         managerGrad3.delegate = self
-        UIUtil.textAlign(textField: managerGrad3)
-        UIUtil.setBottomBorder(textField: managerGrad3)
         example3.delegate = self
-        UIUtil.textAlign(textField: example3)
         improvement3.delegate = self
-        UIUtil.textAlign(textField: improvement3)
         
-        
-        
-        if(!AuthenticationUtil.isManager) {
-            UIUtil.textBottomBorderDisabled(textField: managerGrad1)
-            UIUtil.textDisabled(textField: improvement1)
-            UIUtil.textBottomBorderDisabled(textField: managerGrad2)
-            UIUtil.textDisabled(textField: improvement2)
-            UIUtil.textBottomBorderDisabled(textField: managerGrad3)
-            UIUtil.textDisabled(textField: improvement3)
-        }
+        SkillUtil.initText(skill1: skill1, employeeGrad1: employeeGrad1, managerGrad1: managerGrad1,
+                           example1: example1, improvement1: improvement1,
+                           skill2: skill2, employeeGrad2: employeeGrad2, managerGrad2: managerGrad2,
+                           example2: example2, improvement2: improvement2,
+                           skill3: skill3, employeeGrad3: employeeGrad3, managerGrad3: managerGrad3,
+                           example3: example3, improvement3: improvement3)
     }
     
     
@@ -363,35 +333,8 @@ class ProfessionSkillViewController: UIViewController {
         default:
             return
         }
-        updateSkillButton()
+        SkillUtil.updateSkillButtonForThreeSkills(number: numberTarget,buttonAdd: addButton,buttonDelete: deleteButton)
         self.view.layoutIfNeeded()
-    }
-    
-    
-    private func updateSkillButton() {
-        switch numberTarget {
-        case 1:
-            deleteButton.isHidden = true
-            deleteButton.isUserInteractionEnabled = false
-            addButton.isHidden = false
-            addButton.isUserInteractionEnabled = true
-            
-        case 2:
-            deleteButton.isHidden = false
-            deleteButton.isUserInteractionEnabled = true
-            addButton.isHidden = false
-            addButton.isUserInteractionEnabled = true
-            
-        case 3:
-            deleteButton.isHidden = false
-            deleteButton.isUserInteractionEnabled = true
-            addButton.isHidden = true
-            addButton.isUserInteractionEnabled = false
-            
-        default:
-            return
-        }
-        
     }
     
     private func updateTargetViewButton(isAdded: Bool) {
@@ -406,102 +349,12 @@ class ProfessionSkillViewController: UIViewController {
     
     
     private func createValueInDB(){
-        var skillEvaluation : [String:String]? = nil
-        if(numberTarget == 1) {
-            skillEvaluation = [
-                "skill1" : skill1.text!,
-                "employeeGraduation1" : employeeGrad1.text!,
-                "managerGraduation1" : managerGrad1.text!,
-                "skillExample1" : example1.text!,
-                "improvementAndGain1" : improvement1.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        } else if(numberTarget == 2) {
-            skillEvaluation = [
-                "skill1" : skill1.text!,
-                "employeeGraduation1" : employeeGrad1.text!,
-                "managerGraduation1" : managerGrad1.text!,
-                "skillExample1" : example1.text!,
-                "improvementAndGain1" : improvement1.text!,
-                "skill2" : skill2.text!,
-                "employeeGraduation2" : employeeGrad2.text!,
-                "managerGraduation2" : managerGrad2.text!,
-                "skillExample2" : example2.text!,
-                "improvementAndGain2" : improvement2.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        } else if(numberTarget == 3) {
-            skillEvaluation = [
-                "skill1" : skill1.text!,
-                "employeeGraduation1" : employeeGrad1.text!,
-                "managerGraduation1" : managerGrad1.text!,
-                "skillExample1" : example1.text!,
-                "improvementAndGain1" : improvement1.text!,
-                "skill2" : skill2.text!,
-                "employeeGraduation2" : employeeGrad2.text!,
-                "managerGraduation2" : managerGrad2.text!,
-                "skillExample2" : example2.text!,
-                "improvementAndGain2" : improvement2.text!,
-                "skill3" : skill3.text!,
-                "employeeGraduation3" : employeeGrad3.text!,
-                "managerGraduation3" : managerGrad3.text!,
-                "skillExample3" : example3.text!,
-                "improvementAndGain3" : improvement3.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        }
-        
-        DatabaseUtil.addValueInDataBase(valueToAdd: skillEvaluation!,collectionToCreate: "professionSkillEvaluation")
+        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "professionSkillEvaluation")
     }
     
     
     private func updateValueInDB(){
-        var skillEvaluation : [String:String]? = nil
-        if(numberTarget == 1) {
-            skillEvaluation = [
-                "skill1" : skill1.text!,
-                "employeeGraduation1" : employeeGrad1.text!,
-                "managerGraduation1" : managerGrad1.text!,
-                "skillExample1" : example1.text!,
-                "improvementAndGain1" : improvement1.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        } else if(numberTarget == 2) {
-            skillEvaluation = [
-                "skill1" : skill1.text!,
-                "employeeGraduation1" : employeeGrad1.text!,
-                "managerGraduation1" : managerGrad1.text!,
-                "skillExample1" : example1.text!,
-                "improvementAndGain1" : improvement1.text!,
-                "skill2" : skill2.text!,
-                "employeeGraduation2" : employeeGrad2.text!,
-                "managerGraduation2" : managerGrad2.text!,
-                "skillExample2" : example2.text!,
-                "improvementAndGain2" : improvement2.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        } else if(numberTarget == 3) {
-            skillEvaluation = [
-                "skill1" : skill1.text!,
-                "employeeGraduation1" : employeeGrad1.text!,
-                "managerGraduation1" : managerGrad1.text!,
-                "skillExample1" : example1.text!,
-                "improvementAndGain1" : improvement1.text!,
-                "skill2" : skill2.text!,
-                "employeeGraduation2" : employeeGrad2.text!,
-                "managerGraduation2" : managerGrad2.text!,
-                "skillExample2" : example2.text!,
-                "improvementAndGain2" : improvement2.text!,
-                "skill3" : skill3.text!,
-                "employeeGraduation3" : employeeGrad3.text!,
-                "managerGraduation3" : managerGrad3.text!,
-                "skillExample3" : example3.text!,
-                "improvementAndGain3" : improvement3.text!,
-                "numberTarget" : String(numberTarget)
-            ]
-        }
-        
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: skillEvaluation!,collectionToUpdate: "professionSkillEvaluation",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "professionSkillEvaluation",documentUpdateId: documentUpdateId)
     }
     
     
@@ -517,84 +370,15 @@ class ProfessionSkillViewController: UIViewController {
                     }
                     print("numberTarget : \(self.numberTarget)")
                     if (self.numberTarget == 1) {
-                        if (document.get("skill1") != nil) {
-                            self.skill1.text = (document.get("skill1") as! String)
-                        }
-                        if (document.get("employeeGraduation1") != nil) {
-                            self.employeeGrad1.text = (document.get("employeeGraduation1") as! String)
-                        }
-                        if (document.get("managerGraduation1") != nil) {
-                            self.managerGrad1.text = (document.get("managerGraduation1") as! String)
-                        }
-                        if (document.get("skillExample1") != nil) {
-                            self.example1.text = (document.get("skillExample1") as! String)
-                        }
-                        if (document.get("improvementAndGain1") != nil) {
-                            self.improvement1.text = (document.get("improvementAndGain1") as! String)
-                        }
+                        self.retrieveFirstValue(document: document)
                     } else if (self.numberTarget == 2) {
-                        if (document.get("skill1") != nil) {
-                            self.skill1.text = (document.get("skill1") as! String)
-                        }
-                        if (document.get("employeeGraduation1") != nil) {
-                            self.employeeGrad1.text = (document.get("employeeGraduation1") as! String)
-                        }
-                        if (document.get("managerGraduation1") != nil) {
-                            self.managerGrad1.text = (document.get("managerGraduation1") as! String)
-                        }
-                        if (document.get("skillExample1") != nil) {
-                            self.example1.text = (document.get("skillExample1") as! String)
-                        }
-                        if (document.get("improvementAndGain1") != nil) {
-                            self.improvement1.text = (document.get("improvementAndGain1") as! String)
-                        }
-                        if (document.get("skill2") != nil) {
-                            self.skill2.text = (document.get("skill2") as! String)
-                        }
-                        if (document.get("employeeGraduation2") != nil) {
-                            self.employeeGrad2.text = (document.get("employeeGraduation2") as! String)
-                        }
-                        if (document.get("managerGraduation2") != nil) {
-                            self.managerGrad2.text = (document.get("managerGraduation2") as! String)
-                        }
-                        if (document.get("skillExample2") != nil) {
-                            self.example2.text = (document.get("skillExample2") as! String)
-                        }
-                        if (document.get("improvementAndGain2") != nil) {
-                            self.improvement2.text = (document.get("improvementAndGain2") as! String)
-                        }
+                        self.retrieveFirstValue(document: document)
+                        self.retrieveSecondValue(document: document)
                     }
                     else if (self.numberTarget == 3) {
-                        if (document.get("skill3") != nil) {
-                            self.skill3.text = (document.get("skill3") as! String)
-                        }
-                        if (document.get("employeeGraduation3") != nil) {
-                            self.employeeGrad3.text = (document.get("employeeGraduation3") as! String)
-                        }
-                        if (document.get("managerGraduation3") != nil) {
-                            self.managerGrad3.text = (document.get("managerGraduation3") as! String)
-                        }
-                        if (document.get("skillExample3") != nil) {
-                            self.example3.text = (document.get("skillExample3") as! String)
-                        }
-                        if (document.get("improvementAndGain3") != nil) {
-                            self.improvement3.text = (document.get("improvementAndGain3") as! String)
-                        }
-                        if (document.get("skill3") != nil) {
-                            self.skill3.text = (document.get("skill3") as! String)
-                        }
-                        if (document.get("employeeGraduation3") != nil) {
-                            self.employeeGrad3.text = (document.get("employeeGraduation3") as! String)
-                        }
-                        if (document.get("managerGraduation3") != nil) {
-                            self.managerGrad3.text = (document.get("managerGraduation3") as! String)
-                        }
-                        if (document.get("skillExample3") != nil) {
-                            self.example3.text = (document.get("skillExample3") as! String)
-                        }
-                        if (document.get("improvementAndGain3") != nil) {
-                            self.improvement3.text = (document.get("improvementAndGain3") as! String)
-                        }
+                        self.retrieveFirstValue(document: document)
+                        self.retrieveSecondValue(document: document)
+                        self.retrieveThirdValue(document: document)
                         
                     }
                     
@@ -604,6 +388,111 @@ class ProfessionSkillViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func retrieveFirstValue(document: DocumentSnapshot) {
+        if (document.get("skill1") != nil) {
+            self.skill1.text = (document.get("skill1") as! String)
+        }
+        if (document.get("employeeGraduation1") != nil) {
+            self.employeeGrad1.text = (document.get("employeeGraduation1") as! String)
+        }
+        if (document.get("managerGraduation1") != nil) {
+            self.managerGrad1.text = (document.get("managerGraduation1") as! String)
+        }
+        if (document.get("skillExample1") != nil) {
+            self.example1.text = (document.get("skillExample1") as! String)
+        }
+        if (document.get("improvementAndGain1") != nil) {
+            self.improvement1.text = (document.get("improvementAndGain1") as! String)
+        }
+    }
+    
+    
+    private func retrieveSecondValue(document: DocumentSnapshot) {
+        if (document.get("skill2") != nil) {
+            self.skill2.text = (document.get("skill2") as! String)
+        }
+        if (document.get("employeeGraduation2") != nil) {
+            self.employeeGrad2.text = (document.get("employeeGraduation2") as! String)
+        }
+        if (document.get("managerGraduation2") != nil) {
+            self.managerGrad2.text = (document.get("managerGraduation2") as! String)
+        }
+        if (document.get("skillExample2") != nil) {
+            self.example2.text = (document.get("skillExample2") as! String)
+        }
+        if (document.get("improvementAndGain2") != nil) {
+            self.improvement2.text = (document.get("improvementAndGain2") as! String)
+        }
+    }
+    
+    
+    private func retrieveThirdValue(document: DocumentSnapshot) {
+        if (document.get("skill3") != nil) {
+            self.skill3.text = (document.get("skill3") as! String)
+        }
+        if (document.get("employeeGraduation3") != nil) {
+            self.employeeGrad3.text = (document.get("employeeGraduation3") as! String)
+        }
+        if (document.get("managerGraduation3") != nil) {
+            self.managerGrad3.text = (document.get("managerGraduation3") as! String)
+        }
+        if (document.get("skillExample3") != nil) {
+            self.example3.text = (document.get("skillExample3") as! String)
+        }
+        if (document.get("improvementAndGain3") != nil) {
+            self.improvement3.text = (document.get("improvementAndGain3") as! String)
+        }
+    }
+    
+    
+    private func generateValueForDB() -> [String:String] {
+        var skillEvaluation : [String:String]? = nil
+        if(numberTarget == 1) {
+            skillEvaluation = [
+                "skill1" : skill1.text!,
+                "employeeGraduation1" : employeeGrad1.text!,
+                "managerGraduation1" : managerGrad1.text!,
+                "skillExample1" : example1.text!,
+                "improvementAndGain1" : improvement1.text!,
+                "numberTarget" : String(numberTarget)
+            ]
+        } else if(numberTarget == 2) {
+            skillEvaluation = [
+                "skill1" : skill1.text!,
+                "employeeGraduation1" : employeeGrad1.text!,
+                "managerGraduation1" : managerGrad1.text!,
+                "skillExample1" : example1.text!,
+                "improvementAndGain1" : improvement1.text!,
+                "skill2" : skill2.text!,
+                "employeeGraduation2" : employeeGrad2.text!,
+                "managerGraduation2" : managerGrad2.text!,
+                "skillExample2" : example2.text!,
+                "improvementAndGain2" : improvement2.text!,
+                "numberTarget" : String(numberTarget)
+            ]
+        } else if(numberTarget == 3) {
+            skillEvaluation = [
+                "skill1" : skill1.text!,
+                "employeeGraduation1" : employeeGrad1.text!,
+                "managerGraduation1" : managerGrad1.text!,
+                "skillExample1" : example1.text!,
+                "improvementAndGain1" : improvement1.text!,
+                "skill2" : skill2.text!,
+                "employeeGraduation2" : employeeGrad2.text!,
+                "managerGraduation2" : managerGrad2.text!,
+                "skillExample2" : example2.text!,
+                "improvementAndGain2" : improvement2.text!,
+                "skill3" : skill3.text!,
+                "employeeGraduation3" : employeeGrad3.text!,
+                "managerGraduation3" : managerGrad3.text!,
+                "skillExample3" : example3.text!,
+                "improvementAndGain3" : improvement3.text!,
+                "numberTarget" : String(numberTarget)
+            ]
+        }
+        return skillEvaluation!
     }
     
     private func createOrUpdate(){
@@ -675,97 +564,12 @@ class ProfessionSkillViewController: UIViewController {
     }
     
     private func checkNumberValue(){
-        
-        var intEmployeeGrad1 : Int = 0
-        if(employeeGrad1.text != "") {
-            intEmployeeGrad1 = Int(employeeGrad1.text!)!
-        }
-        var intManagerGrad1 : Int = 0
-        if(managerGrad1.text != "") {
-            intManagerGrad1 = Int(managerGrad1.text!)!
-        }
-        
-        var intEmployeeGrad2 : Int = 0
-        if(employeeGrad2.text != "") {
-            intEmployeeGrad2 = Int(employeeGrad2.text!)!
-        }
-        var intManagerGrad2 : Int = 0
-        if(managerGrad2.text != "") {
-            intManagerGrad2 = Int(managerGrad2.text!)!
-        }
-        
-        var intEmployeeGrad3 : Int = 0
-        if(employeeGrad3.text != "") {
-            intEmployeeGrad3 = Int(employeeGrad3.text!)!
-        }
-        var intManagerGrad3 : Int = 0
-        if(managerGrad3.text != "") {
-            intManagerGrad3 = Int(managerGrad3.text!)!
-        }
-        
-        switch numberTarget {
-        case 1:
-            if(AuthenticationUtil.isManager) {
-                if((intEmployeeGrad1 == 1 || intEmployeeGrad1 == 2 || intEmployeeGrad1 == 3 || intEmployeeGrad1 == 4)
-                    && (intManagerGrad1 == 1 || intManagerGrad1 == 2 || intManagerGrad1 == 3 || intManagerGrad1 == 4)) {
-                    goNextPage()
-                } else {
-                    UIUtil.showMessage(text: StringValues.errorGraduation)
-                }
-            } else {
-                if(intEmployeeGrad1 == 1 || intEmployeeGrad1 == 2 || intEmployeeGrad1 == 3 || intEmployeeGrad1 == 4) {
-                    goNextPage()
-                } else {
-                    UIUtil.showMessage(text: StringValues.errorGraduation)
-                }
-            }
-        case 2:
-            let intEmployeeGrad2 = Int(employeeGrad2.text!)!
-            var intManagerGrad2: Int = 0
-            if(managerGrad2.text != "") {
-                intManagerGrad2 = Int(managerGrad2.text!)!
-            }
-            
-            if(AuthenticationUtil.isManager) {
-                if((intEmployeeGrad1 == 1 || intEmployeeGrad1 == 2 || intEmployeeGrad1 == 3 || intEmployeeGrad1 == 4)
-                    && (intManagerGrad1 == 1 || intManagerGrad1 == 2 || intManagerGrad1 == 3 || intManagerGrad1 == 4)
-                    && (intEmployeeGrad2 == 1 || intEmployeeGrad2 == 2 || intEmployeeGrad2 == 3 || intEmployeeGrad2 == 4)
-                    && (intManagerGrad2 == 1 || intManagerGrad2 == 2 || intManagerGrad2 == 3 || intManagerGrad2 == 4)) {
-                    goNextPage()
-                } else {
-                    UIUtil.showMessage(text: StringValues.errorGraduation)
-                }
-            } else {
-                if((intEmployeeGrad1 == 1 || intEmployeeGrad1 == 2 || intEmployeeGrad1 == 3 || intEmployeeGrad1 == 4)
-                    && (intEmployeeGrad2 == 1 || intEmployeeGrad2 == 2 || intEmployeeGrad2 == 3 || intEmployeeGrad2 == 4)){
-                    goNextPage()
-                } else {
-                    UIUtil.showMessage(text: StringValues.errorGraduation)
-                }
-            }
-        case 3:
-            if(AuthenticationUtil.isManager) {
-                if((intEmployeeGrad1 == 1 || intEmployeeGrad1 == 2 || intEmployeeGrad1 == 3 || intEmployeeGrad1 == 4)
-                    && (intManagerGrad1 == 1 || intManagerGrad1 == 2 || intManagerGrad1 == 3 || intManagerGrad1 == 4)
-                    && (intEmployeeGrad2 == 1 || intEmployeeGrad2 == 2 || intEmployeeGrad2 == 3 || intEmployeeGrad2 == 4)
-                    && (intManagerGrad2 == 1 || intManagerGrad2 == 2 || intManagerGrad2 == 3 || intManagerGrad2 == 4)
-                    && (intEmployeeGrad3 == 1 || intEmployeeGrad3 == 2 || intEmployeeGrad3 == 3 || intEmployeeGrad3 == 4)
-                    && (intManagerGrad3 == 1 || intManagerGrad3 == 2 || intManagerGrad3 == 3 || intManagerGrad3 == 4)) {
-                    goNextPage()
-                } else {
-                    UIUtil.showMessage(text: StringValues.errorGraduation)
-                }
-            } else {
-                if((intEmployeeGrad1 == 1 || intEmployeeGrad1 == 2 || intEmployeeGrad1 == 3 || intEmployeeGrad1 == 4)
-                    && (intEmployeeGrad2 == 1 || intEmployeeGrad2 == 2 || intEmployeeGrad2 == 3 || intEmployeeGrad2 == 4)
-                    && (intEmployeeGrad3 == 1 || intEmployeeGrad3 == 2 || intEmployeeGrad3 == 3 || intEmployeeGrad3 == 4)){
-                    goNextPage()
-                } else {
-                    UIUtil.showMessage(text: StringValues.errorGraduation)
-                }
-            }
-        default:
-            return
+        if(SkillUtil.checkNumberValueOK(employeeGrad1: employeeGrad1, managerGrad1: managerGrad1,
+                                        employeeGrad2: employeeGrad2, managerGrad2: managerGrad2,
+                                        employeeGrad3: employeeGrad3, managerGrad3: managerGrad3, numberTarget: numberTarget)) {
+            goNextPage()
+        } else {
+            UIUtil.showMessage(text: StringValues.errorGraduation)
         }
     }
     

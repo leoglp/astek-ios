@@ -51,7 +51,7 @@ class BilanMissionViewController: UIViewController {
         className = NSStringFromClass(BilanMissionViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
         print("TITI className : \(className)")
-
+        
         
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
@@ -77,21 +77,11 @@ class BilanMissionViewController: UIViewController {
     
     
     private func createValueInDB(){
-        let bilanMission : [String:String] = [
-            "bilanMission" : bilanMissiontext.text!
-        ]
-        
-        DatabaseUtil.addValueInDataBase(valueToAdd: bilanMission,collectionToCreate: "bilanMission")
+        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "bilanMission")
     }
     
     private func updateValueInDB(){
-        
-        let bilanMission : [String:String] = [
-            "bilanMission" : bilanMissiontext.text!
-            
-        ]
-        
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: bilanMission,collectionToUpdate: "bilanMission",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "bilanMission",documentUpdateId: documentUpdateId)
     }
     
     
@@ -111,6 +101,15 @@ class BilanMissionViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func generateValueForDB() -> [String:String] {
+        let bilanMission : [String:String] = [
+            "bilanMission" : bilanMissiontext.text!
+            
+        ]
+        
+        return bilanMission
     }
     
     
@@ -166,7 +165,7 @@ extension BilanMissionViewController {
         
         // move if keyboard hide input field
         let distanceToBottom = scrollView.frame.size.height - (self.activeField?.frame.origin.y)! - (self.activeField?.frame.size.height)!
-                
+        
         let collapseSpace = keyboardHeight - distanceToBottom
         
         if collapseSpace < 0 {

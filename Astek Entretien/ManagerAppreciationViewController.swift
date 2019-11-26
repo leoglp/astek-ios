@@ -82,23 +82,11 @@ class ManagerAppreciationViewController: UIViewController {
     
     
     private func createValueInDB(){
-        let managerAppreciation : [String:String] = [
-            "gain" : gainText.text!,
-            "weaknesses" : weaknessText.text!,
-            "improvement" : improveText.text!
-        ]
-        
-        DatabaseUtil.addValueInDataBase(valueToAdd: managerAppreciation,collectionToCreate: "managerAppreciation")
+        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "managerAppreciation")
     }
     
     private func updateValueInDB(){
-        let managerAppreciation : [String:String] = [
-            "gain" : gainText.text!,
-            "weaknesses" : weaknessText.text!,
-            "improvement" : improveText.text!
-        ]
-        
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: managerAppreciation,collectionToUpdate: "managerAppreciation",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "managerAppreciation",documentUpdateId: documentUpdateId)
     }
     
     
@@ -123,6 +111,15 @@ class ManagerAppreciationViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func generateValueForDB() -> [String:String] {
+        let managerAppreciation : [String:String] = [
+            "gain" : gainText.text!,
+            "weaknesses" : weaknessText.text!,
+            "improvement" : improveText.text!
+        ]
+        return managerAppreciation
     }
     
     
