@@ -141,9 +141,9 @@ class ProfessionSkillViewController: UIViewController {
         
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
-        infoButton1.addTarget(self, action: #selector(SkillUtil.showInfo(_:)), for: .touchUpInside)
-        infoButton2.addTarget(self, action: #selector(SkillUtil.showInfo(_:)), for: .touchUpInside)
-        infoButton3.addTarget(self, action: #selector(SkillUtil.showInfo(_:)), for: .touchUpInside)
+        infoButton1.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
+        infoButton2.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
+        infoButton3.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
         
         // setup keyboard event
         NotificationCenter.default.addObserver(
@@ -163,6 +163,10 @@ class ProfessionSkillViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func showInfo(_ sender: UIButton) {
+        UIUtil.showMessage(text: StringValues.graduationInfo)
     }
     
     private func initText() {

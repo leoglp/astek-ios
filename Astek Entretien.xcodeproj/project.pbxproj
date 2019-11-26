@@ -15,6 +15,17 @@
 		6E768200238C291800998CCB /* ProfessionSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7681FF238C291800998CCB /* ProfessionSkillViewController.swift */; };
 		6E768202238C34FF00998CCB /* FunctionalSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768201238C34FF00998CCB /* FunctionalSkillViewController.swift */; };
 		6E768204238D17A100998CCB /* SkillUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768203238D17A100998CCB /* SkillUtil.swift */; };
+		6E768206238D32B200998CCB /* ManagerialSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768205238D32B200998CCB /* ManagerialSkillViewController.swift */; };
+		6E768209238D39FB00998CCB /* AutonomousSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768208238D39FB00998CCB /* AutonomousSkillViewController.swift */; };
+		6E76820B238D639B00998CCB /* AdaptabilitySkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76820A238D639B00998CCB /* AdaptabilitySkillViewController.swift */; };
+		6E76820D238D643400998CCB /* TeamWorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76820C238D643400998CCB /* TeamWorkViewController.swift */; };
+		6E76820F238D644100998CCB /* CreativitySkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76820E238D644100998CCB /* CreativitySkillViewController.swift */; };
+		6E768211238D7F1D00998CCB /* CommunicationSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768210238D7F1D00998CCB /* CommunicationSkillViewController.swift */; };
+		6E768213238D7F5A00998CCB /* RespectSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768212238D7F5A00998CCB /* RespectSkillViewController.swift */; };
+		6E768215238D7FFF00998CCB /* RigourSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768214238D7FFF00998CCB /* RigourSkillViewController.swift */; };
+		6E768217238D802000998CCB /* EnglishSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768216238D802000998CCB /* EnglishSkillViewController.swift */; };
+		6E768219238D803400998CCB /* OtherLangageSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768218238D803400998CCB /* OtherLangageSkillViewController.swift */; };
+		6E76821B238D886B00998CCB /* ImplicationSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76821A238D886A00998CCB /* ImplicationSkillViewController.swift */; };
 		6E9F9FC32382F4C000034FF6 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */; };
 		6E9F9FC52384040500034FF6 /* ProfilCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */; };
 		6E9F9FC72384525A00034FF6 /* ArrayValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC62384525A00034FF6 /* ArrayValues.swift */; };
@@ -45,6 +56,17 @@
 		6E7681FF238C291800998CCB /* ProfessionSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionSkillViewController.swift; sourceTree = "<group>"; };
 		6E768201238C34FF00998CCB /* FunctionalSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalSkillViewController.swift; sourceTree = "<group>"; };
 		6E768203238D17A100998CCB /* SkillUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillUtil.swift; sourceTree = "<group>"; };
+		6E768205238D32B200998CCB /* ManagerialSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerialSkillViewController.swift; sourceTree = "<group>"; };
+		6E768208238D39FB00998CCB /* AutonomousSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutonomousSkillViewController.swift; sourceTree = "<group>"; };
+		6E76820A238D639B00998CCB /* AdaptabilitySkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptabilitySkillViewController.swift; sourceTree = "<group>"; };
+		6E76820C238D643400998CCB /* TeamWorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamWorkViewController.swift; sourceTree = "<group>"; };
+		6E76820E238D644100998CCB /* CreativitySkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreativitySkillViewController.swift; sourceTree = "<group>"; };
+		6E768210238D7F1D00998CCB /* CommunicationSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationSkillViewController.swift; sourceTree = "<group>"; };
+		6E768212238D7F5A00998CCB /* RespectSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespectSkillViewController.swift; sourceTree = "<group>"; };
+		6E768214238D7FFF00998CCB /* RigourSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigourSkillViewController.swift; sourceTree = "<group>"; };
+		6E768216238D802000998CCB /* EnglishSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishSkillViewController.swift; sourceTree = "<group>"; };
+		6E768218238D803400998CCB /* OtherLangageSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherLangageSkillViewController.swift; sourceTree = "<group>"; };
+		6E76821A238D886A00998CCB /* ImplicationSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImplicationSkillViewController.swift; path = "/Users/leoguilpain/IOS Project/astek-ios/Astek Entretien/Skills/Behavioral/ImplicationSkillViewController.swift"; sourceTree = "<absolute>"; };
 		6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
 		6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilCreationViewController.swift; sourceTree = "<group>"; };
 		6E9F9FC62384525A00034FF6 /* ArrayValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayValues.swift; sourceTree = "<group>"; };
@@ -94,11 +116,30 @@
 		6E7681FC238BCD7200998CCB /* Skills */ = {
 			isa = PBXGroup;
 			children = (
+				6E768207238D39E200998CCB /* Behavioral */,
 				6E7681FD238BCDC400998CCB /* TechnicalSkillViewController.swift */,
+				6E768205238D32B200998CCB /* ManagerialSkillViewController.swift */,
+				6E768216238D802000998CCB /* EnglishSkillViewController.swift */,
+				6E768218238D803400998CCB /* OtherLangageSkillViewController.swift */,
 				6E768201238C34FF00998CCB /* FunctionalSkillViewController.swift */,
 				6E7681FF238C291800998CCB /* ProfessionSkillViewController.swift */,
 			);
 			path = Skills;
+			sourceTree = "<group>";
+		};
+		6E768207238D39E200998CCB /* Behavioral */ = {
+			isa = PBXGroup;
+			children = (
+				6E76821A238D886A00998CCB /* ImplicationSkillViewController.swift */,
+				6E768208238D39FB00998CCB /* AutonomousSkillViewController.swift */,
+				6E768210238D7F1D00998CCB /* CommunicationSkillViewController.swift */,
+				6E76820A238D639B00998CCB /* AdaptabilitySkillViewController.swift */,
+				6E768214238D7FFF00998CCB /* RigourSkillViewController.swift */,
+				6E768212238D7F5A00998CCB /* RespectSkillViewController.swift */,
+				6E76820C238D643400998CCB /* TeamWorkViewController.swift */,
+				6E76820E238D644100998CCB /* CreativitySkillViewController.swift */,
+			);
+			path = Behavioral;
 			sourceTree = "<group>";
 		};
 		6ECBD46E237D6D6B00F0E433 = {
@@ -288,22 +329,33 @@
 				6ECBD491237DB0F200F0E433 /* InterviewViewController.swift in Sources */,
 				6E768202238C34FF00998CCB /* FunctionalSkillViewController.swift in Sources */,
 				6ECBD47F237D6D6B00F0E433 /* MainViewController.swift in Sources */,
+				6E76820D238D643400998CCB /* TeamWorkViewController.swift in Sources */,
 				6ECBD47B237D6D6B00F0E433 /* AppDelegate.swift in Sources */,
+				6E768211238D7F1D00998CCB /* CommunicationSkillViewController.swift in Sources */,
+				6E768206238D32B200998CCB /* ManagerialSkillViewController.swift in Sources */,
+				6E768217238D802000998CCB /* EnglishSkillViewController.swift in Sources */,
+				6E768209238D39FB00998CCB /* AutonomousSkillViewController.swift in Sources */,
 				6E768204238D17A100998CCB /* SkillUtil.swift in Sources */,
 				6ECBD496237EA62300F0E433 /* UIUtil.swift in Sources */,
+				6E768215238D7FFF00998CCB /* RigourSkillViewController.swift in Sources */,
 				6E9F9FC52384040500034FF6 /* ProfilCreationViewController.swift in Sources */,
 				6E9F9FC32382F4C000034FF6 /* DatabaseUtil.swift in Sources */,
+				6E76820F238D644100998CCB /* CreativitySkillViewController.swift in Sources */,
 				6E68CB1E2386BE3E004E3B61 /* EmployeeAppreciationViewController.swift in Sources */,
 				6ECBD47D237D6D6B00F0E433 /* SceneDelegate.swift in Sources */,
 				6E9F9FC923858F1A00034FF6 /* BilanMissionViewController.swift in Sources */,
 				6ECBD49E237EE9CE00F0E433 /* ResetPasswordViewController.swift in Sources */,
 				6ECBD494237DB69F00F0E433 /* AuthenticationUtil.swift in Sources */,
 				6E7681FE238BCDC400998CCB /* TechnicalSkillViewController.swift in Sources */,
+				6E76821B238D886B00998CCB /* ImplicationSkillViewController.swift in Sources */,
 				6ECBD498237EA81200F0E433 /* StringValues.swift in Sources */,
 				6E768200238C291800998CCB /* ProfessionSkillViewController.swift in Sources */,
+				6E768213238D7F5A00998CCB /* RespectSkillViewController.swift in Sources */,
 				6E68CB222386D8EC004E3B61 /* TargetEvaluationViewController.swift in Sources */,
+				6E768219238D803400998CCB /* OtherLangageSkillViewController.swift in Sources */,
 				6E9F9FC72384525A00034FF6 /* ArrayValues.swift in Sources */,
 				6E68CB202386CAFD004E3B61 /* ManagerAppreciationViewController.swift in Sources */,
+				6E76820B238D639B00998CCB /* AdaptabilitySkillViewController.swift in Sources */,
 				6EA8192223881E6D00930DD2 /* PerformanceEvaluationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

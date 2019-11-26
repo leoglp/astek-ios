@@ -10,14 +10,47 @@ import UIKit
 
 class SkillUtil {
     
-    
-    @objc static func showInfo(_ sender: UIButton) {
-        UIUtil.showMessage(text: StringValues.graduationInfo)
+    /********************************** One Skill ******************************************/
+    static func checkNumberValueOK(employeeGrad1: UITextField, managerGrad1: UITextField) -> Bool {
+        
+        var intEmployeeGrad1 : Int = 0
+        if(employeeGrad1.text != "") {
+            intEmployeeGrad1 = Int(employeeGrad1.text!)!
+        }
+        var intManagerGrad1 : Int = 0
+        if(managerGrad1.text != "") {
+            intManagerGrad1 = Int(managerGrad1.text!)!
+        }
+        
+        
+        if(AuthenticationUtil.isManager) {
+            if((intEmployeeGrad1 == 1 || intEmployeeGrad1 == 2 || intEmployeeGrad1 == 3 || intEmployeeGrad1 == 4)
+                && (intManagerGrad1 == 1 || intManagerGrad1 == 2 || intManagerGrad1 == 3 || intManagerGrad1 == 4)) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            if(intEmployeeGrad1 == 1 || intEmployeeGrad1 == 2 || intEmployeeGrad1 == 3 || intEmployeeGrad1 == 4) {
+                return true
+            } else {
+                return false
+            }
+        }
     }
     
-    
-    /********************************** One Skill ******************************************/
-    
+    static func initText(employeeGrad1: UITextField, managerGrad1: UITextField,
+                         example1: UITextField, improvement1: UITextField) {
+        UIUtil.setBottomBorder(textField: employeeGrad1)
+        UIUtil.setBottomBorder(textField: managerGrad1)
+        UIUtil.textAlign(textField: example1)
+        UIUtil.textAlign(textField: improvement1)
+        
+        if(!AuthenticationUtil.isManager) {
+            UIUtil.textBottomBorderDisabled(textField: managerGrad1)
+            UIUtil.textDisabled(textField: improvement1)
+        }
+    }
     
     
     
@@ -265,8 +298,8 @@ class SkillUtil {
     
     
     static func updateSkillButtonForThreeSkills(number: Int,
-                                                 buttonAdd: UIButton,
-                                                 buttonDelete: UIButton) {
+                                                buttonAdd: UIButton,
+                                                buttonDelete: UIButton) {
         switch number {
         case 1:
             buttonDelete.isHidden = true

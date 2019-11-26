@@ -52,7 +52,29 @@ class UIUtil {
         case 8:
             controller.performSegue(withIdentifier: "showProfessionSkill", sender: nil)
         case 9:
-            controller.performSegue(withIdentifier: "showFunctionnalSkill", sender: nil)
+            controller.performSegue(withIdentifier: "showFunctionalSkill", sender: nil)
+        case 10:
+            controller.performSegue(withIdentifier: "showManagerialSkill", sender: nil)
+        case 11:
+            controller.performSegue(withIdentifier: "showAutonomousSkill", sender: nil)
+        case 12:
+            controller.performSegue(withIdentifier: "showAdaptabilitySkill", sender: nil)
+        case 13:
+            controller.performSegue(withIdentifier: "showTeamWorkSkill", sender: nil)
+        case 14:
+            controller.performSegue(withIdentifier: "showCreativitySkill", sender: nil)
+        case 15:
+            controller.performSegue(withIdentifier: "showCommunicationSkill", sender: nil)
+        case 16:
+            controller.performSegue(withIdentifier: "showImplicationSkill", sender: nil)
+        case 17:
+            controller.performSegue(withIdentifier: "showRespectSkill", sender: nil)
+        case 18:
+            controller.performSegue(withIdentifier: "showRigourSkill", sender: nil)
+        case 19:
+            controller.performSegue(withIdentifier: "showEnglishSkill", sender: nil)
+        case 20:
+            controller.performSegue(withIdentifier: "showOtherLangageSkill", sender: nil)
         default:
             return
         }

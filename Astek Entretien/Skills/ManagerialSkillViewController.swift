@@ -1,5 +1,5 @@
 //
-//  FunctionnalSkillViewController.swift
+//  TechnicalSkillViewController.swift
 //  Astek Entretien
 //
 //  Created by Léo Guilpain on 25/11/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FunctionalSkillViewController: UIViewController {
+class ManagerialSkillViewController: UIViewController {
     
     private var activeField: UITextField?
     private var lastOffset: CGPoint!
@@ -100,7 +100,7 @@ class FunctionalSkillViewController: UIViewController {
         
         initText()
         
-        className = NSStringFromClass(FunctionalSkillViewController.classForCoder())
+        className = NSStringFromClass(ManagerialSkillViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
         print("TITI className : \(className)")
         
@@ -225,18 +225,18 @@ class FunctionalSkillViewController: UIViewController {
     }
     
     private func createValueInDB(){
-        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "functionalSkillEvaluation")
+        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "managerialSkillEvaluation")
     }
     
     
     private func updateValueInDB(){
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "functionalSkillEvaluation",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "managerialSkillEvaluation",documentUpdateId: documentUpdateId)
     }
     
     
     private func retrieveData() {
         let db = Firestore.firestore()
-        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("functionalSkillEvaluation").getDocuments() { (querySnapshot, err) in
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("managerialSkillEvaluation").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -388,9 +388,6 @@ class FunctionalSkillViewController: UIViewController {
         return skillEvaluation!
     }
     
-    
-    
-    
 }
 
 
@@ -402,12 +399,8 @@ class FunctionalSkillViewController: UIViewController {
 
 
 
-
-
-
-
 // MARK: UITextFieldDelegate
-extension FunctionalSkillViewController: UITextFieldDelegate {
+extension ManagerialSkillViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.activeField = textField
@@ -424,7 +417,7 @@ extension FunctionalSkillViewController: UITextFieldDelegate {
 
 
 // MARK: Keyboard Handling
-extension FunctionalSkillViewController {
+extension ManagerialSkillViewController {
     
     @objc func keyboardWillShow(notification:NSNotification){
         //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap

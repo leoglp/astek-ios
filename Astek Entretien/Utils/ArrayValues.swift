@@ -16,7 +16,18 @@ class ArrayValues {
                               "ManagerAppreciationViewController",
                               "TargetEvaluationViewController",
                               "PerformanceEvaluationViewController",
-     "TechnicalSkillViewController",
-     "ProfessionSkillViewController",
-    "FunctionalSkillViewController"]
+                              "TechnicalSkillViewController",
+                              "ProfessionSkillViewController",
+                              "FunctionalSkillViewController",
+                              "ManagerialSkillViewController",
+                              "AutonomousSkillViewController",
+                              "AdaptabilitySkillViewController",
+                              "TeamWorkSkillViewController",
+                              "CreativitySkillViewController",
+                              "CommunicationSkillViewController",
+                              "ImplicationSkillViewController",
+                              "RespectSkillViewController",
+                              "RigourSkillViewController",
+                              "EnglishSkillViewController",
+                              "OtherLangageSkillViewController"]
 }
