@@ -31,5 +31,8 @@ class ArrayValues {
                               "EnglishSkillViewController",
                               "OtherLangageSkillViewController",
                               "SkillEvaluationViewController",
-                              "FutureTargetEvaluationViewController"]
+                              "FutureTargetEvaluationViewController",
+                              "ShortEvolutionViewController",
+                              "MediumEvolutionViewController",
+                              "LongEvolutionViewController"]
 }

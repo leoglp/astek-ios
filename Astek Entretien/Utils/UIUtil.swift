@@ -77,8 +77,14 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showOtherLangageSkill", sender: nil)
         case 21:
             controller.performSegue(withIdentifier: "showSkillEvaluation", sender: nil)
-            case 22:
+        case 22:
             controller.performSegue(withIdentifier: "showFutureTargetEvaluation", sender: nil)
+        case 23:
+            controller.performSegue(withIdentifier: "showShortEvolution", sender: nil)
+        case 24:
+            controller.performSegue(withIdentifier: "showMediumEvolution", sender: nil)
+        case 25:
+            controller.performSegue(withIdentifier: "showLongEvolution", sender: nil)
         default:
             return
         }
