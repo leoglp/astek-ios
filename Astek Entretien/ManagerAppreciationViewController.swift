@@ -52,6 +52,7 @@ class ManagerAppreciationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initText()
+        initSwipeGesture()
         
         className = NSStringFromClass(ManagerAppreciationViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
@@ -80,6 +81,34 @@ class ManagerAppreciationViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer){
+        if (sender.direction == .left){
+           if(gainText.text == "" || weaknessText.text == ""
+               || improveText.text == "") {
+               UIUtil.showMessage(text: StringValues.errorNoInput)
+           } else {
+               createOrUpdate()
+               UIUtil.goToNextPage(className: className, controller: self)
+           }
+        }
+
+        if (sender.direction == .right)
+        {
+           createOrUpdate()
+           UIUtil.goToPreviousPage(className: className, controller: self)
+        }
+    }
+    
+    private func initSwipeGesture(){
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+    }
     
     private func createValueInDB(){
         DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "managerAppreciation")

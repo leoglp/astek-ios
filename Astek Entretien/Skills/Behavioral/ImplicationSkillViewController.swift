@@ -48,6 +48,7 @@ class ImplicationSkillViewController: UIViewController {
         super.viewDidLoad()
         
         initText()
+        initSwipeGesture()
         
         className = NSStringFromClass(ImplicationSkillViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
@@ -83,6 +84,31 @@ class ImplicationSkillViewController: UIViewController {
         UIUtil.showMessage(text: StringValues.graduationInfo)
     }
     
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer)
+    {
+        if (sender.direction == .left)
+        {
+           checkFieldEmpty()
+        }
+
+        if (sender.direction == .right)
+        {
+           createOrUpdate()
+           UIUtil.goToPreviousPage(className: className, controller: self)
+        }
+    }
+    
+    private func initSwipeGesture(){
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+    }
+    
     private func initText() {
         employeeGrad1.delegate = self
         managerGrad1.delegate = self
@@ -94,18 +120,18 @@ class ImplicationSkillViewController: UIViewController {
     }
     
     private func createValueInDB(){
-        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "teamWorkSkillEvaluation")
+        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "implicationSkillEvaluation")
     }
     
     
     private func updateValueInDB(){
-        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "teamWorkSkillEvaluation",documentUpdateId: documentUpdateId)
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "implicationSkillEvaluation",documentUpdateId: documentUpdateId)
     }
     
     
     private func retrieveData() {
         let db = Firestore.firestore()
-        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("teamWorkSkillEvaluation").getDocuments() { (querySnapshot, err) in
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("implicationSkillEvaluation").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

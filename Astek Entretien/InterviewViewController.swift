@@ -42,8 +42,8 @@ class InterviewViewController: UIViewController {
     @IBAction func rightArrowAction(_ sender: Any) {
         if(bilanDateText.text == "" || previousDateText.text == ""
             || currentDateText.text == "" || managerNameText.text == "") {
-                   UIUtil.showMessage(text: StringValues.errorNoInput)
-               } else {
+            UIUtil.showMessage(text: StringValues.errorNoInput)
+        } else {
             createOrUpdate()
             UIUtil.goToNextPage(className: className, controller: self)
         }
@@ -51,8 +51,8 @@ class InterviewViewController: UIViewController {
     
     
     @IBAction func logOutAction(_ sender: Any) {
-           UIUtil.backToHome(controller: self)
-       }
+        UIUtil.backToHome(controller: self)
+    }
     
     
     
@@ -63,6 +63,7 @@ class InterviewViewController: UIViewController {
         previousDateText.delegate = self
         currentDateText.delegate = self
         managerNameText.delegate = self
+        initSwipeGesture()
         
         UIUtil.setBottomBorder(textField: bilanDateText)
         UIUtil.setBottomBorder(textField: previousDateText)
@@ -95,6 +96,37 @@ class InterviewViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer){
+        if (sender.direction == .left){
+            if(bilanDateText.text == "" || previousDateText.text == ""
+                || currentDateText.text == "" || managerNameText.text == "") {
+                UIUtil.showMessage(text: StringValues.errorNoInput)
+            } else {
+                createOrUpdate()
+                UIUtil.goToNextPage(className: className, controller: self)
+            }
+        }
+        
+        if (sender.direction == .right){
+            createOrUpdate()
+            if(AuthenticationUtil.isManager) {
+                UIUtil.goToPage(pageNumber: -1, controller: self)
+            } else {
+                UIUtil.backToHome(controller: self)
+            }
+        }
+    }
+    
+    private func initSwipeGesture(){
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+    }
     
     private func createValueInDB(){
         DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "interviewContext")
@@ -136,15 +168,15 @@ class InterviewViewController: UIViewController {
     
     
     private func generateValueForDB() -> [String:String] {
-                  let interviewContext : [String:String] = [
-                      "bilanDate" : bilanDateText.text!,
-                      "previousDate" : previousDateText.text!,
-                      "interviewDate" : currentDateText.text!,
-                      "managerName" : managerNameText.text!
-                  ]
-             
-           return interviewContext
-       }
+        let interviewContext : [String:String] = [
+            "bilanDate" : bilanDateText.text!,
+            "previousDate" : previousDateText.text!,
+            "interviewDate" : currentDateText.text!,
+            "managerName" : managerNameText.text!
+        ]
+        
+        return interviewContext
+    }
     
     private func createOrUpdate(){
         if(updateValue){
@@ -168,9 +200,9 @@ extension InterviewViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("Interview textFieldShouldReturn")
-
+        
         self.activeField?.resignFirstResponder()
-       // self.activeField = nil
+        // self.activeField = nil
         return true
     }
 }

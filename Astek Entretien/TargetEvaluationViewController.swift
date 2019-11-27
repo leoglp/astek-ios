@@ -78,34 +78,7 @@ class TargetEvaluationViewController: UIViewController {
     }
     
     @IBAction func rightArrowAction(_ sender: Any) {
-        switch numberTarget {
-        case 1:
-            if(target1.text == "" || result1.text == "") {
-                UIUtil.showMessage(text: StringValues.errorNoInput)
-            } else {
-                createOrUpdate()
-                UIUtil.goToNextPage(className: className, controller: self)
-            }
-        case 2:
-            if(target1.text == "" || result1.text == ""
-                || target2.text == "" || result2.text == "") {
-                UIUtil.showMessage(text: StringValues.errorNoInput)
-            } else {
-                createOrUpdate()
-                UIUtil.goToNextPage(className: className, controller: self)
-            }
-        case 3:
-            if(target1.text == "" || result1.text == ""
-                || target2.text == "" || result2.text == ""
-                || target3.text == "" || result3.text == "") {
-                UIUtil.showMessage(text: StringValues.errorNoInput)
-            } else {
-                createOrUpdate()
-                UIUtil.goToNextPage(className: className, controller: self)
-            }
-        default:
-            return
-        }
+        checkFieldEmpty()
     }
     
     @IBAction func logOutAction(_ sender: Any) {
@@ -123,6 +96,7 @@ class TargetEvaluationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initText()
+        initSwipeGesture()
         
         className = NSStringFromClass(TargetEvaluationViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
@@ -151,6 +125,29 @@ class TargetEvaluationViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer){
+        if (sender.direction == .left){
+           checkFieldEmpty()
+        }
+
+        if (sender.direction == .right)
+        {
+           createOrUpdate()
+           UIUtil.goToPreviousPage(className: className, controller: self)
+        }
+    }
+    
+    private func initSwipeGesture(){
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
     }
     
     private func initText() {
@@ -317,6 +314,37 @@ class TargetEvaluationViewController: UIViewController {
         }
     }
     
+    
+    private func checkFieldEmpty(){
+        switch numberTarget {
+        case 1:
+            if(target1.text == "" || result1.text == "") {
+                UIUtil.showMessage(text: StringValues.errorNoInput)
+            } else {
+                createOrUpdate()
+                UIUtil.goToNextPage(className: className, controller: self)
+            }
+        case 2:
+            if(target1.text == "" || result1.text == ""
+                || target2.text == "" || result2.text == "") {
+                UIUtil.showMessage(text: StringValues.errorNoInput)
+            } else {
+                createOrUpdate()
+                UIUtil.goToNextPage(className: className, controller: self)
+            }
+        case 3:
+            if(target1.text == "" || result1.text == ""
+                || target2.text == "" || result2.text == ""
+                || target3.text == "" || result3.text == "") {
+                UIUtil.showMessage(text: StringValues.errorNoInput)
+            } else {
+                createOrUpdate()
+                UIUtil.goToNextPage(className: className, controller: self)
+            }
+        default:
+            return
+        }
+    }
     
     
     

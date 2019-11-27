@@ -47,6 +47,7 @@ class BilanMissionViewController: UIViewController {
         bilanMissiontext.delegate = self
         bilanMissiontext.textAlignment = .left
         bilanMissiontext.contentVerticalAlignment = .top
+        initSwipeGesture()
         
         className = NSStringFromClass(BilanMissionViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
@@ -73,6 +74,34 @@ class BilanMissionViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer){
+        if (sender.direction == .left){
+           if(bilanMissiontext.text == "") {
+               UIUtil.showMessage(text: StringValues.errorNoInput)
+           } else {
+               createOrUpdate()
+               UIUtil.goToNextPage(className: className, controller: self)
+           }
+        }
+
+        if (sender.direction == .right)
+        {
+           createOrUpdate()
+           UIUtil.goToPreviousPage(className: className, controller: self)
+        }
+    }
+    
+    private func initSwipeGesture(){
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
     }
     
     

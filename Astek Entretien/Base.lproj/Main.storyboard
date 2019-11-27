@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astekLogo" translatesAutoresizingMaskIntoConstraints="NO" id="GeG-Ni-8hj">
-                                <rect key="frame" x="132" y="579" width="112" height="68"/>
+                                <rect key="frame" x="132" y="579" width="112.00000000000023" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="vOk-z6-cMb"/>
                                 </constraints>
@@ -145,7 +145,7 @@
         <!--Interview View Controller-->
         <scene sceneID="BHj-bn-MH5">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="bq5-fN-XCz" customClass="InterviewViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="bq5-fN-XCz" customClass="InterviewViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2f-Pt-hXa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,7 +357,7 @@
         <!--Manager View Controller-->
         <scene sceneID="gl6-fp-vIL">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="MTm-YW-mrT" customClass="ManagerViewController" customModule="Astek_Entretien" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="MTm-YW-mrT" customClass="ManagerViewController" customModule="Astek_Entretien" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pbG-T6-gYR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,7 +426,7 @@
         <!--Reset Password View Controller-->
         <scene sceneID="L1B-RT-0WB">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="vvl-ei-4DX" customClass="ResetPasswordViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="vvl-ei-4DX" customClass="ResetPasswordViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MuS-v2-ANd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -473,7 +473,7 @@
         <!--Profil Creation View Controller-->
         <scene sceneID="xec-Qr-IAi">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="DBt-aw-wFD" customClass="ProfilCreationViewController" customModule="Astek_Entretien" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="DBt-aw-wFD" customClass="ProfilCreationViewController" customModule="Astek_Entretien" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nLF-BT-eyV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -878,7 +878,7 @@
         <!--Bilan Mission View Controller-->
         <scene sceneID="Qlr-mg-i6h">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Bxz-R5-rwA" customClass="BilanMissionViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Bxz-R5-rwA" customClass="BilanMissionViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k24-VT-PdI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1016,7 +1016,7 @@
         <!--Employee Appreciation View Controller-->
         <scene sceneID="xi2-Qr-XAj">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ofk-c1-az9" customClass="EmployeeAppreciationViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="ofk-c1-az9" customClass="EmployeeAppreciationViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EU6-JR-yVB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1202,7 +1202,7 @@
         <!--Manager Appreciation View Controller-->
         <scene sceneID="HR0-1c-fpa">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="k6t-9Z-tPy" customClass="ManagerAppreciationViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="k6t-9Z-tPy" customClass="ManagerAppreciationViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Njl-Pm-PDY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1388,7 +1388,7 @@
         <!--Target Evaluation View Controller-->
         <scene sceneID="pkE-0G-kYC">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="cXf-Nd-0zQ" customClass="TargetEvaluationViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="cXf-Nd-0zQ" customClass="TargetEvaluationViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tgl-9e-8RG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1692,7 +1692,7 @@
         <!--Performance Evaluation View Controller-->
         <scene sceneID="JJc-QU-vwf">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="E1G-k0-Ta9" customClass="PerformanceEvaluationViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="E1G-k0-Ta9" customClass="PerformanceEvaluationViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fd2-FG-NNT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1901,7 +1901,7 @@
         <!--Technical Skill View Controller-->
         <scene sceneID="aov-WR-cTZ">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ub1-7o-ybN" customClass="TechnicalSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="ub1-7o-ybN" customClass="TechnicalSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mJF-xW-J34">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2314,7 +2314,7 @@
         <!--Profession Skill View Controller-->
         <scene sceneID="IOP-cZ-aWJ">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Dpb-Tm-3Te" customClass="ProfessionSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Dpb-Tm-3Te" customClass="ProfessionSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gxy-vg-VG1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2865,7 +2865,7 @@
         <!--Functional Skill View Controller-->
         <scene sceneID="Bh0-0S-4kA">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="13F-N4-gb0" customClass="FunctionalSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="13F-N4-gb0" customClass="FunctionalSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o7n-aE-dsa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3278,7 +3278,7 @@
         <!--Managerial Skill View Controller-->
         <scene sceneID="swC-C1-Xd5">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="dKZ-xf-WqW" customClass="ManagerialSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="dKZ-xf-WqW" customClass="ManagerialSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="azD-sA-9Vd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3691,7 +3691,7 @@
         <!--Autonomous Skill View Controller-->
         <scene sceneID="vpR-Uf-2IS">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="4rO-E8-etC" customClass="AutonomousSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="4rO-E8-etC" customClass="AutonomousSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eQm-St-32a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3919,7 +3919,7 @@
         <!--Adaptability Skill View Controller-->
         <scene sceneID="XDA-Ld-2II">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="yPi-B4-CJO" customClass="AdaptabilitySkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="yPi-B4-CJO" customClass="AdaptabilitySkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MKi-nC-KW9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4147,7 +4147,7 @@
         <!--Team Work Skill View Controller-->
         <scene sceneID="gjl-nL-A5n">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="KaQ-mE-m99" customClass="TeamWorkSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="KaQ-mE-m99" customClass="TeamWorkSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mSQ-s3-ef3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4375,7 +4375,7 @@
         <!--Creativity Skill View Controller-->
         <scene sceneID="7D3-d7-aI7">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="2ZW-Ev-HAU" customClass="CreativitySkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="2ZW-Ev-HAU" customClass="CreativitySkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bA-cN-yv7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4603,7 +4603,7 @@
         <!--Communication Skill View Controller-->
         <scene sceneID="UyO-P1-xLb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="LCN-bz-zl7" customClass="CommunicationSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="LCN-bz-zl7" customClass="CommunicationSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sC0-Id-zOX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4832,7 +4832,7 @@
         <!--Implication Skill View Controller-->
         <scene sceneID="DYZ-Dl-pnl">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="WVw-3B-GjP" customClass="ImplicationSkillViewController" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="WVw-3B-GjP" customClass="ImplicationSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="REC-wz-rAg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5061,7 +5061,7 @@
         <!--Respect Skill View Controller-->
         <scene sceneID="Mrv-To-VvX">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="NHg-U5-ML5" customClass="RespectSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="NHg-U5-ML5" customClass="RespectSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3w9-qq-WC2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5290,7 +5290,7 @@
         <!--Rigour Skill View Controller-->
         <scene sceneID="Ckt-Fh-HxU">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="3rf-fo-1Fh" customClass="RigourSkillViewController" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="3rf-fo-1Fh" customClass="RigourSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jN8-df-uPr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5519,7 +5519,7 @@
         <!--English Skill View Controller-->
         <scene sceneID="2iX-KW-Aal">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="eDm-Fu-Dn6" customClass="EnglishSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="eDm-Fu-Dn6" customClass="EnglishSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sXh-Vt-nrE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5748,7 +5748,7 @@
         <!--Other Langage Skill View Controller-->
         <scene sceneID="Pdk-ll-YX6">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="x9M-gs-hkt" customClass="OtherLangageSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="x9M-gs-hkt" customClass="OtherLangageSkillViewController" customModule="Astek_Entretien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IsF-CU-BU9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5983,27 +5983,27 @@
         <image name="rightArrow" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UHg-zk-08c"/>
-        <segue reference="X9b-d0-hDv"/>
-        <segue reference="t7a-k1-88d"/>
+        <segue reference="L2a-eg-b9x"/>
+        <segue reference="PVp-mh-51N"/>
+        <segue reference="Yf0-Iy-fln"/>
         <segue reference="V9C-US-yUc"/>
-        <segue reference="si1-e5-mBM"/>
-        <segue reference="mgJ-6F-uvx"/>
-        <segue reference="d9x-Py-1JD"/>
-        <segue reference="6Fc-hF-VHj"/>
-        <segue reference="gJV-HS-sWR"/>
-        <segue reference="xYE-iM-dlh"/>
-        <segue reference="n7b-JU-9dI"/>
-        <segue reference="8cW-VK-et9"/>
-        <segue reference="eaQ-mM-eJz"/>
-        <segue reference="qxV-39-hPE"/>
-        <segue reference="Q6h-ib-fev"/>
-        <segue reference="j67-6F-1Cs"/>
-        <segue reference="hSN-5o-1cX"/>
-        <segue reference="xMi-ce-O06"/>
-        <segue reference="UKh-lO-sdp"/>
-        <segue reference="tjG-bx-ghn"/>
-        <segue reference="3Eg-FN-JuD"/>
-        <segue reference="gzh-KS-5p3"/>
+        <segue reference="MwI-Tc-o8H"/>
+        <segue reference="khT-MR-sP1"/>
+        <segue reference="5zq-OW-ZMc"/>
+        <segue reference="GHM-gd-XX8"/>
+        <segue reference="Cdv-Bc-GOC"/>
+        <segue reference="HgN-nU-30p"/>
+        <segue reference="hHU-9w-oxL"/>
+        <segue reference="nWN-Yi-SzF"/>
+        <segue reference="QCu-8r-SNP"/>
+        <segue reference="fCd-tb-iDr"/>
+        <segue reference="jye-0c-50V"/>
+        <segue reference="P6p-wh-f9O"/>
+        <segue reference="KDA-gI-Zya"/>
+        <segue reference="Dji-HB-pEK"/>
+        <segue reference="CFn-Jp-W9A"/>
+        <segue reference="apk-cS-b8U"/>
+        <segue reference="BXa-cI-acp"/>
+        <segue reference="jic-DZ-LTg"/>
     </inferredMetricsTieBreakers>
 </document>

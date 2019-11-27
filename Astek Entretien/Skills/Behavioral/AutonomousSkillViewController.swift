@@ -48,6 +48,7 @@ class AutonomousSkillViewController: UIViewController {
         super.viewDidLoad()
         
         initText()
+        initSwipeGesture()
         
         className = NSStringFromClass(AutonomousSkillViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
@@ -81,6 +82,31 @@ class AutonomousSkillViewController: UIViewController {
     
     @objc func showInfo(_ sender: UIButton) {
         UIUtil.showMessage(text: StringValues.graduationInfo)
+    }
+    
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer)
+    {
+        if (sender.direction == .left)
+        {
+           checkFieldEmpty()
+        }
+
+        if (sender.direction == .right)
+        {
+           createOrUpdate()
+           UIUtil.goToPreviousPage(className: className, controller: self)
+        }
+    }
+    
+    private func initSwipeGesture(){
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
     }
     
     private func initText() {
