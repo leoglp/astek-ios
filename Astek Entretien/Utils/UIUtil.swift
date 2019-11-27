@@ -77,6 +77,8 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showOtherLangageSkill", sender: nil)
         case 21:
             controller.performSegue(withIdentifier: "showSkillEvaluation", sender: nil)
+            case 22:
+            controller.performSegue(withIdentifier: "showFutureTargetEvaluation", sender: nil)
         default:
             return
         }
@@ -217,7 +219,9 @@ class UIUtil {
                 buttonAdd.isEnabled = false
             } else {
                 buttonDelete.isHidden = true
+                buttonAdd.isUserInteractionEnabled = false
                 buttonAdd.isHidden = false
+                buttonAdd.isUserInteractionEnabled = true
             }
         case 2:
             if(!isManager) {
@@ -232,7 +236,9 @@ class UIUtil {
                 buttonAdd.isEnabled = false
             } else {
                 buttonDelete.isHidden = false
+                buttonDelete.isUserInteractionEnabled = true
                 buttonAdd.isHidden = false
+                buttonAdd.isUserInteractionEnabled = true
             }
         case 3:
             if(!isManager) {
@@ -247,7 +253,9 @@ class UIUtil {
                 buttonAdd.isEnabled = false
             } else {
                 buttonDelete.isHidden = false
+                buttonDelete.isUserInteractionEnabled = true
                 buttonAdd.isHidden = true
+                buttonAdd.isUserInteractionEnabled = false
             }
         default:
             return

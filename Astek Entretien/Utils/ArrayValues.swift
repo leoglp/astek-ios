@@ -30,5 +30,6 @@ class ArrayValues {
                               "RigourSkillViewController",
                               "EnglishSkillViewController",
                               "OtherLangageSkillViewController",
-                              "SkillEvaluationViewController"]
+                              "SkillEvaluationViewController",
+                              "FutureTargetEvaluationViewController"]
 }
