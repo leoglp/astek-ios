@@ -75,6 +75,8 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showEnglishSkill", sender: nil)
         case 20:
             controller.performSegue(withIdentifier: "showOtherLangageSkill", sender: nil)
+        case 21:
+            controller.performSegue(withIdentifier: "showSkillEvaluation", sender: nil)
         default:
             return
         }

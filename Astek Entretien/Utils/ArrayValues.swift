@@ -29,5 +29,6 @@ class ArrayValues {
                               "RespectSkillViewController",
                               "RigourSkillViewController",
                               "EnglishSkillViewController",
-                              "OtherLangageSkillViewController"]
+                              "OtherLangageSkillViewController",
+                              "SkillEvaluationViewController"]
 }
