@@ -34,5 +34,6 @@ class ArrayValues {
                               "FutureTargetEvaluationViewController",
                               "ShortEvolutionViewController",
                               "MediumEvolutionViewController",
-                              "LongEvolutionViewController"]
+                              "LongEvolutionViewController",
+                              "OthersEvolutionViewController"]
 }

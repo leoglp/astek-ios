@@ -85,6 +85,8 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showMediumEvolution", sender: nil)
         case 25:
             controller.performSegue(withIdentifier: "showLongEvolution", sender: nil)
+        case 26:
+            controller.performSegue(withIdentifier: "showOthersEvolution", sender: nil)
         default:
             return
         }
