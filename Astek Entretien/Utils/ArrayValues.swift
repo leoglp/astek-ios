@@ -35,5 +35,8 @@ class ArrayValues {
                               "ShortEvolutionViewController",
                               "MediumEvolutionViewController",
                               "LongEvolutionViewController",
-                              "OthersEvolutionViewController"]
+                              "OthersEvolutionViewController",
+                              "BilanFormationViewController",
+                              "WishFormationViewController",
+                              "CPFViewController"]
 }

@@ -87,6 +87,12 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showLongEvolution", sender: nil)
         case 26:
             controller.performSegue(withIdentifier: "showOthersEvolution", sender: nil)
+        case 27:
+            controller.performSegue(withIdentifier: "showBilanFormation", sender: nil)
+        case 28:
+            controller.performSegue(withIdentifier: "showWishFormation", sender: nil)
+        case 29:
+            controller.performSegue(withIdentifier: "showCPF", sender: nil)
         default:
             return
         }

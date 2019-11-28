@@ -14,6 +14,9 @@
 		6E152886238EC6BB0031B43F /* MediumEvolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E152885238EC6BB0031B43F /* MediumEvolutionViewController.swift */; };
 		6E152888238EC6CC0031B43F /* LongEvolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E152887238EC6CC0031B43F /* LongEvolutionViewController.swift */; };
 		6E15288A238ED14B0031B43F /* OthersEvolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E152889238ED14B0031B43F /* OthersEvolutionViewController.swift */; };
+		6E15288C238FD1170031B43F /* BilanFormationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15288B238FD1170031B43F /* BilanFormationViewController.swift */; };
+		6E15288E23900AD70031B43F /* WishFormationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15288D23900AD70031B43F /* WishFormationViewController.swift */; };
+		6E15289023901FC70031B43F /* CPFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15288F23901FC70031B43F /* CPFViewController.swift */; };
 		6E68CB1E2386BE3E004E3B61 /* EmployeeAppreciationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68CB1D2386BE3E004E3B61 /* EmployeeAppreciationViewController.swift */; };
 		6E68CB202386CAFD004E3B61 /* ManagerAppreciationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68CB1F2386CAFD004E3B61 /* ManagerAppreciationViewController.swift */; };
 		6E68CB222386D8EC004E3B61 /* TargetEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68CB212386D8EC004E3B61 /* TargetEvaluationViewController.swift */; };
@@ -61,6 +64,9 @@
 		6E152885238EC6BB0031B43F /* MediumEvolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumEvolutionViewController.swift; sourceTree = "<group>"; };
 		6E152887238EC6CC0031B43F /* LongEvolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongEvolutionViewController.swift; sourceTree = "<group>"; };
 		6E152889238ED14B0031B43F /* OthersEvolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersEvolutionViewController.swift; sourceTree = "<group>"; };
+		6E15288B238FD1170031B43F /* BilanFormationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilanFormationViewController.swift; sourceTree = "<group>"; };
+		6E15288D23900AD70031B43F /* WishFormationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishFormationViewController.swift; sourceTree = "<group>"; };
+		6E15288F23901FC70031B43F /* CPFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFViewController.swift; sourceTree = "<group>"; };
 		6E68CB1D2386BE3E004E3B61 /* EmployeeAppreciationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAppreciationViewController.swift; sourceTree = "<group>"; };
 		6E68CB1F2386CAFD004E3B61 /* ManagerAppreciationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAppreciationViewController.swift; sourceTree = "<group>"; };
 		6E68CB212386D8EC004E3B61 /* TargetEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetEvaluationViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +201,10 @@
 				6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */,
 				6ECBD47E237D6D6B00F0E433 /* MainViewController.swift */,
 				6ECBD49D237EE9CE00F0E433 /* ResetPasswordViewController.swift */,
+				6E15288D23900AD70031B43F /* WishFormationViewController.swift */,
+				6E15288B238FD1170031B43F /* BilanFormationViewController.swift */,
 				6E68CB1D2386BE3E004E3B61 /* EmployeeAppreciationViewController.swift */,
+				6E15288F23901FC70031B43F /* CPFViewController.swift */,
 				6E68CB1F2386CAFD004E3B61 /* ManagerAppreciationViewController.swift */,
 				6E9F9FC823858F1A00034FF6 /* BilanMissionViewController.swift */,
 				6E15287E238E7E3F0031B43F /* SkillEvaluationViewController.swift */,
@@ -354,10 +363,12 @@
 				6ECBD49A237EE80D00F0E433 /* ManagerViewController.swift in Sources */,
 				6E15287F238E7E3F0031B43F /* SkillEvaluationViewController.swift in Sources */,
 				6ECBD491237DB0F200F0E433 /* InterviewViewController.swift in Sources */,
+				6E15289023901FC70031B43F /* CPFViewController.swift in Sources */,
 				6E768202238C34FF00998CCB /* FunctionalSkillViewController.swift in Sources */,
 				6ECBD47F237D6D6B00F0E433 /* MainViewController.swift in Sources */,
 				6E76820D238D643400998CCB /* TeamWorkViewController.swift in Sources */,
 				6ECBD47B237D6D6B00F0E433 /* AppDelegate.swift in Sources */,
+				6E15288E23900AD70031B43F /* WishFormationViewController.swift in Sources */,
 				6E768211238D7F1D00998CCB /* CommunicationSkillViewController.swift in Sources */,
 				6E768206238D32B200998CCB /* ManagerialSkillViewController.swift in Sources */,
 				6E768217238D802000998CCB /* EnglishSkillViewController.swift in Sources */,
@@ -380,6 +391,7 @@
 				6ECBD498237EA81200F0E433 /* StringValues.swift in Sources */,
 				6E768200238C291800998CCB /* ProfessionSkillViewController.swift in Sources */,
 				6E768213238D7F5A00998CCB /* RespectSkillViewController.swift in Sources */,
+				6E15288C238FD1170031B43F /* BilanFormationViewController.swift in Sources */,
 				6E68CB222386D8EC004E3B61 /* TargetEvaluationViewController.swift in Sources */,
 				6E152888238EC6CC0031B43F /* LongEvolutionViewController.swift in Sources */,
 				6E768219238D803400998CCB /* OtherLangageSkillViewController.swift in Sources */,

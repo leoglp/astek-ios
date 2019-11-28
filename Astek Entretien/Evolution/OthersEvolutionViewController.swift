@@ -89,10 +89,15 @@ class OthersEvolutionViewController: UIViewController {
         
         @objc func handleSwipes(_ sender:UISwipeGestureRecognizer){
             if (sender.direction == .left){
-               if(mobilityText.text == "" || activityText.text == ""
-                   || otherText.text == "") {
+               if(mobilityText.text == "") {
                    UIUtil.showMessage(text: StringValues.errorNoInput)
                } else {
+                   if(activityText.text == "") {
+                       activityText.text = "/"
+                   }
+                   if(otherText.text == "") {
+                       otherText.text = "/"
+                   }
                    createOrUpdate()
                    UIUtil.goToNextPage(className: className, controller: self)
                }
@@ -117,17 +122,17 @@ class OthersEvolutionViewController: UIViewController {
         }
         
         private func createValueInDB(){
-            DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "longEvolution")
+            DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "othersEvolution")
         }
         
         private func updateValueInDB(){
-            DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "longEvolution",documentUpdateId: documentUpdateId)
+            DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "othersEvolution",documentUpdateId: documentUpdateId)
         }
         
         
         private func retrieveData() {
             let db = Firestore.firestore()
-            db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("longEvolution").getDocuments() { (querySnapshot, err) in
+            db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("othersEvolution").getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
