@@ -115,7 +115,7 @@ class BilanFormationViewController: UIViewController {
         
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
-       employerButton1.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        employerButton1.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         employeeButton1.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         employerButton2.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         employeeButton2.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
@@ -141,20 +141,20 @@ class BilanFormationViewController: UIViewController {
     }
     
     @objc func buttonClicked(_ sender: UIButton) {
-           if sender === employerButton1 {
-               buttonValue1 = "Employeur"
-               employeeButton1.isSelected = false
-           } else if sender === employeeButton1 {
-              buttonValue1 = "Salarié"
-               employerButton1.isSelected = false
-           } else if sender === employerButton2 {
-               buttonValue2 = "Employeur"
-               employeeButton2.isSelected = false
-           } else if sender === employeeButton2 {
-              buttonValue2 = "Employeur"
-               employerButton2.isSelected = false
-           }
-       }
+        if sender === employerButton1 {
+            buttonValue1 = "Employeur"
+            employeeButton1.isSelected = false
+        } else if sender === employeeButton1 {
+            buttonValue1 = "Salarié"
+            employerButton1.isSelected = false
+        } else if sender === employerButton2 {
+            buttonValue2 = "Employeur"
+            employeeButton2.isSelected = false
+        } else if sender === employeeButton2 {
+            buttonValue2 = "Employeur"
+            employerButton2.isSelected = false
+        }
+    }
     
     
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer){
@@ -214,7 +214,7 @@ class BilanFormationViewController: UIViewController {
         switch numberTarget {
         case 1:
             entitledStackView2.isHidden = true
-           entitledTopConstraint2.constant = 0
+            entitledTopConstraint2.constant = 0
             entitledStackViewHeight2.constant = 0
             
             dateStackView2.isHidden = true
@@ -228,10 +228,10 @@ class BilanFormationViewController: UIViewController {
             
             initiativeStackView2.isHidden = true
             initiativeTopConstraint2.constant = 0
-             initiativeStackViewHeight2.constant = 0
+            initiativeStackViewHeight2.constant = 0
             
-           implementationStackView2.isHidden = true
-           implementationTopConstraint2.constant = 0
+            implementationStackView2.isHidden = true
+            implementationTopConstraint2.constant = 0
             implementationStackViewHeight2.constant = 0
             
             commentaryStackView2.isHidden = true
@@ -244,30 +244,30 @@ class BilanFormationViewController: UIViewController {
         case 2:
             entitledStackView2.isHidden = false
             entitledTopConstraint2.constant = 20
-             entitledStackViewHeight2.constant = 30
-             
-             dateStackView2.isHidden = false
-             dateTopConstraint2.constant = 10
-             dateStackViewHeight2.constant = 30
-             
-             durationStackView2.isHidden = false
-             durationTopConstraint2.constant = 10
-             durationStackViewHeight2.constant = 30
-             
+            entitledStackViewHeight2.constant = 30
+            
+            dateStackView2.isHidden = false
+            dateTopConstraint2.constant = 10
+            dateStackViewHeight2.constant = 30
+            
+            durationStackView2.isHidden = false
+            durationTopConstraint2.constant = 10
+            durationStackViewHeight2.constant = 30
+            
             initiativeStackView2.isHidden = false
             initiativeTopConstraint2.constant = 10
             initiativeStackViewHeight2.constant = 35
             
             implementationStackView2.isHidden = false
             implementationTopConstraint2.constant = 20
-             implementationStackViewHeight2.constant = 150
-             
-             commentaryStackView2.isHidden = false
-             commentaryTopConstraint2.constant = 20
-             commentaryStackViewHeight2.constant = 110
-             
-             constraintContentHeight.constant = 480
-        break
+            implementationStackViewHeight2.constant = 150
+            
+            commentaryStackView2.isHidden = false
+            commentaryTopConstraint2.constant = 20
+            commentaryStackViewHeight2.constant = 110
+            
+            constraintContentHeight.constant = 480
+            break
             
         default:
             return

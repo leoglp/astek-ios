@@ -17,6 +17,13 @@ class StringValues {
     static let errorNoPerson = "Aucune personne de ce nom n'a été trouvée."
     static let graduationInfo = "1- Très Satisfaisant / 2 - Satisfaisant / 3 - Moyen / 4 – Insuffisant"
     static let errorGraduation = "La note doit être comprise entre 1 et 4."
+    static let generateReport = "GENERER LE RAPPORT"
+    static let notifyManager = "AVERTIR LE MANAGER"
+    static let processing = "Génération en cours..."
+    static let mailObject = "Support Entretien Annuel de "
+    static let mailSubjectEmployee = "Bonjour, <br> <br> J'ai terminé ma partie concernant le support de l'entretien annuel. <br> <br> Cordialement, <br>"
+    static let mailSubjectManager = "Bonjour, <br> <br>Vous trouverez ci-joint le support de l'entretien annuel complété. <br> <br> Cordialement, <br>"
+    
 
 
 }

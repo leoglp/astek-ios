@@ -93,6 +93,8 @@ class UIUtil {
             controller.performSegue(withIdentifier: "showWishFormation", sender: nil)
         case 29:
             controller.performSegue(withIdentifier: "showCPF", sender: nil)
+        case 30:
+            controller.performSegue(withIdentifier: "showSynthesis", sender: nil)
         default:
             return
         }

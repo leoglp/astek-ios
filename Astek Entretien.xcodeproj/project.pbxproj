@@ -35,6 +35,9 @@
 		6E768217238D802000998CCB /* EnglishSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768216238D802000998CCB /* EnglishSkillViewController.swift */; };
 		6E768219238D803400998CCB /* OtherLangageSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E768218238D803400998CCB /* OtherLangageSkillViewController.swift */; };
 		6E76821B238D886B00998CCB /* ImplicationSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76821A238D886A00998CCB /* ImplicationSkillViewController.swift */; };
+		6E8FC46023911903002BB994 /* SynthesisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8FC45F23911903002BB994 /* SynthesisViewController.swift */; };
+		6E8FC462239138D4002BB994 /* MailUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8FC461239138D4002BB994 /* MailUtil.swift */; };
+		6E8FC46523915663002BB994 /* PDFUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8FC46423915663002BB994 /* PDFUtil.swift */; };
 		6E9F9FC32382F4C000034FF6 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */; };
 		6E9F9FC52384040500034FF6 /* ProfilCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */; };
 		6E9F9FC72384525A00034FF6 /* ArrayValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9F9FC62384525A00034FF6 /* ArrayValues.swift */; };
@@ -85,6 +88,9 @@
 		6E768216238D802000998CCB /* EnglishSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishSkillViewController.swift; sourceTree = "<group>"; };
 		6E768218238D803400998CCB /* OtherLangageSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherLangageSkillViewController.swift; sourceTree = "<group>"; };
 		6E76821A238D886A00998CCB /* ImplicationSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImplicationSkillViewController.swift; path = "/Users/leoguilpain/IOS Project/astek-ios/Astek Entretien/Skills/Behavioral/ImplicationSkillViewController.swift"; sourceTree = "<absolute>"; };
+		6E8FC45F23911903002BB994 /* SynthesisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisViewController.swift; sourceTree = "<group>"; };
+		6E8FC461239138D4002BB994 /* MailUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailUtil.swift; sourceTree = "<group>"; };
+		6E8FC46423915663002BB994 /* PDFUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFUtil.swift; sourceTree = "<group>"; };
 		6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
 		6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilCreationViewController.swift; sourceTree = "<group>"; };
 		6E9F9FC62384525A00034FF6 /* ArrayValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayValues.swift; sourceTree = "<group>"; };
@@ -171,6 +177,14 @@
 			path = Behavioral;
 			sourceTree = "<group>";
 		};
+		6E8FC46323915651002BB994 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				6E8FC46423915663002BB994 /* PDFUtil.swift */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
 		6ECBD46E237D6D6B00F0E433 = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +213,7 @@
 				6E152882238EC6650031B43F /* Evolution */,
 				6ECBD47C237D6D6B00F0E433 /* SceneDelegate.swift */,
 				6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */,
+				6E8FC45F23911903002BB994 /* SynthesisViewController.swift */,
 				6ECBD47E237D6D6B00F0E433 /* MainViewController.swift */,
 				6ECBD49D237EE9CE00F0E433 /* ResetPasswordViewController.swift */,
 				6E15288D23900AD70031B43F /* WishFormationViewController.swift */,
@@ -226,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				6ECBD493237DB69F00F0E433 /* AuthenticationUtil.swift */,
+				6E8FC46323915651002BB994 /* PDF */,
+				6E8FC461239138D4002BB994 /* MailUtil.swift */,
 				6E768203238D17A100998CCB /* SkillUtil.swift */,
 				6E9F9FC22382F4C000034FF6 /* DatabaseUtil.swift */,
 				6ECBD495237EA62300F0E433 /* UIUtil.swift */,
@@ -376,6 +393,7 @@
 				6E152886238EC6BB0031B43F /* MediumEvolutionViewController.swift in Sources */,
 				6E768204238D17A100998CCB /* SkillUtil.swift in Sources */,
 				6ECBD496237EA62300F0E433 /* UIUtil.swift in Sources */,
+				6E8FC46523915663002BB994 /* PDFUtil.swift in Sources */,
 				6E768215238D7FFF00998CCB /* RigourSkillViewController.swift in Sources */,
 				6E9F9FC52384040500034FF6 /* ProfilCreationViewController.swift in Sources */,
 				6E9F9FC32382F4C000034FF6 /* DatabaseUtil.swift in Sources */,
@@ -383,6 +401,7 @@
 				6E68CB1E2386BE3E004E3B61 /* EmployeeAppreciationViewController.swift in Sources */,
 				6E152884238EC67F0031B43F /* ShortEvolutionViewController.swift in Sources */,
 				6ECBD47D237D6D6B00F0E433 /* SceneDelegate.swift in Sources */,
+				6E8FC46023911903002BB994 /* SynthesisViewController.swift in Sources */,
 				6E9F9FC923858F1A00034FF6 /* BilanMissionViewController.swift in Sources */,
 				6ECBD49E237EE9CE00F0E433 /* ResetPasswordViewController.swift in Sources */,
 				6ECBD494237DB69F00F0E433 /* AuthenticationUtil.swift in Sources */,
@@ -398,6 +417,7 @@
 				6E9F9FC72384525A00034FF6 /* ArrayValues.swift in Sources */,
 				6E68CB202386CAFD004E3B61 /* ManagerAppreciationViewController.swift in Sources */,
 				6E76820B238D639B00998CCB /* AdaptabilitySkillViewController.swift in Sources */,
+				6E8FC462239138D4002BB994 /* MailUtil.swift in Sources */,
 				6E15288A238ED14B0031B43F /* OthersEvolutionViewController.swift in Sources */,
 				6E152881238EBB520031B43F /* FutureTargetEvaluationViewController.swift in Sources */,
 				6EA8192223881E6D00930DD2 /* PerformanceEvaluationViewController.swift in Sources */,

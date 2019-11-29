@@ -38,5 +38,6 @@ class ArrayValues {
                               "OthersEvolutionViewController",
                               "BilanFormationViewController",
                               "WishFormationViewController",
-                              "CPFViewController"]
+                              "CPFViewController",
+                              "SynthesisViewController"]
 }
