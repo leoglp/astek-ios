@@ -173,6 +173,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - PDFGenerator (3.1.0)
   - Protobuf (3.10.0)
 
 DEPENDENCIES:
@@ -182,6 +183,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - FirebaseFirestoreSwift
   - MaterialComponents/Snackbar
+  - PDFGenerator (~> 3.1)
 
 SPEC REPOS:
   trunk:
@@ -209,6 +211,7 @@ SPEC REPOS:
     - MDFInternationalization
     - MDFTextAccessibility
     - nanopb
+    - PDFGenerator
     - Protobuf
 
 SPEC CHECKSUMS:
@@ -236,8 +239,9 @@ SPEC CHECKSUMS:
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PDFGenerator: 17d6bc525db0a3fcd156fbf00f9d1b8d5cc75d1e
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
 
-PODFILE CHECKSUM: 1fd728e5cdb1ee1fe49102845fdbcbe42352ef69
+PODFILE CHECKSUM: f7a2efe7508df8064267e70f1d21dd2998ae147c
 
 COCOAPODS: 1.8.4

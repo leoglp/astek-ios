@@ -34,18 +34,23 @@ class SynthesisViewController: UIViewController {
     @IBOutlet weak var rightArrow: UIButton!
     
     @IBAction func ClickOnResultButton(_ sender: Any) {
-        if(AuthenticationUtil.isManager){
+        /*if(AuthenticationUtil.isManager){
             createOrUpdate()
             UIUtil.showMessage(text: StringValues.processing)
             processing = true
-            //createPdf(this)
+            PDFUtil.createPdf()
         } else {
             if(mailText.text == ""){
                 UIUtil.showMessage(text: StringValues.errorNoInput)
             } else {
                 MailUtil.sendEmail(controller: self, mailComposeDelegate: self , recipient: mailText.text!)
             }
-        }
+        }*/
+        //PDFUtil.createPdf(controller: self, mailComposeDelegate: self , recipient: mailText.text!)
+        processing = true
+        print("ClickOnResultButton processing : \(processing)")
+
+        performSegue(withIdentifier: "firstPDF", sender: nil)
     }
     
     
@@ -68,7 +73,10 @@ class SynthesisViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("viewDidLoad")
+
+        print("viewDidLoad processing : \(processing)")
+
         rightArrow.isHidden = true
         rightArrow.isUserInteractionEnabled = false
         
@@ -97,6 +105,15 @@ class SynthesisViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear processing : \(processing)")
+
+        
+        if(processing) {
+            UIUtil.showMessage(text: StringValues.processingSuccess)
+            processing = false
+        }
+        
+
         retrieveData()
     }
     
@@ -212,15 +229,6 @@ extension SynthesisViewController: UITextFieldDelegate {
         self.activeField?.resignFirstResponder()
         //self.activeField = nil
         return true
-    }
-}
-
-
-// MARK: MFMailComposeViewControllerDelegate
-extension SynthesisViewController: MFMailComposeViewControllerDelegate {
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
     }
 }
 

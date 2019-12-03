@@ -16,4 +16,6 @@ target 'Astek Entretien' do
 
   pod 'DLRadioButton', '~> 1.4'
 
+pod 'PDFGenerator', '~> 3.1'
+
 end
