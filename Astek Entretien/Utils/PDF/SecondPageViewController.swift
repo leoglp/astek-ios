@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MessageUI
 import Firebase
 import PDFGenerator
 
@@ -18,7 +17,7 @@ class SecondPageViewController: UIViewController {
     let db = Firestore.firestore()
     
     var pageController: UIViewController!
-    
+
     @IBOutlet weak var pageView: UIView!
     
     @IBOutlet weak var titlePlan: UILabel!
@@ -49,26 +48,10 @@ class SecondPageViewController: UIViewController {
         firstRectangleValue()
     }
     
-    private func generateMail() {
-        let pdfName =  AuthenticationUtil.employeeName + "_" + AuthenticationUtil.employeeSurname + ".pdf"
-        let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending(pdfName))
-        
-        // outputs as Data
-        do {
-            let data = try PDFGenerator.generated(by: PDFUtil.tabView)
-            try data.write(to: dst, options: .atomic)
-            MailUtil.sendMailWithPdf(controller: self, mailComposeDelegate: self, recipient: "leoguilpain36@gmail.com")
-        } catch (let error) {
-            print(error)
-        }
-    }
-    
     private func initText() {
-        titlePlan!.layer.borderWidth = 1
-        bilanPlanText!.layer.borderWidth = 1
-        targetPlanText!.layer.borderWidth = 1
-        evolutionPlanText!.layer.borderWidth = 1
-        formationPlanText!.layer.borderWidth = 1
+        PDFUtil.planUI(titlePlan: titlePlan, bilanPlanText: bilanPlanText,
+        targetPlanText: targetPlanText, evolutionPlanText: evolutionPlanText,
+        formationPlanText: formationPlanText)
         
         firstTitleText.underline()
         bilanText!.layer.borderWidth = 1
@@ -141,7 +124,7 @@ class SecondPageViewController: UIViewController {
                     
                     self.appreciationManagerText.text = text
                     
-                    self.generateMail()
+                    self.performSegue(withIdentifier: "thirdPDF", sender: nil)
                 }
             }
         }
@@ -151,32 +134,14 @@ class SecondPageViewController: UIViewController {
     
 }
 
-
-// MARK: MFMailComposeViewControllerDelegate
-extension SecondPageViewController : MFMailComposeViewControllerDelegate {
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-        pageController.perform(#selector(presentExampleController), with: nil, afterDelay: 0)
-    }
-    
-    @objc private func presentExampleController() {
-        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let exampleVC = exampleStoryboard.instantiateViewController(withIdentifier: "SynthesisView") as! SynthesisViewController
-        present(exampleVC, animated: true)
-    }
-    
-}
-
-
 extension UILabel {
     func underline() {
         if let textString = self.text {
             let attributedString = NSMutableAttributedString(string: textString)
             attributedString.addAttribute(NSAttributedString.Key.underlineStyle,
                                           value: NSUnderlineStyle.single.rawValue,
-                                          range: NSRange(location: 0, length: textString.count))
-            self.attributedText = attributedString
+                                          range: NSRange(location: 0, length: attributedString.length - 1))
+            attributedText = attributedString
         }
     }
 }
