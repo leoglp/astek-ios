@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MessageUI
 import PDFGenerator
 import Firebase
 
@@ -15,9 +14,8 @@ import Firebase
 class FirstPageViewController: UIViewController {
     
     let db = Firestore.firestore()
-    
-    var pdfName: String!
-    var firstPageController: UIViewController!
+
+    var pageController: UIViewController!
     
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var titleFirstRectangle: UILabel!
@@ -31,7 +29,9 @@ class FirstPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstPageController = self
+        pageController = self
+        
+        PDFUtil.tabView.append(pageView)
         
         titleFirstRectangle!.layer.borderWidth = 1
         firstLeftRectangleText!.layer.borderWidth = 1
@@ -124,42 +124,8 @@ class FirstPageViewController: UIViewController {
         
         self.secondRightRectangleText.text = rightnfo
         
-        
-        let pdfName =  AuthenticationUtil.employeeName + "_" + AuthenticationUtil.employeeSurname + ".pdf"
-        self.generateFirstPage(pdfName: pdfName, controller: self, mailComposeDelegate: self, recipient: "leoguilpain36@gmail.com")
+        performSegue(withIdentifier: "secondPDF", sender: nil)
     }
-    
-    private func generateFirstPage(pdfName: String,
-                                   controller: UIViewController, mailComposeDelegate: MFMailComposeViewControllerDelegate, recipient: String){
-        
-        let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending(pdfName))
-        
-        // outputs as Data
-        do {
-            let data = try PDFGenerator.generated(by: [pageView])
-            try data.write(to: dst, options: .atomic)
-            MailUtil.sendMailWithPdf(controller: controller, mailComposeDelegate: mailComposeDelegate, recipient: "leoguilpain36@gmail.com")
-        } catch (let error) {
-            print(error)
-        }
-    }
-}
-
-
-// MARK: MFMailComposeViewControllerDelegate
-extension FirstPageViewController: MFMailComposeViewControllerDelegate {
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-        firstPageController.perform(#selector(presentExampleController), with: nil, afterDelay: 0)
-    }
-    
-    @objc private func presentExampleController() {
-        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let exampleVC = exampleStoryboard.instantiateViewController(withIdentifier: "SynthesisView") as! SynthesisViewController
-        present(exampleVC, animated: true)
-    }
-    
 }
 
 

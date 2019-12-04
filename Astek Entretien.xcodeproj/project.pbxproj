@@ -17,6 +17,7 @@
 		6E15288C238FD1170031B43F /* BilanFormationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15288B238FD1170031B43F /* BilanFormationViewController.swift */; };
 		6E15288E23900AD70031B43F /* WishFormationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15288D23900AD70031B43F /* WishFormationViewController.swift */; };
 		6E15289023901FC70031B43F /* CPFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15288F23901FC70031B43F /* CPFViewController.swift */; };
+		6E3E41C82397B52B00F435D5 /* SecondPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3E41C72397B52B00F435D5 /* SecondPageViewController.swift */; };
 		6E68CB1E2386BE3E004E3B61 /* EmployeeAppreciationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68CB1D2386BE3E004E3B61 /* EmployeeAppreciationViewController.swift */; };
 		6E68CB202386CAFD004E3B61 /* ManagerAppreciationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68CB1F2386CAFD004E3B61 /* ManagerAppreciationViewController.swift */; };
 		6E68CB222386D8EC004E3B61 /* TargetEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68CB212386D8EC004E3B61 /* TargetEvaluationViewController.swift */; };
@@ -71,6 +72,7 @@
 		6E15288B238FD1170031B43F /* BilanFormationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilanFormationViewController.swift; sourceTree = "<group>"; };
 		6E15288D23900AD70031B43F /* WishFormationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishFormationViewController.swift; sourceTree = "<group>"; };
 		6E15288F23901FC70031B43F /* CPFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFViewController.swift; sourceTree = "<group>"; };
+		6E3E41C72397B52B00F435D5 /* SecondPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageViewController.swift; sourceTree = "<group>"; };
 		6E68CB1D2386BE3E004E3B61 /* EmployeeAppreciationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAppreciationViewController.swift; sourceTree = "<group>"; };
 		6E68CB1F2386CAFD004E3B61 /* ManagerAppreciationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAppreciationViewController.swift; sourceTree = "<group>"; };
 		6E68CB212386D8EC004E3B61 /* TargetEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetEvaluationViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				6E8FC46423915663002BB994 /* PDFUtil.swift */,
 				6E8FC4662391762D002BB994 /* FirstPageViewController.swift */,
+				6E3E41C72397B52B00F435D5 /* SecondPageViewController.swift */,
 			);
 			path = PDF;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				6E768209238D39FB00998CCB /* AutonomousSkillViewController.swift in Sources */,
 				6E152886238EC6BB0031B43F /* MediumEvolutionViewController.swift in Sources */,
 				6E768204238D17A100998CCB /* SkillUtil.swift in Sources */,
+				6E3E41C82397B52B00F435D5 /* SecondPageViewController.swift in Sources */,
 				6ECBD496237EA62300F0E433 /* UIUtil.swift in Sources */,
 				6E8FC46523915663002BB994 /* PDFUtil.swift in Sources */,
 				6E768215238D7FFF00998CCB /* RigourSkillViewController.swift in Sources */,

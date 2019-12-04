@@ -12,6 +12,7 @@ import MessageUI
 
 class PDFUtil: NSObject {
         
+    static var tabView : Array<UIView> = []
  
    
 }
