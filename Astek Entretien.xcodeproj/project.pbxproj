@@ -61,6 +61,7 @@
 		6ECBD498237EA81200F0E433 /* StringValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD497237EA81200F0E433 /* StringValues.swift */; };
 		6ECBD49A237EE80D00F0E433 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD499237EE80D00F0E433 /* ManagerViewController.swift */; };
 		6ECBD49E237EE9CE00F0E433 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD49D237EE9CE00F0E433 /* ResetPasswordViewController.swift */; };
+		6EDAF3E023995E6E0080838E /* FifhtPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDAF3DF23995E6E0080838E /* FifhtPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		6ECBD497237EA81200F0E433 /* StringValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValues.swift; sourceTree = "<group>"; };
 		6ECBD499237EE80D00F0E433 /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		6ECBD49D237EE9CE00F0E433 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		6EDAF3DF23995E6E0080838E /* FifhtPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifhtPageViewController.swift; sourceTree = "<group>"; };
 		8DD6EAB6DFB39584E463660C /* Pods_Astek_Entretien.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Astek_Entretien.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B2E31AFD2BAF16BB5EF19D /* Pods-Astek Entretien.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astek Entretien.release.xcconfig"; path = "Target Support Files/Pods-Astek Entretien/Pods-Astek Entretien.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +195,7 @@
 				6E3E41C72397B52B00F435D5 /* SecondPageViewController.swift */,
 				6E3E41C92397E56B00F435D5 /* ThirdPageViewController.swift */,
 				6E3E41CB2398046C00F435D5 /* FourthPageViewController.swift */,
+				6EDAF3DF23995E6E0080838E /* FifhtPageViewController.swift */,
 			);
 			path = PDF;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				6E15289023901FC70031B43F /* CPFViewController.swift in Sources */,
 				6E768202238C34FF00998CCB /* FunctionalSkillViewController.swift in Sources */,
 				6ECBD47F237D6D6B00F0E433 /* MainViewController.swift in Sources */,
+				6EDAF3E023995E6E0080838E /* FifhtPageViewController.swift in Sources */,
 				6E76820D238D643400998CCB /* TeamWorkViewController.swift in Sources */,
 				6ECBD47B237D6D6B00F0E433 /* AppDelegate.swift in Sources */,
 				6E15288E23900AD70031B43F /* WishFormationViewController.swift in Sources */,

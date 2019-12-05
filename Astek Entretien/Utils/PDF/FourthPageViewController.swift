@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MessageUI
 import Firebase
 import PDFGenerator
 
@@ -312,20 +311,6 @@ class FourthPageViewController: UIViewController {
         
         
         retrieveTechnicalValue()
-    }
-    
-    private func generateMail() {
-        let pdfName =  AuthenticationUtil.employeeName + "_" + AuthenticationUtil.employeeSurname + ".pdf"
-        let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending(pdfName))
-        
-        // outputs as Data
-        do {
-            let data = try PDFGenerator.generated(by: PDFUtil.tabView)
-            try data.write(to: dst, options: .atomic)
-            MailUtil.sendMailWithPdf(controller: self, mailComposeDelegate: self, recipient: "leoguilpain36@gmail.com")
-        } catch (let error) {
-            print(error)
-        }
     }
     
     
@@ -777,33 +762,16 @@ class FourthPageViewController: UIViewController {
                        default:
                            return
                        }
+                    
+                    self.performSegue(withIdentifier: "fifthPDF", sender: nil)
+
                        
-                    self.generateMail()
+                   
                    }
                }
            }
        }
-    
-    
-    
-}
-
-
-
-// MARK: MFMailComposeViewControllerDelegate
-extension FourthPageViewController : MFMailComposeViewControllerDelegate {
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-        pageController.perform(#selector(presentExampleController), with: nil, afterDelay: 0)
-    }
-    
-    @objc private func presentExampleController() {
-        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let exampleVC = exampleStoryboard.instantiateViewController(withIdentifier: "SynthesisView") as! SynthesisViewController
-        present(exampleVC, animated: true)
-    }
-    
+  
 }
 
 
