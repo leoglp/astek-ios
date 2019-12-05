@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MessageUI
 import Firebase
 import PDFGenerator
 
@@ -98,21 +97,6 @@ class ThirdPageViewController: UIViewController {
     }
     
     
-    private func generateMail() {
-        let pdfName =  AuthenticationUtil.employeeName + "_" + AuthenticationUtil.employeeSurname + ".pdf"
-        let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending(pdfName))
-        
-        // outputs as Data
-        do {
-            let data = try PDFGenerator.generated(by: PDFUtil.tabView)
-            try data.write(to: dst, options: .atomic)
-            MailUtil.sendMailWithPdf(controller: self, mailComposeDelegate: self, recipient: "leoguilpain36@gmail.com")
-        } catch (let error) {
-            print(error)
-        }
-    }
-    
-    
     private func retrieveFirstValue() {
         db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("targetEvaluation").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -200,30 +184,12 @@ class ThirdPageViewController: UIViewController {
                         self.commentaryText.text = "  /"
                     }
                     
-                   self.generateMail()
+                    self.performSegue(withIdentifier: "fourthPDF", sender: nil)
                 }
             }
         }
     }
     
-    
-}
-
-
-
-// MARK: MFMailComposeViewControllerDelegate
-extension ThirdPageViewController : MFMailComposeViewControllerDelegate {
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-        pageController.perform(#selector(presentExampleController), with: nil, afterDelay: 0)
-    }
-    
-    @objc private func presentExampleController() {
-        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let exampleVC = exampleStoryboard.instantiateViewController(withIdentifier: "SynthesisView") as! SynthesisViewController
-        present(exampleVC, animated: true)
-    }
     
 }
 
