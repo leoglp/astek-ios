@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import PDFGenerator
-import MessageUI
 
 class SixthPageViewController: UIViewController {
     
@@ -81,20 +80,6 @@ class SixthPageViewController: UIViewController {
         secondRightText!.layer.borderWidth = 1
         thirdRightText!.layer.borderWidth = 1
         
-    }
-    
-    private func generateMail() {
-        let pdfName =  AuthenticationUtil.employeeName + "_" + AuthenticationUtil.employeeSurname + ".pdf"
-        let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending(pdfName))
-        
-        // outputs as Data
-        do {
-            let data = try PDFGenerator.generated(by: PDFUtil.tabView)
-            try data.write(to: dst, options: .atomic)
-            MailUtil.sendMailWithPdf(controller: self, mailComposeDelegate: self, recipient: "leoguilpain36@gmail.com")
-        } catch (let error) {
-            print(error)
-        }
     }
     
     private func retrieveShortValue() {
@@ -192,7 +177,7 @@ class SixthPageViewController: UIViewController {
                         self.othersWishes.text = "/ "
                     }
                     
-                    self.generateMail()
+                    self.performSegue(withIdentifier: "seventhPDF", sender: nil)
                     
                 }
             }
@@ -202,22 +187,4 @@ class SixthPageViewController: UIViewController {
 }
 
 
-
-
-
-// MARK: MFMailComposeViewControllerDelegate
-extension SixthPageViewController : MFMailComposeViewControllerDelegate {
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-        pageController.perform(#selector(presentExampleController), with: nil, afterDelay: 0)
-    }
-    
-    @objc private func presentExampleController() {
-        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let exampleVC = exampleStoryboard.instantiateViewController(withIdentifier: "SynthesisView") as! SynthesisViewController
-        present(exampleVC, animated: true)
-    }
-    
-}
 
