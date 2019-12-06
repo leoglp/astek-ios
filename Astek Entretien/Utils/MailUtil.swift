@@ -42,10 +42,13 @@ class MailUtil  {
             mailComposer.setToRecipients([recipient])
             
             //Set the subject
-            mailComposer.setSubject("email with document pdf")
+            let subject = StringValues.mailObject + AuthenticationUtil.employeeName + " " + AuthenticationUtil.employeeSurname
+            mailComposer.setSubject(subject)
             
             //set mail body
-            mailComposer.setMessageBody("This is what they sound like.", isHTML: true)
+            let body = StringValues.mailSubjectManager +
+                           AuthenticationUtil.managerName + " " + AuthenticationUtil.managerSurname
+            mailComposer.setMessageBody(body, isHTML: true)
             
             let pdfName =  AuthenticationUtil.employeeName + "_" + AuthenticationUtil.employeeSurname + ".pdf"
             

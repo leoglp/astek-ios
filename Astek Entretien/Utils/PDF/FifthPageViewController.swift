@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import PDFGenerator
-import MessageUI
 
 class FifthPageViewController: UIViewController {
     
@@ -71,20 +70,6 @@ class FifthPageViewController: UIViewController {
     }
     
     
-    private func generateMail() {
-           let pdfName =  AuthenticationUtil.employeeName + "_" + AuthenticationUtil.employeeSurname + ".pdf"
-           let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending(pdfName))
-           
-           // outputs as Data
-           do {
-               let data = try PDFGenerator.generated(by: PDFUtil.tabView)
-               try data.write(to: dst, options: .atomic)
-               MailUtil.sendMailWithPdf(controller: self, mailComposeDelegate: self, recipient: "leoguilpain36@gmail.com")
-           } catch (let error) {
-               print(error)
-           }
-       }
-    
     private func retrieveFirstValue() {
         db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("futureTargetEvaluation").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -101,7 +86,7 @@ class FifthPageViewController: UIViewController {
                         text = "  2 - \(target2)"
                         self.secondLeftText.text = text
                     } else {
-                        self.secondLeftText.text = "  /"
+                        self.secondLeftText.text = "  / "
                     }
                     
                     if (document.get("target3") != nil) {
@@ -109,7 +94,7 @@ class FifthPageViewController: UIViewController {
                         text = "  3 - \(target3)"
                         self.thirdLeftText.text = text
                     } else {
-                        self.thirdLeftText.text = "  /"
+                        self.thirdLeftText.text = "  / "
                     }
                     
                     
@@ -123,7 +108,7 @@ class FifthPageViewController: UIViewController {
                         text = "  2 - \(result2)"
                         self.secondRightText.text = text
                     } else {
-                        self.secondRightText.text = "  /"
+                        self.secondRightText.text = "  / "
                     }
                     
                     if (document.get("result3") != nil) {
@@ -131,10 +116,10 @@ class FifthPageViewController: UIViewController {
                         text = "  3 - \(result3)"
                         self.thirdRightText.text = text
                     } else {
-                        self.thirdRightText.text = "  /"
+                        self.thirdRightText.text = "  / "
                     }
                     
-                     self.generateMail()
+                    self.performSegue(withIdentifier: "sixthPDF", sender: nil)
                     
                 }
             }
@@ -144,20 +129,3 @@ class FifthPageViewController: UIViewController {
     
 }
 
-
-
-// MARK: MFMailComposeViewControllerDelegate
-extension FifthPageViewController : MFMailComposeViewControllerDelegate {
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-        pageController.perform(#selector(presentExampleController), with: nil, afterDelay: 0)
-    }
-    
-    @objc private func presentExampleController() {
-        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let exampleVC = exampleStoryboard.instantiateViewController(withIdentifier: "SynthesisView") as! SynthesisViewController
-        present(exampleVC, animated: true)
-    }
-    
-}
