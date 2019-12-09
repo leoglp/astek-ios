@@ -231,9 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				6EA8191F2387F8DB00930DD2 /* logoAstek.jpg */,
+				6ECBD47A237D6D6B00F0E433 /* AppDelegate.swift */,
 				6ECBD492237DB42200F0E433 /* Utils */,
 				6E7681FC238BCD7200998CCB /* Skills */,
-				6ECBD47A237D6D6B00F0E433 /* AppDelegate.swift */,
 				6E152882238EC6650031B43F /* Evolution */,
 				6ECBD47C237D6D6B00F0E433 /* SceneDelegate.swift */,
 				6E9F9FC42384040500034FF6 /* ProfilCreationViewController.swift */,

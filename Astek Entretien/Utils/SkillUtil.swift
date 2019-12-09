@@ -49,6 +49,8 @@ class SkillUtil {
         if(!AuthenticationUtil.isManager) {
             UIUtil.textBottomBorderDisabled(textField: managerGrad1)
             UIUtil.textDisabled(textField: improvement1)
+        } else {
+            managerGrad1.textColor = UIColor.darkGray
         }
     }
     
@@ -161,6 +163,9 @@ class SkillUtil {
             UIUtil.textDisabled(textField: improvement1)
             UIUtil.textBottomBorderDisabled(textField: managerGrad2)
             UIUtil.textDisabled(textField: improvement2)
+        } else {
+            managerGrad1.textColor = UIColor.darkGray
+            managerGrad2.textColor = UIColor.darkGray
         }
     }
     
@@ -293,6 +298,11 @@ class SkillUtil {
             UIUtil.textDisabled(textField: improvement2)
             UIUtil.textBottomBorderDisabled(textField: managerGrad3)
             UIUtil.textDisabled(textField: improvement3)
+        } else {
+            managerGrad1.textColor = UIColor.darkGray
+            managerGrad2.textColor = UIColor.darkGray
+            managerGrad3.textColor = UIColor.darkGray
+
         }
     }
     

@@ -54,7 +54,7 @@ class EighthPageViewController: UIViewController {
         do {
             let data = try PDFGenerator.generated(by: PDFUtil.tabView)
             try data.write(to: dst, options: .atomic)
-            MailUtil.sendMailWithPdf(controller: self, mailComposeDelegate: self, recipient: "leoguilpain36@gmail.com")
+            MailUtil.sendMailWithPdf(controller: self, mailComposeDelegate: self, recipient: AuthenticationUtil.employeeMail)
         } catch (let error) {
             print(error)
         }

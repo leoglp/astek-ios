@@ -26,6 +26,7 @@ class TechnicalSkillViewController: UIViewController {
     @IBOutlet weak var managerGrad1: UITextField!
     @IBOutlet weak var example1: UITextField!
     @IBOutlet weak var improvement1: UITextField!
+    @IBOutlet weak var managerTitle1: UILabel!
     
     //Skill2 Stack View
     @IBOutlet weak var skillStackView2: UIStackView!
@@ -44,6 +45,7 @@ class TechnicalSkillViewController: UIViewController {
     @IBOutlet weak var managerGradTopConstraint2: NSLayoutConstraint!
     @IBOutlet weak var managerGradStackViewHeight2: NSLayoutConstraint!
     @IBOutlet weak var managerGrad2: UITextField!
+    @IBOutlet weak var managerTitle2: UILabel!
     
     //Example2 Stack View
     @IBOutlet weak var exampleStackView2: UIStackView!
@@ -177,6 +179,11 @@ class TechnicalSkillViewController: UIViewController {
                            example1: example1, improvement1: improvement1,
                            skill2: skill2, employeeGrad2: employeeGrad2, managerGrad2: managerGrad2,
                            example2: example2, improvement2: improvement2)
+        
+        if(AuthenticationUtil.isManager) {
+            managerTitle1.textColor = UIColor.darkGray
+            managerTitle2.textColor = UIColor.darkGray
+        }
     }
     
     

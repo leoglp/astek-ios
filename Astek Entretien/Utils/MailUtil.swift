@@ -26,14 +26,13 @@ class MailUtil  {
             
             controller.present(mail, animated: true)
         } else {
-            // show failure alert
+            print("email is not supported")
         }
     }
     
     
     static func sendMailWithPdf(controller: UIViewController, mailComposeDelegate: MFMailComposeViewControllerDelegate, recipient: String) {
         if( MFMailComposeViewController.canSendMail()){
-            print("Can send email.")
             
             let mailComposer = MFMailComposeViewController()
             mailComposer.mailComposeDelegate = mailComposeDelegate
@@ -47,16 +46,14 @@ class MailUtil  {
             
             //set mail body
             let body = StringValues.mailSubjectManager +
-                           AuthenticationUtil.managerName + " " + AuthenticationUtil.managerSurname
+                AuthenticationUtil.managerName + " " + AuthenticationUtil.managerSurname
             mailComposer.setMessageBody(body, isHTML: true)
             
             let pdfName =  AuthenticationUtil.employeeName + "_" + AuthenticationUtil.employeeSurname + ".pdf"
             
             let pathPDF = "\(NSTemporaryDirectory())" + pdfName
-            print("sendMailWithPdf pathPDF : \(pathPDF)")
             
             if let fileData = NSData(contentsOfFile: pathPDF) {
-                print("File data loaded.")
                 mailComposer.addAttachmentData(fileData as Data, mimeType: "application/pdf", fileName: pdfName)
             }
             

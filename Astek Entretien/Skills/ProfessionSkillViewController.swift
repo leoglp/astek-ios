@@ -26,6 +26,8 @@ class ProfessionSkillViewController: UIViewController {
     @IBOutlet weak var managerGrad1: UITextField!
     @IBOutlet weak var example1: UITextField!
     @IBOutlet weak var improvement1: UITextField!
+    @IBOutlet weak var managerTitle1: UILabel!
+
     
     //Skill2 Stack View
     @IBOutlet weak var skillStackView2: UIStackView!
@@ -44,6 +46,7 @@ class ProfessionSkillViewController: UIViewController {
     @IBOutlet weak var managerGradTopConstraint2: NSLayoutConstraint!
     @IBOutlet weak var managerGradStackViewHeight2: NSLayoutConstraint!
     @IBOutlet weak var managerGrad2: UITextField!
+    @IBOutlet weak var managerTitle2: UILabel!
     
     //Example2 Stack View
     @IBOutlet weak var exampleStackView2: UIStackView!
@@ -74,6 +77,7 @@ class ProfessionSkillViewController: UIViewController {
     @IBOutlet weak var managerGradTopConstraint3: NSLayoutConstraint!
     @IBOutlet weak var managerGradStackViewHeight3: NSLayoutConstraint!
     @IBOutlet weak var managerGrad3: UITextField!
+    @IBOutlet weak var managerTitle3: UILabel!
     
     //Example3 Stack View
     @IBOutlet weak var exampleStackView3: UIStackView!
@@ -220,6 +224,12 @@ class ProfessionSkillViewController: UIViewController {
                            example2: example2, improvement2: improvement2,
                            skill3: skill3, employeeGrad3: employeeGrad3, managerGrad3: managerGrad3,
                            example3: example3, improvement3: improvement3)
+        
+        if(AuthenticationUtil.isManager) {
+            managerTitle1.textColor = UIColor.darkGray
+            managerTitle2.textColor = UIColor.darkGray
+            managerTitle3.textColor = UIColor.darkGray
+        }
     }
     
     

@@ -23,6 +23,7 @@ class RespectSkillViewController: UIViewController {
     @IBOutlet weak var managerGrad1: UITextField!
     @IBOutlet weak var example1: UITextField!
     @IBOutlet weak var improvement1: UITextField!
+    @IBOutlet weak var managerTitle1: UILabel!
     
     @IBOutlet weak var pageNumber: UILabel!
     @IBOutlet weak var contentView: UIView!
@@ -117,6 +118,10 @@ class RespectSkillViewController: UIViewController {
         
         SkillUtil.initText(employeeGrad1: employeeGrad1, managerGrad1: managerGrad1,
                            example1: example1, improvement1: improvement1)
+        
+        if(AuthenticationUtil.isManager) {
+            managerTitle1.textColor = UIColor.darkGray
+        }
     }
     
     private func createValueInDB(){

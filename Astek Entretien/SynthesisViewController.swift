@@ -18,7 +18,6 @@ class SynthesisViewController: UIViewController {
     private var updateValue = false
     private var documentUpdateId = ""
     private var className: String = ""
-    private var processing = false
     
     @IBOutlet weak var synthesisText: UITextField!
     @IBOutlet weak var resultButton: UIButton!
@@ -34,23 +33,17 @@ class SynthesisViewController: UIViewController {
     @IBOutlet weak var rightArrow: UIButton!
     
     @IBAction func ClickOnResultButton(_ sender: Any) {
-        /*if(AuthenticationUtil.isManager){
+        if(AuthenticationUtil.isManager){
             createOrUpdate()
             UIUtil.showMessage(text: StringValues.processing)
-            processing = true
-            PDFUtil.createPdf()
+            performSegue(withIdentifier: "firstPDF", sender: nil)
         } else {
             if(mailText.text == ""){
                 UIUtil.showMessage(text: StringValues.errorNoInput)
             } else {
                 MailUtil.sendEmail(controller: self, mailComposeDelegate: self , recipient: mailText.text!)
             }
-        }*/
-        //PDFUtil.createPdf(controller: self, mailComposeDelegate: self , recipient: mailText.text!)
-        processing = true
-        print("ClickOnResultButton processing : \(processing)")
-
-        performSegue(withIdentifier: "firstPDF", sender: nil)
+        }
     }
     
     
@@ -73,13 +66,8 @@ class SynthesisViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
-
-        print("viewDidLoad processing : \(processing)")
-
         rightArrow.isHidden = true
         rightArrow.isUserInteractionEnabled = false
-        
         
         initText()
         initSwipeGesture()
@@ -105,15 +93,6 @@ class SynthesisViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear processing : \(processing)")
-
-        
-        if(processing) {
-            UIUtil.showMessage(text: StringValues.processingSuccess)
-            processing = false
-        }
-        
-
         retrieveData()
     }
     
@@ -280,5 +259,24 @@ extension SynthesisViewController {
         keyboardHeight = nil
     }
 }
+
+
+
+
+// MARK: MFMailComposeViewControllerDelegate
+extension SynthesisViewController : MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+    
+    @objc private func presentExampleController() {
+        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let exampleVC = exampleStoryboard.instantiateViewController(withIdentifier: "SynthesisView") as! SynthesisViewController
+        present(exampleVC, animated: true)
+    }
+    
+}
+
 
 

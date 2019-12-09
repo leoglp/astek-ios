@@ -22,15 +22,13 @@ class MainViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func connexionAction(_ sender: Any) {
-        /*if((mailText.text == "") || passwordText.text == "") {
+        if((mailText.text == "") || passwordText.text == "") {
             UIUtil.showMessage(text: StringValues.errorNoInput)
         } else {
             mailText.resignFirstResponder()
             passwordText.resignFirstResponder()
             AuthenticationUtil.signIn(controller: self,email: mailText.text!, password: passwordText.text!)
-        }*/
-        AuthenticationUtil.signIn(controller: self,email: "m@mail.com", password: "123456")
-
+        }
     }
     
     @IBAction func profilCreationAction(_ sender: Any) {

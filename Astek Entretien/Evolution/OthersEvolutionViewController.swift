@@ -137,8 +137,8 @@ class OthersEvolutionViewController: UIViewController {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        if (document.get("evolution") != nil) {
-                            self.mobilityText.text = (document.get("evolution") as! String)
+                        if (document.get("mobility") != nil) {
+                            self.mobilityText.text = (document.get("mobility") as! String)
                         }
                         if (document.get("othersEvolution") != nil) {
                             self.activityText.text = (document.get("othersEvolution") as! String)
