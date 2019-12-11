@@ -48,6 +48,9 @@ class PerformanceEvaluationViewController: UIViewController {
         UIUtil.backToHome(controller: self)
     }
     
+    @IBAction func settingsAction(_ sender: Any) {
+        performSegue(withIdentifier: "showSettings", sender: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +69,6 @@ class PerformanceEvaluationViewController: UIViewController {
         
         className = NSStringFromClass(PerformanceEvaluationViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
-        print("TITI className : \(className)")
-        
-        
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
         verySatisfyingButton.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)

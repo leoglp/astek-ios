@@ -55,6 +55,9 @@ class InterviewViewController: UIViewController {
     }
     
     
+    @IBAction func settingsAction(_ sender: Any) {
+        performSegue(withIdentifier: "showSettings", sender: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +75,6 @@ class InterviewViewController: UIViewController {
         
         className = NSStringFromClass(InterviewViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
-        print("TITI className : \(className)")
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
         

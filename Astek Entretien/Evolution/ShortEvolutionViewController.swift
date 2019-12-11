@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class ShortEvolutionViewController: UIViewController {
-
+    
     
     private var activeField: UITextField?
     private var lastOffset: CGPoint!
@@ -29,12 +29,62 @@ class ShortEvolutionViewController: UIViewController {
     
     
     @IBAction func leftArrowAction(_ sender: Any) {
+        createOrUpdate()
+        UIUtil.goToPreviousPage(className: className, controller: self)
+    }
+    
+    
+    @IBAction func rightArrowAction(_ sender: Any) {
+        if(evolutionText.text == "" || justificationText.text == ""
+            || meansText.text == "") {
+            UIUtil.showMessage(text: StringValues.errorNoInput)
+        } else {
             createOrUpdate()
-            UIUtil.goToPreviousPage(className: className, controller: self)
+            UIUtil.goToNextPage(className: className, controller: self)
         }
+    }
+    
+    @IBAction func logOutAction(_ sender: Any) {
+        UIUtil.backToHome(controller: self)
+    }
+    
+    @IBAction func settingsAction(_ sender: Any) {
+        performSegue(withIdentifier: "showSettings", sender: nil)
+    }
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initText()
+        initSwipeGesture()
         
+        className = NSStringFromClass(ShortEvolutionViewController.classForCoder())
+        className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
+        pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
-        @IBAction func rightArrowAction(_ sender: Any) {
+        // setup keyboard event
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(notification:)),
+            name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(notification:)),
+            name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        retrieveData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer){
+        if (sender.direction == .left){
             if(evolutionText.text == "" || justificationText.text == ""
                 || meansText.text == "") {
                 UIUtil.showMessage(text: StringValues.errorNoInput)
@@ -44,136 +94,87 @@ class ShortEvolutionViewController: UIViewController {
             }
         }
         
-        @IBAction func logOutAction(_ sender: Any) {
-            UIUtil.backToHome(controller: self)
+        if (sender.direction == .right)
+        {
+            createOrUpdate()
+            UIUtil.goToPreviousPage(className: className, controller: self)
         }
+    }
+    
+    private func initSwipeGesture(){
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            initText()
-            initSwipeGesture()
-            
-            className = NSStringFromClass(ShortEvolutionViewController.classForCoder())
-            className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
-            print("TITI className : \(className)")
-            
-            
-            pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
-            
-            // setup keyboard event
-            NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(keyboardWillShow(notification:)),
-                name: UIResponder.keyboardWillShowNotification, object: nil)
-            
-            NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(keyboardWillHide(notification:)),
-                name: UIResponder.keyboardWillHideNotification, object: nil)
-        }
-        
-        override func viewWillAppear(_ animated: Bool) {
-            retrieveData()
-        }
-        
-        override func viewDidDisappear(_ animated: Bool) {
-            NotificationCenter.default.removeObserver(self)
-        }
-        
-        @objc func handleSwipes(_ sender:UISwipeGestureRecognizer){
-            if (sender.direction == .left){
-               if(evolutionText.text == "" || justificationText.text == ""
-                   || meansText.text == "") {
-                   UIUtil.showMessage(text: StringValues.errorNoInput)
-               } else {
-                   createOrUpdate()
-                   UIUtil.goToNextPage(className: className, controller: self)
-               }
-            }
-
-            if (sender.direction == .right)
-            {
-               createOrUpdate()
-               UIUtil.goToPreviousPage(className: className, controller: self)
-            }
-        }
-        
-        private func initSwipeGesture(){
-            let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-            let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-
-            leftSwipe.direction = .left
-            rightSwipe.direction = .right
-
-            view.addGestureRecognizer(leftSwipe)
-            view.addGestureRecognizer(rightSwipe)
-        }
-        
-        private func createValueInDB(){
-            DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "shortEvolution")
-        }
-        
-        private func updateValueInDB(){
-            DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "shortEvolution",documentUpdateId: documentUpdateId)
-        }
-        
-        
-        private func retrieveData() {
-            let db = Firestore.firestore()
-            db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("shortEvolution").getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        if (document.get("evolution") != nil) {
-                            self.evolutionText.text = (document.get("evolution") as! String)
-                        }
-                        if (document.get("justification") != nil) {
-                            self.justificationText.text = (document.get("justification") as! String)
-                        }
-                        if (document.get("means") != nil) {
-                            self.meansText.text = (document.get("means") as! String)
-                        }
-                        self.updateValue = true
-                        self.documentUpdateId = document.documentID
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+    }
+    
+    private func createValueInDB(){
+        DatabaseUtil.addValueInDataBase(valueToAdd: generateValueForDB(),collectionToCreate: "shortEvolution")
+    }
+    
+    private func updateValueInDB(){
+        DatabaseUtil.updateValueInDataBase(valueToUpdate: generateValueForDB(),collectionToUpdate: "shortEvolution",documentUpdateId: documentUpdateId)
+    }
+    
+    
+    private func retrieveData() {
+        let db = Firestore.firestore()
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("shortEvolution").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    if (document.get("evolution") != nil) {
+                        self.evolutionText.text = (document.get("evolution") as! String)
                     }
+                    if (document.get("justification") != nil) {
+                        self.justificationText.text = (document.get("justification") as! String)
+                    }
+                    if (document.get("means") != nil) {
+                        self.meansText.text = (document.get("means") as! String)
+                    }
+                    self.updateValue = true
+                    self.documentUpdateId = document.documentID
                 }
             }
         }
-        
-        private func generateValueForDB() -> [String:String] {
-            let managerAppreciation : [String:String] = [
-                "evolution" : evolutionText.text!,
-                "justification" : justificationText.text!,
-                "means" : meansText.text!
-            ]
-            return managerAppreciation
+    }
+    
+    private func generateValueForDB() -> [String:String] {
+        let managerAppreciation : [String:String] = [
+            "evolution" : evolutionText.text!,
+            "justification" : justificationText.text!,
+            "means" : meansText.text!
+        ]
+        return managerAppreciation
+    }
+    
+    
+    private func createOrUpdate(){
+        if(updateValue){
+            updateValueInDB()
+        } else {
+            createValueInDB()
         }
+    }
+    
+    private func initText() {
+        evolutionText.delegate = self
+        evolutionText.textAlignment = .left
+        evolutionText.contentVerticalAlignment = .top
+        justificationText.delegate = self
+        justificationText.textAlignment = .left
+        justificationText.contentVerticalAlignment = .top
+        meansText.delegate = self
+        meansText.textAlignment = .left
+        meansText.contentVerticalAlignment = .top
         
-        
-        private func createOrUpdate(){
-            if(updateValue){
-                updateValueInDB()
-            } else {
-                createValueInDB()
-            }
-        }
-        
-        private func initText() {
-            evolutionText.delegate = self
-            evolutionText.textAlignment = .left
-            evolutionText.contentVerticalAlignment = .top
-            justificationText.delegate = self
-            justificationText.textAlignment = .left
-            justificationText.contentVerticalAlignment = .top
-            meansText.delegate = self
-            meansText.textAlignment = .left
-            meansText.contentVerticalAlignment = .top
-
-        }
-
+    }
+    
 }
 
 

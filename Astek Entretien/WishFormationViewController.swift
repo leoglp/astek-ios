@@ -85,6 +85,10 @@ class WishFormationViewController: UIViewController {
         updateTargetViewButton(isAdded: false)
     }
     
+    @IBAction func settingsAction(_ sender: Any) {
+        performSegue(withIdentifier: "showSettings", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,9 +97,6 @@ class WishFormationViewController: UIViewController {
         
         className = NSStringFromClass(WishFormationViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
-        print("TITI className : \(className)")
-        
-        
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
         // setup keyboard event

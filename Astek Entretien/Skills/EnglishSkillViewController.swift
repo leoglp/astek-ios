@@ -45,6 +45,10 @@ class EnglishSkillViewController: UIViewController {
         UIUtil.backToHome(controller: self)
     }
     
+    @IBAction func settingsAction(_ sender: Any) {
+        performSegue(withIdentifier: "showSettings", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,9 +56,6 @@ class EnglishSkillViewController: UIViewController {
         
         className = NSStringFromClass(EnglishSkillViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
-        print("TITI className : \(className)")
-        
-        
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
         infoButton1.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)

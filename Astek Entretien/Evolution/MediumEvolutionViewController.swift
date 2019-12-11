@@ -47,6 +47,10 @@ class MediumEvolutionViewController: UIViewController {
         @IBAction func logOutAction(_ sender: Any) {
             UIUtil.backToHome(controller: self)
         }
+    
+    @IBAction func settingsAction(_ sender: Any) {
+        performSegue(withIdentifier: "showSettings", sender: nil)
+    }
         
         
         
@@ -57,9 +61,6 @@ class MediumEvolutionViewController: UIViewController {
             
             className = NSStringFromClass(MediumEvolutionViewController.classForCoder())
             className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
-            print("TITI className : \(className)")
-            
-            
             pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
             
             // setup keyboard event

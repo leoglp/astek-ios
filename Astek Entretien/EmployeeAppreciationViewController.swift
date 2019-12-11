@@ -47,6 +47,9 @@ class EmployeeAppreciationViewController: UIViewController {
         UIUtil.backToHome(controller: self)
     }
     
+    @IBAction func settingsAction(_ sender: Any) {
+        performSegue(withIdentifier: "showSettings", sender: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -56,9 +59,6 @@ class EmployeeAppreciationViewController: UIViewController {
         
         className = NSStringFromClass(EmployeeAppreciationViewController.classForCoder())
         className = className.replacingOccurrences(of: "Astek_Entretien.", with: "")
-        print("TITI className : \(className)")
-        
-        
         pageNumber.text = "Page \(UIUtil.getCurrentPage(className: className)) / \(UIUtil.getTotalPage())"
         
         // setup keyboard event
