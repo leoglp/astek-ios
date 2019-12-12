@@ -100,6 +100,78 @@ class UIUtil {
         }
     }
     
+    static func controllerIdentifier(pageNumber: Int , controller: UIViewController){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var viewController: UIViewController
+        switch pageNumber {
+        case 1:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Interview") as! InterviewViewController
+        case 2:
+            viewController = storyboard.instantiateViewController(withIdentifier: "BilanMission") as! BilanMissionViewController
+        case 3:
+            viewController = storyboard.instantiateViewController(withIdentifier: "EmployeeAppreciation") as! EmployeeAppreciationViewController
+        case 4:
+            viewController = storyboard.instantiateViewController(withIdentifier: "ManagerAppreciation") as! ManagerAppreciationViewController
+        case 5:
+            viewController = storyboard.instantiateViewController(withIdentifier: "TargetEvaluation") as! TargetEvaluationViewController
+        case 6:
+            viewController = storyboard.instantiateViewController(withIdentifier: "PerformanceEvaluation") as! PerformanceEvaluationViewController
+        case 7:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Technical") as! TechnicalSkillViewController
+        case 8:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Profession") as! ProfessionSkillViewController
+        case 9:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Functional") as! FunctionalSkillViewController
+        case 10:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Managerial") as! ManagerialSkillViewController
+        case 11:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Autonomous") as! AutonomousSkillViewController
+        case 12:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Adaptability") as! AdaptabilitySkillViewController
+        case 13:
+            viewController = storyboard.instantiateViewController(withIdentifier: "TeamWork") as! TeamWorkSkillViewController
+        case 14:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Creativity") as! CreativitySkillViewController
+        case 15:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Communication") as! CommunicationSkillViewController
+        case 16:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Implication") as! ImplicationSkillViewController
+        case 17:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Respect") as! RespectSkillViewController
+        case 18:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Rigour") as! RigourSkillViewController
+        case 19:
+            viewController = storyboard.instantiateViewController(withIdentifier: "English") as! EnglishSkillViewController
+        case 20:
+            viewController = storyboard.instantiateViewController(withIdentifier: "OtherLangage") as! OtherLangageSkillViewController
+        case 21:
+            viewController = storyboard.instantiateViewController(withIdentifier: "SkillEvaluation") as! SkillEvaluationViewController
+        case 22:
+            viewController = storyboard.instantiateViewController(withIdentifier: "FutureTarget") as! FutureTargetEvaluationViewController
+        case 23:
+            viewController = storyboard.instantiateViewController(withIdentifier: "ShortEvolution") as! ShortEvolutionViewController
+        case 24:
+            viewController = storyboard.instantiateViewController(withIdentifier: "MediumEvolution") as! MediumEvolutionViewController
+        case 25:
+            viewController = storyboard.instantiateViewController(withIdentifier: "LongEvolution") as! LongEvolutionViewController
+        case 26:
+            viewController = storyboard.instantiateViewController(withIdentifier: "OthersEvolution") as! OthersEvolutionViewController
+        case 27:
+            viewController = storyboard.instantiateViewController(withIdentifier: "BilanFormation") as! BilanFormationViewController
+        case 28:
+            viewController = storyboard.instantiateViewController(withIdentifier: "WishFormation") as! WishFormationViewController
+            
+        case 29:
+            viewController = storyboard.instantiateViewController(withIdentifier: "CPF") as! CPFViewController
+        case 30:
+            viewController = storyboard.instantiateViewController(withIdentifier: "Synthesis") as! SynthesisViewController
+        default:
+            return
+        }
+        
+        controller.present(viewController, animated: true)
+    }
+    
     static func getCurrentPage(className: String) -> Int {
         print(className)
         return ArrayValues.classValues.firstIndex(of: className)! + 1

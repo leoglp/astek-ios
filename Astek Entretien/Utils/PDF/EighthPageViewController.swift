@@ -89,9 +89,7 @@ extension EighthPageViewController : MFMailComposeViewControllerDelegate {
     }
     
     @objc private func presentExampleController() {
-        let exampleStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let exampleVC = exampleStoryboard.instantiateViewController(withIdentifier: "SynthesisView") as! SynthesisViewController
-        present(exampleVC, animated: true)
+        DatabaseUtil.pdfReadAndGo(controller: self)
     }
     
 }
