@@ -17,7 +17,7 @@ class SecondPageViewController: UIViewController {
     let db = Firestore.firestore()
     
     var pageController: UIViewController!
-
+    
     @IBOutlet weak var pageView: UIView!
     
     @IBOutlet weak var titlePlan: UILabel!
@@ -50,8 +50,8 @@ class SecondPageViewController: UIViewController {
     
     private func initText() {
         PDFUtil.planUI(titlePlan: titlePlan, bilanPlanText: bilanPlanText,
-        targetPlanText: targetPlanText, evolutionPlanText: evolutionPlanText,
-        formationPlanText: formationPlanText)
+                       targetPlanText: targetPlanText, evolutionPlanText: evolutionPlanText,
+                       formationPlanText: formationPlanText)
         
         firstTitleText.underline()
         bilanText!.layer.borderWidth = 1
@@ -70,14 +70,21 @@ class SecondPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let bilanMission = (document.get("bilanMission") as! String)
-                    
-                    text = "  \(bilanMission)"
-                    self.bilanText.text = text
-                    
+                if(querySnapshot!.isEmpty) {
                     self.secondRectangleValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        var bilanMission = ""
+                        if(document.get("bilanMission") != nil) {
+                            bilanMission = (document.get("bilanMission") as! String)
+                        }
+                        text = "  \(bilanMission)"
+                        self.bilanText.text = text
+                        
+                        self.secondRectangleValue()
+                    }
                 }
+                
             }
         }
     }
@@ -88,19 +95,34 @@ class SecondPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let gain = (document.get("gain") as! String)
-                    let improvement = (document.get("improvement") as! String)
-                    let weakness = (document.get("weaknesses") as! String)
-
-                    
-                    text = "  Apports : \(gain) \n \n \n"
-                    text += "  Points forts : \(improvement) \n \n \n"
-                    text += "  Points à améliorer : \(weakness)"
-                    
-                    self.appreciationEmployeeText.text = text
-                    
+                if(querySnapshot!.isEmpty) {
                     self.thirdRectangleValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        
+                        var gain = ""
+                        if(document.get("gain") != nil) {
+                            gain = (document.get("gain") as! String)
+                        }
+                        
+                        var improvement = ""
+                        if(document.get("improvement") != nil) {
+                            improvement = (document.get("improvement") as! String)
+                        }
+                        
+                        var weaknesses = ""
+                        if(document.get("weaknesses") != nil) {
+                            weaknesses = (document.get("weaknesses") as! String)
+                        }
+                        
+                        text = "  Apports : \(gain) \n \n \n"
+                        text += "  Points forts : \(improvement) \n \n \n"
+                        text += "  Points à améliorer : \(weaknesses)"
+                        
+                        self.appreciationEmployeeText.text = text
+                        
+                        self.thirdRectangleValue()
+                    }
                 }
             }
         }
@@ -112,19 +134,33 @@ class SecondPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let gain = (document.get("gain") as! String)
-                    let improvement = (document.get("improvement") as! String)
-                    let weakness = (document.get("weaknesses") as! String)
-
-                    
-                    text = "  Apports : \(gain) \n \n \n"
-                    text += "  Points forts : \(improvement) \n \n \n"
-                    text += "  Points à améliorer : \(weakness)"
-                    
-                    self.appreciationManagerText.text = text
-                    
+                if(querySnapshot!.isEmpty) {
                     self.performSegue(withIdentifier: "thirdPDF", sender: nil)
+                } else {
+                    for document in querySnapshot!.documents {
+                       var gain = ""
+                        if(document.get("gain") != nil) {
+                            gain = (document.get("gain") as! String)
+                        }
+                        
+                        var improvement = ""
+                        if(document.get("improvement") != nil) {
+                            improvement = (document.get("improvement") as! String)
+                        }
+                        
+                        var weaknesses = ""
+                        if(document.get("weaknesses") != nil) {
+                            weaknesses = (document.get("weaknesses") as! String)
+                        }
+                        
+                        text = "  Apports : \(gain) \n \n \n"
+                        text += "  Points forts : \(improvement) \n \n \n"
+                        text += "  Points à améliorer : \(weaknesses)"
+                        
+                        self.appreciationManagerText.text = text
+                        
+                        self.performSegue(withIdentifier: "thirdPDF", sender: nil)
+                    }
                 }
             }
         }

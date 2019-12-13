@@ -21,13 +21,13 @@ class EighthPageViewController: UIViewController {
     
     @IBOutlet weak var synthesisTitle: UILabel!
     @IBOutlet weak var synthesis: UILabel!
-
+    
     @IBOutlet weak var decisionTitle: UILabel!
     @IBOutlet weak var decision: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         pageController = self
         
         PDFUtil.tabView.append(pageView)
@@ -65,16 +65,23 @@ class EighthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let synthesis = "  " + (document.get("synthesis") as! String)
-                    self.synthesis.text = synthesis
-                    
+                if(querySnapshot!.isEmpty) {
                     self.generateMail()
+                } else {
+                    for document in querySnapshot!.documents {
+                        var synthesis = ""
+                        if(document.get("synthesis") != nil) {
+                            synthesis = "  " + (document.get("synthesis") as! String)
+                        }
+                        self.synthesis.text = synthesis
+                        
+                        self.generateMail()
+                    }
                 }
+                
             }
         }
     }
-
 }
 
 

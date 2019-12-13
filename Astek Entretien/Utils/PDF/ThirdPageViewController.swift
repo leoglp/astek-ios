@@ -60,7 +60,7 @@ class ThirdPageViewController: UIViewController {
         PDFUtil.tabView.append(pageView)
         
         initText()
-                
+        
         retrieveFirstValue()
     }
     
@@ -102,53 +102,67 @@ class ThirdPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    var text = ""
-                    let target1 = (document.get("target1") as! String)
-                    text = "  1 - \(target1)"
-                    self.firstLeftText.text = text
-                    
-                    if (document.get("target2") != nil) {
-                        let target2 = (document.get("target2") as! String)
-                        text = "  2 - \(target2)"
-                        self.secondLeftText.text = text
-                    } else {
-                        self.secondLeftText.text = "  /"
-                    }
-                    
-                    if (document.get("target3") != nil) {
-                        let target3 = (document.get("target3") as! String)
-                        text = "  3 - \(target3)"
-                        self.thirdLeftText.text = text
-                    } else {
-                        self.thirdLeftText.text = "  /"
-                    }
-                    
-                    
-                    
-                    let result1 = (document.get("result1") as! String)
-                    text = "  1 - \(result1)"
-                    self.firstRightText.text = text
-                    
-                    if (document.get("result2") != nil) {
-                        let result2 = (document.get("result2") as! String)
-                        text = "  2 - \(result2)"
-                        self.secondRightText.text = text
-                    } else {
-                        self.secondRightText.text = "  /"
-                    }
-                    
-                    if (document.get("result3") != nil) {
-                        let result3 = (document.get("result3") as! String)
-                        text = "  3 - \(result3)"
-                        self.thirdRightText.text = text
-                    } else {
-                        self.thirdRightText.text = "  /"
-                    }
-                    
+                if(querySnapshot!.isEmpty) {
                     self.retrieveSecondValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        var text = ""
+                        if (document.get("target1") != nil) {
+                            let target1 = (document.get("target1") as! String)
+                            text = "  1 - \(target1)"
+                            self.firstLeftText.text = text
+                        } else {
+                            self.firstLeftText.text = "  /"
+                        }
+                        
+                        if (document.get("target2") != nil) {
+                            let target2 = (document.get("target2") as! String)
+                            text = "  2 - \(target2)"
+                            self.secondLeftText.text = text
+                        } else {
+                            self.secondLeftText.text = "  /"
+                        }
+                        
+                        if (document.get("target3") != nil) {
+                            let target3 = (document.get("target3") as! String)
+                            text = "  3 - \(target3)"
+                            self.thirdLeftText.text = text
+                        } else {
+                            self.thirdLeftText.text = "  /"
+                        }
+                        
+                        
+                        if (document.get("result1") != nil) {
+                            let result1 = (document.get("result1") as! String)
+                            text = "  1 - \(result1)"
+                            self.firstRightText.text = text
+                        } else {
+                            self.firstRightText.text = "  /"
+                        }
+                        
+                        if (document.get("result2") != nil) {
+                            let result2 = (document.get("result2") as! String)
+                            text = "  2 - \(result2)"
+                            self.secondRightText.text = text
+                        } else {
+                            self.secondRightText.text = "  /"
+                        }
+                        
+                        if (document.get("result3") != nil) {
+                            let result3 = (document.get("result3") as! String)
+                            text = "  3 - \(result3)"
+                            self.thirdRightText.text = text
+                        } else {
+                            self.thirdRightText.text = "  /"
+                        }
+                        
+                        self.retrieveSecondValue()
+                        
+                    }
                 }
+                
+                
+                
             }
         }
     }
@@ -159,33 +173,38 @@ class ThirdPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let performance = (document.get("performanceEvaluation") as! String)
-                    
-                    switch performance {
-                    case "Très Satisfaisant":
-                        self.answerA.backgroundColor = UIColor.darkGray
-                    case "Satisfaisant":
-                        self.answerB.backgroundColor = UIColor.darkGray
-                    case "Moyen":
-                        self.answerC.backgroundColor = UIColor.darkGray
-                    case "Insuffisant":
-                        self.answerD.backgroundColor = UIColor.darkGray
-                    default:
-                        return
-                    }
-                    
-                    
-                    let commentary = (document.get("commentary") as! String)
-                    
-                    if (commentary != "") {
-                        self.commentaryText.text = "  " + commentary
-                    } else {
-                        self.commentaryText.text = "  /"
-                    }
-                    
+                if(querySnapshot!.isEmpty) {
                     self.performSegue(withIdentifier: "fourthPDF", sender: nil)
+                } else {
+                    for document in querySnapshot!.documents {
+                        if(document.get("performanceEvaluation") != nil) {
+                            let performance = (document.get("performanceEvaluation") as! String)
+                            
+                            switch performance {
+                            case "Très Satisfaisant":
+                                self.answerA.backgroundColor = UIColor.darkGray
+                            case "Satisfaisant":
+                                self.answerB.backgroundColor = UIColor.darkGray
+                            case "Moyen":
+                                self.answerC.backgroundColor = UIColor.darkGray
+                            case "Insuffisant":
+                                self.answerD.backgroundColor = UIColor.darkGray
+                            default:
+                                return
+                            }
+                            
+                        }
+                        
+                        if (document.get("commentary") != nil) {
+                            self.commentaryText.text = "  " + (document.get("commentary") as! String)
+                        } else {
+                            self.commentaryText.text = "  /"
+                        }
+                        
+                        self.performSegue(withIdentifier: "fourthPDF", sender: nil)
+                    }
                 }
+                
             }
         }
     }

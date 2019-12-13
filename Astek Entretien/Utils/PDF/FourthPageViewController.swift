@@ -319,47 +319,67 @@ class FourthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let skill = (document.get("skill1") as! String)
-                    self.technical1.text = skill
-                    if (document.get("skill2") != nil) {
-                        let skill = (document.get("skill2") as! String)
-                        self.technical2.text = skill
-                    } else {
-                        self.technical2.text = " / "
-                    }
-                    
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.technicalEmployee1.text = employeeGraduation1
-                    if (document.get("employeeGraduation2") != nil) {
-                        let skill = (document.get("employeeGraduation2") as! String)
-                        self.technicalEmployee2.text = skill
-                    } else {
-                        self.technicalEmployee2.text = " / "
-                    }
-                    
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.technicalManager1.text = managerGraduation1
-                    if (document.get("managerGraduation2") != nil) {
-                        let skill = (document.get("managerGraduation2") as! String)
-                        self.technicalManager2.text = skill
-                    } else {
-                        self.technicalManager2.text = " / "
-                    }
-                    
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.technicalExample1.text = example1
-                    if (document.get("skillExample2") != nil) {
-                        let skill = (document.get("skillExample2") as! String) + " / " + (document.get("improvementAndGain2") as! String)
-                        self.technicalExample2.text = skill
-                    } else {
-                        self.technicalExample2.text = " / "
-                    }
-                    
-                    
+                if(querySnapshot!.isEmpty) {
                     self.retrieveProfessionValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("skill2") != nil) {
+                            let skill = (document.get("skill1") as! String)
+                            self.technical1.text = skill
+                        } else {
+                            self.technical1.text = " / "
+                        }
+                        if (document.get("skill2") != nil) {
+                            let skill = (document.get("skill2") as! String)
+                            self.technical2.text = skill
+                        } else {
+                            self.technical2.text = " / "
+                        }
+                        
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.technicalEmployee1.text = skill
+                        } else {
+                            self.technicalEmployee1.text = " / "
+                        }
+                        if (document.get("employeeGraduation2") != nil) {
+                            let skill = (document.get("employeeGraduation2") as! String)
+                            self.technicalEmployee2.text = skill
+                        } else {
+                            self.technicalEmployee2.text = " / "
+                        }
+                        
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.technicalManager1.text = skill
+                        } else {
+                            self.technicalManager1.text = " / "
+                        }
+                        if (document.get("managerGraduation2") != nil) {
+                            let skill = (document.get("managerGraduation2") as! String)
+                            self.technicalManager2.text = skill
+                        } else {
+                            self.technicalManager2.text = " / "
+                        }
+                        
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.technicalExample1.text = skill
+                        } else {
+                            self.technicalExample1.text = " / "
+                        }
+                        if (document.get("skillExample2") != nil) {
+                            let skill = (document.get("skillExample2") as! String) + " / " + (document.get("improvementAndGain2") as! String)
+                            self.technicalExample2.text = skill
+                        } else {
+                            self.technicalExample2.text = " / "
+                        }
+                        
+                        self.retrieveProfessionValue()
+                    }
                 }
+                
+                
             }
         }
     }
@@ -371,70 +391,92 @@ class FourthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let skill = (document.get("skill1") as! String)
-                    self.profession1.text = skill
-                    if (document.get("skill2") != nil) {
-                        let skill = (document.get("skill2") as! String)
-                        self.profession2.text = skill
-                    } else {
-                        self.profession2.text = " / "
-                    }
-                    if (document.get("skill3") != nil) {
-                        let skill = (document.get("skill3") as! String)
-                        self.profession3.text = skill
-                    } else {
-                        self.profession3.text = " / "
-                    }
-                    
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.professionEmployee1.text = employeeGraduation1
-                    if (document.get("employeeGraduation2") != nil) {
-                        let skill = (document.get("employeeGraduation2") as! String)
-                        self.professionEmployee2.text = skill
-                    } else {
-                        self.professionEmployee2.text = " / "
-                    }
-                    if (document.get("employeeGraduation3") != nil) {
-                        let skill = (document.get("employeeGraduation3") as! String)
-                        self.professionEmployee3.text = skill
-                    } else {
-                        self.professionEmployee3.text = " / "
-                    }
-                    
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.professionManager1.text = managerGraduation1
-                    if (document.get("managerGraduation2") != nil) {
-                        let skill = (document.get("managerGraduation2") as! String)
-                        self.professionManager2.text = skill
-                    } else {
-                        self.professionManager2.text = " / "
-                    }
-                    if (document.get("managerGraduation3") != nil) {
-                        let skill = (document.get("managerGraduation3") as! String)
-                        self.professionManager3.text = skill
-                    } else {
-                        self.professionManager3.text = " / "
-                    }
-                    
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.professionExample1.text = example1
-                    if (document.get("skillExample2") != nil) {
-                        let skill = (document.get("skillExample2") as! String) + " / " + (document.get("improvementAndGain2") as! String)
-                        self.professionExample2.text = skill
-                    } else {
-                        self.professionExample2.text = " / "
-                    }
-                    if (document.get("skillExample23") != nil) {
-                        let skill = (document.get("skillExample3") as! String) + " / " + (document.get("improvementAndGain3") as! String)
-                        self.professionExample3.text = skill
-                    } else {
-                        self.professionExample3.text = " / "
-                    }
-                    
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveFunctionalValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("skill1") != nil) {
+                            let skill = (document.get("skill1") as! String)
+                            self.profession1.text = skill
+                        } else {
+                            self.profession1.text = " / "
+                        }
+                        
+                        if (document.get("skill2") != nil) {
+                            let skill = (document.get("skill2") as! String)
+                            self.profession2.text = skill
+                        } else {
+                            self.profession2.text = " / "
+                        }
+                        if (document.get("skill3") != nil) {
+                            let skill = (document.get("skill3") as! String)
+                            self.profession3.text = skill
+                        } else {
+                            self.profession3.text = " / "
+                        }
+                        
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.professionEmployee1.text = skill
+                        } else {
+                            self.professionEmployee1.text = " / "
+                        }
+                        if (document.get("employeeGraduation2") != nil) {
+                            let skill = (document.get("employeeGraduation2") as! String)
+                            self.professionEmployee2.text = skill
+                        } else {
+                            self.professionEmployee2.text = " / "
+                        }
+                        if (document.get("employeeGraduation3") != nil) {
+                            let skill = (document.get("employeeGraduation3") as! String)
+                            self.professionEmployee3.text = skill
+                        } else {
+                            self.professionEmployee3.text = " / "
+                        }
+                        
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.professionManager1.text = skill
+                        } else {
+                            self.professionManager1.text = " / "
+                        }
+                        if (document.get("managerGraduation2") != nil) {
+                            let skill = (document.get("managerGraduation2") as! String)
+                            self.professionManager2.text = skill
+                        } else {
+                            self.professionManager2.text = " / "
+                        }
+                        if (document.get("managerGraduation3") != nil) {
+                            let skill = (document.get("managerGraduation3") as! String)
+                            self.professionManager3.text = skill
+                        } else {
+                            self.professionManager3.text = " / "
+                        }
+                        
+                        if (document.get("example1") != nil) {
+                            let skill = (document.get("example1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.professionExample1.text = skill
+                        } else {
+                            self.professionExample1.text = " / "
+                        }
+                        if (document.get("skillExample2") != nil) {
+                            let skill = (document.get("skillExample2") as! String) + " / " + (document.get("improvementAndGain2") as! String)
+                            self.professionExample2.text = skill
+                        } else {
+                            self.professionExample2.text = " / "
+                        }
+                        if (document.get("skillExample23") != nil) {
+                            let skill = (document.get("skillExample3") as! String) + " / " + (document.get("improvementAndGain3") as! String)
+                            self.professionExample3.text = skill
+                        } else {
+                            self.professionExample3.text = " / "
+                        }
+                        
+                        
+                        self.retrieveFunctionalValue()
+                        
+                    }
                 }
             }
         }
@@ -446,47 +488,72 @@ class FourthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let skill = (document.get("skill1") as! String)
-                    self.functionnal1.text = skill
-                    if (document.get("skill2") != nil) {
-                        let skill = (document.get("skill2") as! String)
-                        self.functionnal2.text = skill
-                    } else {
-                        self.functionnal2.text = " / "
-                    }
-                    
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.functionnalEmployee1.text = employeeGraduation1
-                    if (document.get("employeeGraduation2") != nil) {
-                        let skill = (document.get("employeeGraduation2") as! String)
-                        self.functionnalEmployee2.text = skill
-                    } else {
-                        self.functionnalEmployee2.text = " / "
-                    }
-                    
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.functionnalManager1.text = managerGraduation1
-                    if (document.get("managerGraduation2") != nil) {
-                        let skill = (document.get("managerGraduation2") as! String)
-                        self.functionnalManager2.text = skill
-                    } else {
-                        self.functionnalManager2.text = " / "
-                    }
-                    
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.functionnalExample1.text = example1
-                    if (document.get("skillExample2") != nil) {
-                        let skill = (document.get("skillExample2") as! String) + " / " + (document.get("improvementAndGain2") as! String)
-                        self.functionnalExample2.text = skill
-                    } else {
-                        self.functionnalExample2.text = " / "
-                    }
-                    
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveManagerialValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("skill1") != nil) {
+                            let skill = (document.get("skill1") as! String)
+                            self.functionnal1.text = skill
+                        } else {
+                            self.functionnal1.text = " / "
+                        }
+                        if (document.get("skill2") != nil) {
+                            let skill = (document.get("skill2") as! String)
+                            self.functionnal2.text = skill
+                        } else {
+                            self.functionnal2.text = " / "
+                        }
+                        
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.functionnalEmployee1.text = skill
+                        } else {
+                            self.functionnalEmployee1.text = " / "
+                        }
+                        if (document.get("employeeGraduation2") != nil) {
+                            let skill = (document.get("employeeGraduation2") as! String)
+                            self.functionnalEmployee2.text = skill
+                        } else {
+                            self.functionnalEmployee2.text = " / "
+                        }
+                        
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.functionnalManager1.text = skill
+                        } else {
+                            self.functionnalManager1.text = " / "
+                        }
+                        if (document.get("managerGraduation2") != nil) {
+                            let skill = (document.get("managerGraduation2") as! String)
+                            self.functionnalManager2.text = skill
+                        } else {
+                            self.functionnalManager2.text = " / "
+                        }
+                        
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.functionnalExample1.text = skill
+                        } else {
+                            self.functionnalExample1.text = " / "
+                        }
+                        if (document.get("skillExample2") != nil) {
+                            let skill = (document.get("skillExample2") as! String) + " / " + (document.get("improvementAndGain2") as! String)
+                            self.functionnalExample2.text = skill
+                        } else {
+                            self.functionnalExample2.text = " / "
+                        }
+                        
+                        
+                        self.retrieveManagerialValue()
+                        
+                    }
                 }
+                
+                
+                
+                
             }
         }
     }
@@ -496,47 +563,70 @@ class FourthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let skill = (document.get("skill1") as! String)
-                    self.managerial1.text = skill
-                    if (document.get("skill2") != nil) {
-                        let skill = (document.get("skill2") as! String)
-                        self.managerial2.text = skill
-                    } else {
-                        self.managerial2.text = " / "
-                    }
-                    
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.managerialEmployee1.text = employeeGraduation1
-                    if (document.get("employeeGraduation2") != nil) {
-                        let skill = (document.get("employeeGraduation2") as! String)
-                        self.managerialEmployee2.text = skill
-                    } else {
-                        self.managerialEmployee2.text = " / "
-                    }
-                    
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.managerialManager1.text = managerGraduation1
-                    if (document.get("managerGraduation2") != nil) {
-                        let skill = (document.get("managerGraduation2") as! String)
-                        self.managerialManager2.text = skill
-                    } else {
-                        self.managerialManager2.text = " / "
-                    }
-                    
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.managerialExample1.text = example1
-                    if (document.get("skillExample2") != nil) {
-                        let skill = (document.get("skillExample2") as! String) + " / " + (document.get("improvementAndGain2") as! String)
-                        self.managerialExample2.text = skill
-                    } else {
-                        self.managerialExample2.text = " / "
-                    }
-                    
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveAutonomousValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("skill1") != nil) {
+                            let skill = (document.get("skill1") as! String)
+                            self.managerial1.text = skill
+                        } else {
+                            self.managerial1.text = " / "
+                        }
+                        if (document.get("skill2") != nil) {
+                            let skill = (document.get("skill2") as! String)
+                            self.managerial2.text = skill
+                        } else {
+                            self.managerial2.text = " / "
+                        }
+                        
+                        
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.managerialEmployee1.text = skill
+                        } else {
+                            self.managerialEmployee1.text = " / "
+                        }
+                        if (document.get("employeeGraduation2") != nil) {
+                            let skill = (document.get("employeeGraduation2") as! String)
+                            self.managerialEmployee2.text = skill
+                        } else {
+                            self.managerialEmployee2.text = " / "
+                        }
+                        
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.managerialManager1.text = skill
+                        } else {
+                            self.managerialManager1.text = " / "
+                        }
+                        if (document.get("managerGraduation2") != nil) {
+                            let skill = (document.get("managerGraduation2") as! String)
+                            self.managerialManager2.text = skill
+                        } else {
+                            self.managerialManager2.text = " / "
+                        }
+                        
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.managerialExample1.text = skill
+                        } else {
+                            self.managerialExample1.text = " / "
+                        }
+                        if (document.get("skillExample2") != nil) {
+                            let skill = (document.get("skillExample2") as! String) + " / " + (document.get("improvementAndGain2") as! String)
+                            self.managerialExample2.text = skill
+                        } else {
+                            self.managerialExample2.text = " / "
+                        }
+                        
+                        self.retrieveAutonomousValue()
+                    }
                 }
+                
+                
+                
             }
         }
     }
@@ -547,17 +637,35 @@ class FourthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.autonomousEmployee.text = employeeGraduation1
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.autonomousManager.text = managerGraduation1
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.autonomousExample.text = example1
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveAdaptabilityValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.autonomousEmployee.text = skill
+                        } else {
+                            self.autonomousEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.autonomousManager.text = skill
+                        } else {
+                            self.autonomousManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.autonomousExample.text = skill
+                        } else {
+                            self.autonomousExample.text = " / "
+                        }
+                        
+                        self.retrieveAdaptabilityValue()
+                        
+                    }
                 }
+                
             }
         }
     }
@@ -567,117 +675,223 @@ class FourthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.adaptabilityEmployee.text = employeeGraduation1
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.adaptabilityManager.text = managerGraduation1
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.adaptabilityExample.text = example1
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveTeamWorkValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.adaptabilityEmployee.text = skill
+                        } else {
+                            self.adaptabilityEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.adaptabilityManager.text = skill
+                        } else {
+                            self.adaptabilityManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.adaptabilityExample.text = skill
+                        } else {
+                            self.adaptabilityExample.text = " / "
+                        }
+                        
+                        self.retrieveTeamWorkValue()
+                        
+                    }
                 }
             }
         }
     }
     
     private func retrieveTeamWorkValue() {
-           db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("teamWorkSkillEvaluation").getDocuments() { (querySnapshot, err) in
-               if let err = err {
-                   print("Error getting documents: \(err)")
-               } else {
-                   for document in querySnapshot!.documents {
-                       let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                       self.teamWorkEmployee.text = employeeGraduation1
-                       let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                       self.teamWorkManager.text = managerGraduation1
-                       let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                       self.teamWorkExample.text = example1
-                       
-                       self.retrieveCreativityValue()
-                       
-                   }
-               }
-           }
-       }
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("teamWorkSkillEvaluation").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                if(querySnapshot!.isEmpty) {
+                    self.retrieveCreativityValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.teamWorkEmployee.text = skill
+                        } else {
+                            self.teamWorkEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.teamWorkManager.text = skill
+                        } else {
+                            self.teamWorkManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.teamWorkExample.text = skill
+                        } else {
+                            self.teamWorkExample.text = " / "
+                        }
+                        
+                        self.retrieveCreativityValue()
+                        
+                    }
+                }
+                
+            }
+        }
+    }
     
     private func retrieveCreativityValue() {
-           db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("creativitySkillEvaluation").getDocuments() { (querySnapshot, err) in
-               if let err = err {
-                   print("Error getting documents: \(err)")
-               } else {
-                   for document in querySnapshot!.documents {
-                       let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                       self.creativityEmployee.text = employeeGraduation1
-                       let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                       self.creativityManager.text = managerGraduation1
-                       let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                       self.creativityExample.text = example1
-                       
-                       self.retrieveCommunicationValue()
-                       
-                   }
-               }
-           }
-       }
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("creativitySkillEvaluation").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                if(querySnapshot!.isEmpty) {
+                    self.retrieveCommunicationValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.creativityEmployee.text = skill
+                        } else {
+                            self.creativityEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.creativityManager.text = skill
+                        } else {
+                            self.creativityManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.creativityExample.text = skill
+                        } else {
+                            self.creativityExample.text = " / "
+                        }
+                        
+                        self.retrieveCommunicationValue()
+                        
+                    }
+                }
+                
+            }
+        }
+    }
     
     
     private func retrieveCommunicationValue() {
-           db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("communicationSkillEvaluation").getDocuments() { (querySnapshot, err) in
-               if let err = err {
-                   print("Error getting documents: \(err)")
-               } else {
-                   for document in querySnapshot!.documents {
-                       let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                       self.communicationEmployee.text = employeeGraduation1
-                       let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                       self.communicationManager.text = managerGraduation1
-                       let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                       self.communicationExample.text = example1
-                       
-                       self.retrieveImplicationValue()
-                       
-                   }
-               }
-           }
-       }
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("communicationSkillEvaluation").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                
+                if(querySnapshot!.isEmpty) {
+                    self.retrieveImplicationValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.communicationEmployee.text = skill
+                        } else {
+                            self.communicationEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.communicationManager.text = skill
+                        } else {
+                            self.communicationManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.communicationExample.text = skill
+                        } else {
+                            self.communicationExample.text = " / "
+                        }
+                        
+                        self.retrieveImplicationValue()
+                        
+                    }
+                }
+                
+            }
+        }
+    }
     
     private func retrieveImplicationValue() {
-           db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("implicationSkillEvaluation").getDocuments() { (querySnapshot, err) in
-               if let err = err {
-                   print("Error getting documents: \(err)")
-               } else {
-                   for document in querySnapshot!.documents {
-                       let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                       self.implicationEmployee.text = employeeGraduation1
-                       let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                       self.implicationManager.text = managerGraduation1
-                       let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                       self.implicationExample.text = example1
-                       
-                       self.retrieveRespectValue()
-                       
-                   }
-               }
-           }
-       }
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("implicationSkillEvaluation").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                if(querySnapshot!.isEmpty) {
+                    self.retrieveRespectValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.implicationEmployee.text = skill
+                        } else {
+                            self.implicationEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.implicationManager.text = skill
+                        } else {
+                            self.implicationManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.implicationExample.text = skill
+                        } else {
+                            self.implicationExample.text = " / "
+                        }
+                        
+                        self.retrieveRespectValue()
+                        
+                    }
+                }
+            }
+        }
+    }
     
     private func retrieveRespectValue() {
         db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("respectSkillEvaluation").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.respectEmployee.text = employeeGraduation1
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.respectManager.text = managerGraduation1
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.respectExample.text = example1
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveRigourValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.respectEmployee.text = skill
+                        } else {
+                            self.respectEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.respectManager.text = skill
+                        } else {
+                            self.respectManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.respectExample.text = skill
+                        } else {
+                            self.respectExample.text = " / "
+                        }
+                        
+                        self.retrieveRigourValue()
+                        
+                    }
                 }
             }
         }
@@ -688,16 +902,32 @@ class FourthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.rigourEmployee.text = employeeGraduation1
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.rigourManager.text = managerGraduation1
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.rigourExample.text = example1
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveEnglishValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.rigourEmployee.text = skill
+                        } else {
+                            self.rigourEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.rigourManager.text = skill
+                        } else {
+                            self.rigourManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.rigourExample.text = skill
+                        } else {
+                            self.rigourExample.text = " / "
+                        }
+                        
+                        self.retrieveEnglishValue()
+                    }
                 }
             }
         }
@@ -708,16 +938,33 @@ class FourthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.englishEmployee.text = employeeGraduation1
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.englishManager.text = managerGraduation1
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.englishExample.text = example1
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveOtherLanguageValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.englishEmployee.text = skill
+                        } else {
+                            self.englishEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.englishManager.text = skill
+                        } else {
+                            self.englishManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.englishExample.text = skill
+                        } else {
+                            self.englishExample.text = " / "
+                        }
+                        
+                        self.retrieveOtherLanguageValue()
+                        
+                    }
                 }
             }
         }
@@ -728,50 +975,74 @@ class FourthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let employeeGraduation1 = (document.get("employeeGraduation1") as! String)
-                    self.otherLanguageEmployee.text = employeeGraduation1
-                    let managerGraduation1 = (document.get("managerGraduation1") as! String)
-                    self.otherLanguageManager.text = managerGraduation1
-                    let example1 = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
-                    self.otherLanguageExample.text = example1
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveEvaluationValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("employeeGraduation1") != nil) {
+                            let skill = (document.get("employeeGraduation1") as! String)
+                            self.otherLanguageEmployee.text = skill
+                        } else {
+                            self.otherLanguageEmployee.text = " / "
+                        }
+                        if (document.get("managerGraduation1") != nil) {
+                            let skill = (document.get("managerGraduation1") as! String)
+                            self.otherLanguageManager.text = skill
+                        } else {
+                            self.otherLanguageManager.text = " / "
+                        }
+                        if (document.get("skillExample1") != nil) {
+                            let skill = (document.get("skillExample1") as! String) + " / " + (document.get("improvementAndGain1") as! String)
+                            self.otherLanguageExample.text = skill
+                        } else {
+                            self.otherLanguageExample.text = " / "
+                        }
+                        
+                        self.retrieveEvaluationValue()
+                        
+                    }
                 }
             }
         }
     }
     
     private func retrieveEvaluationValue() {
-           db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("skillEvaluation").getDocuments() { (querySnapshot, err) in
-               if let err = err {
-                   print("Error getting documents: \(err)")
-               } else {
-                   for document in querySnapshot!.documents {
-                       let performance = (document.get("skillEvaluation") as! String)
-                       
-                       switch performance {
-                       case "Expertise":
-                           self.answerA.backgroundColor = UIColor.darkGray
-                       case "Capacité Autonome":
-                           self.answerB.backgroundColor = UIColor.darkGray
-                       case "Capacité Partielle":
-                           self.answerC.backgroundColor = UIColor.darkGray
-                       case "Notion":
-                           self.answerD.backgroundColor = UIColor.darkGray
-                       default:
-                           return
-                       }
-                    
+        db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("skillEvaluation").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                if(querySnapshot!.isEmpty) {
                     self.performSegue(withIdentifier: "fifthPDF", sender: nil)
-
-                       
-                   
-                   }
-               }
-           }
-       }
-  
+                } else {
+                    for document in querySnapshot!.documents {
+                        if(document.get("skillEvaluation") != nil) {
+                            let performance = (document.get("skillEvaluation") as! String)
+                            
+                            switch performance {
+                            case "Expertise":
+                                self.answerA.backgroundColor = UIColor.darkGray
+                            case "Capacité Autonome":
+                                self.answerB.backgroundColor = UIColor.darkGray
+                            case "Capacité Partielle":
+                                self.answerC.backgroundColor = UIColor.darkGray
+                            case "Notion":
+                                self.answerD.backgroundColor = UIColor.darkGray
+                            default:
+                                return
+                            }
+                        }
+                        
+                        
+                        self.performSegue(withIdentifier: "fifthPDF", sender: nil)
+                        
+                    }
+                }
+            }
+        }
+        
+    }
 }
 
 

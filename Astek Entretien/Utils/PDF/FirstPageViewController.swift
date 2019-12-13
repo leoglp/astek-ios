@@ -14,7 +14,7 @@ import Firebase
 class FirstPageViewController: UIViewController {
     
     let db = Firestore.firestore()
-
+    
     var pageController: UIViewController!
     
     @IBOutlet weak var pageView: UIView!
@@ -84,25 +84,49 @@ class FirstPageViewController: UIViewController {
     
     private func rightRectangleValue() {
         var text: String = ""
+        
         db.collection("users").document(AuthenticationUtil.employeeDocumentId).collection("interviewContext").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let bilanDate = (document.get("bilanDate") as! String)
-                    let previousDate = (document.get("previousDate") as! String)
-                    let interviewDate = (document.get("interviewDate") as! String)
-                    let managerName = (document.get("managerName") as! String)
-                    
-                    text = "  Année du bilan : \(bilanDate) \n \n"
-                    text += "  Date de l’entretien N-1 : \(previousDate) \n \n"
-                    text += "  Date de l’entretien N : \(interviewDate)  \n \n"
-                    text += "  Manager : \(managerName) \n \n"
-                    
-                    self.firstRightRectangleText.text = text
-                    
+                if(querySnapshot!.isEmpty) {
                     self.secondRectangleValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        
+                        var bilanDate = ""
+                        if(document.get("bilanDate") != nil) {
+                            bilanDate = (document.get("bilanDate") as! String)
+                        }
+                        var previousDate = ""
+                        if(document.get("previousDate") != nil) {
+                            previousDate = (document.get("previousDate") as! String)
+                        }
+                        
+                        var interviewDate = ""
+                        if(document.get("interviewDate") != nil) {
+                            interviewDate = (document.get("interviewDate") as! String)
+                        }
+                        
+                        var managerName = ""
+                        if(document.get("managerName") != nil) {
+                            managerName = (document.get("managerName") as! String)
+                        }
+                        
+                        
+                        
+                        
+                        text = "  Année du bilan : \(bilanDate) \n \n"
+                        text += "  Date de l’entretien N-1 : \(previousDate) \n \n"
+                        text += "  Date de l’entretien N : \(interviewDate)  \n \n"
+                        text += "  Manager : \(managerName) \n \n"
+                        
+                        self.firstRightRectangleText.text = text
+                        
+                        self.secondRectangleValue()
+                    }
                 }
+                
             }
         }
     }

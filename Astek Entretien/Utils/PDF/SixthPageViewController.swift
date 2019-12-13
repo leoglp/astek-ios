@@ -87,18 +87,32 @@ class SixthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let evolution = (document.get("evolution") as! String)
-                    let text = "  A court termes : \(evolution)"
-                    self.firstLeftText.text = text
-                    
-                    let justification = (document.get("justification") as! String)
-                    self.firstMiddleText.text = "  " + justification
-                    
-                    let means = (document.get("means") as! String)
-                    self.firstRightText.text = "  " + means
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveMediumValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        var evolution = ""
+                        if(document.get("evolution") != nil){
+                            evolution = (document.get("evolution") as! String)
+                        }
+                        let text = "  A court termes : \(evolution)"
+                        self.firstLeftText.text = text
+                        
+                        var justification = ""
+                        if(document.get("justification") != nil){
+                            justification = (document.get("justification") as! String)
+                        }
+                        self.firstMiddleText.text = "  " + justification
+                        
+                        var means = ""
+                        if(document.get("means") != nil){
+                            means = (document.get("means") as! String)
+                        }
+                        self.firstRightText.text = "  " + means
+                        
+                        self.retrieveMediumValue()
+                    }
                 }
             }
         }
@@ -109,19 +123,32 @@ class SixthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let evolution = (document.get("evolution") as! String)
-                    let text = "  A moyen termes : \(evolution)"
-                    self.secondLeftText.text = text
-                    
-                    let justification = (document.get("justification") as! String)
-                    self.secondMiddleText.text = "  " + justification
-                    
-                    let means = (document.get("means") as! String)
-                    self.secondRightText.text = "  " + means
-                    
+                if(querySnapshot!.isEmpty) {
                     self.retrieveLongValue()
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        var evolution = ""
+                        if(document.get("evolution") != nil){
+                            evolution = (document.get("evolution") as! String)
+                        }
+                        let text = "  A moyen termes : \(evolution)"
+                        self.secondLeftText.text = text
+                        
+                        var justification = ""
+                        if(document.get("justification") != nil){
+                            justification = (document.get("justification") as! String)
+                        }
+                        self.secondMiddleText.text = "  " + justification
+                        
+                        var means = ""
+                        if(document.get("means") != nil){
+                            means = (document.get("means") as! String)
+                        }
+                        self.secondRightText.text = "  " + means
+                        
+                        self.retrieveLongValue()
+                        
+                    }
                 }
             }
         }
@@ -132,18 +159,32 @@ class SixthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    let evolution = (document.get("evolution") as! String)
-                    let text = "  A long termes : \(evolution)"
-                    self.thirdLeftText.text = text
-                    
-                    let justification = (document.get("justification") as! String)
-                    self.thirdMiddleText.text = "  " + justification
-                    
-                    let means = (document.get("means") as! String)
-                    self.thirdRightText.text = "  " + means
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.retrieveOthersValue()
+                } else {
+                    for document in querySnapshot!.documents {
+                        var evolution = ""
+                        if(document.get("evolution") != nil){
+                            evolution = (document.get("evolution") as! String)
+                        }
+                        let text = "  A long termes : \(evolution)"
+                        self.thirdLeftText.text = text
+                        
+                        var justification = ""
+                        if(document.get("justification") != nil){
+                            justification = (document.get("justification") as! String)
+                        }
+                        self.thirdMiddleText.text = "  " + justification
+                        
+                        var means = ""
+                        if(document.get("means") != nil){
+                            means = (document.get("means") as! String)
+                        }
+                        self.thirdRightText.text = "  " + means
+                        
+                        self.retrieveOthersValue()
+                    }
                 }
             }
         }
@@ -155,30 +196,34 @@ class SixthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    if (document.get("mobility") != nil) {
-                        let mobility = (document.get("mobility") as! String)
-                        self.mobility.text = mobility
-                    } else {
-                        self.mobility.text = "/ "
-                    }
-                    
-                    if (document.get("othersEvolution") != nil) {
-                        let othersEvolution = (document.get("othersEvolution") as! String)
-                        self.activity.text = othersEvolution
-                    } else {
-                        self.activity.text = "/ "
-                    }
-                    
-                    if (document.get("others") != nil) {
-                        let others = (document.get("others") as! String)
-                        self.othersWishes.text = others
-                    } else {
-                        self.othersWishes.text = "/ "
-                    }
-                    
+                if(querySnapshot!.isEmpty) {
                     self.performSegue(withIdentifier: "seventhPDF", sender: nil)
-                    
+                } else {
+                    for document in querySnapshot!.documents {
+                        if (document.get("mobility") != nil) {
+                            let mobility = (document.get("mobility") as! String)
+                            self.mobility.text = mobility
+                        } else {
+                            self.mobility.text = "/ "
+                        }
+                        
+                        if (document.get("othersEvolution") != nil) {
+                            let othersEvolution = (document.get("othersEvolution") as! String)
+                            self.activity.text = othersEvolution
+                        } else {
+                            self.activity.text = "/ "
+                        }
+                        
+                        if (document.get("others") != nil) {
+                            let others = (document.get("others") as! String)
+                            self.othersWishes.text = others
+                        } else {
+                            self.othersWishes.text = "/ "
+                        }
+                        
+                        self.performSegue(withIdentifier: "seventhPDF", sender: nil)
+                        
+                    }
                 }
             }
         }

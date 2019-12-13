@@ -45,7 +45,7 @@ class FifthPageViewController: UIViewController {
         PDFUtil.tabView.append(pageView)
         
         initText()
-                
+        
         retrieveFirstValue()
     }
     
@@ -75,53 +75,69 @@ class FifthPageViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    var text = ""
-                    let target1 = (document.get("target1") as! String)
-                    text = "  1 - \(target1)"
-                    self.firstLeftText.text = text
-                    
-                    if (document.get("target2") != nil) {
-                        let target2 = (document.get("target2") as! String)
-                        text = "  2 - \(target2)"
-                        self.secondLeftText.text = text
-                    } else {
-                        self.secondLeftText.text = "  / "
-                    }
-                    
-                    if (document.get("target3") != nil) {
-                        let target3 = (document.get("target3") as! String)
-                        text = "  3 - \(target3)"
-                        self.thirdLeftText.text = text
-                    } else {
-                        self.thirdLeftText.text = "  / "
-                    }
-                    
-                    
-                    
-                    let result1 = (document.get("result1") as! String)
-                    text = "  1 - \(result1)"
-                    self.firstRightText.text = text
-                    
-                    if (document.get("result2") != nil) {
-                        let result2 = (document.get("result2") as! String)
-                        text = "  2 - \(result2)"
-                        self.secondRightText.text = text
-                    } else {
-                        self.secondRightText.text = "  / "
-                    }
-                    
-                    if (document.get("result3") != nil) {
-                        let result3 = (document.get("result3") as! String)
-                        text = "  3 - \(result3)"
-                        self.thirdRightText.text = text
-                    } else {
-                        self.thirdRightText.text = "  / "
-                    }
-                    
+                
+                if(querySnapshot!.isEmpty) {
                     self.performSegue(withIdentifier: "sixthPDF", sender: nil)
+                } else {
                     
+                    for document in querySnapshot!.documents {
+                        var text = ""
+                        
+                        
+                        if (document.get("target1") != nil) {
+                            let target1 = (document.get("target1") as! String)
+                            text = "  1 - \(target1)"
+                            self.firstLeftText.text = text
+                        } else {
+                            self.firstLeftText.text = "  / "
+                        }
+                        
+                        if (document.get("target2") != nil) {
+                            let target2 = (document.get("target2") as! String)
+                            text = "  2 - \(target2)"
+                            self.secondLeftText.text = text
+                        } else {
+                            self.secondLeftText.text = "  / "
+                        }
+                        
+                        if (document.get("target3") != nil) {
+                            let target3 = (document.get("target3") as! String)
+                            text = "  3 - \(target3)"
+                            self.thirdLeftText.text = text
+                        } else {
+                            self.thirdLeftText.text = "  / "
+                        }
+                        
+                        
+                        if (document.get("result1") != nil) {
+                            let result1 = (document.get("result1") as! String)
+                            text = "  1 - \(result1)"
+                            self.firstRightText.text = text
+                        } else {
+                            self.firstRightText.text = "  / "
+                        }
+                        
+                        if (document.get("result2") != nil) {
+                            let result2 = (document.get("result2") as! String)
+                            text = "  2 - \(result2)"
+                            self.secondRightText.text = text
+                        } else {
+                            self.secondRightText.text = "  / "
+                        }
+                        
+                        if (document.get("result3") != nil) {
+                            let result3 = (document.get("result3") as! String)
+                            text = "  3 - \(result3)"
+                            self.thirdRightText.text = text
+                        } else {
+                            self.thirdRightText.text = "  / "
+                        }
+                        
+                        self.performSegue(withIdentifier: "sixthPDF", sender: nil)
+                        
+                    }
                 }
+                
             }
         }
     }
